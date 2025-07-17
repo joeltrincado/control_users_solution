@@ -1,6 +1,7 @@
 import sqlite3
 from datetime import datetime
 import pandas as pd
+import json
 
 def create_connection():
     conn = sqlite3.connect("visitas.db")
@@ -63,6 +64,16 @@ def get_all_registros():
     conn.close()
     return rows
 
+def insert_user(codigo, nombre_completo, empresa):
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO usuarios (codigo, nombre_completo, empresa)
+        VALUES (?, ?, ?)
+    """, (codigo, nombre_completo, empresa))
+    conn.commit()
+    conn.close()
+
 def get_all_users():
     conn = create_connection()
     cursor = conn.cursor()
@@ -74,25 +85,29 @@ def get_all_users():
 def add_user_from_excel(path_excel):
     """
     path_excel: ruta al archivo Excel.
-    El Excel debe tener columnas: codigo, nombre_completo, empresa
+    El Excel debe tener columnas: Código, Nombre, Empresa
     """
     df = pd.read_excel(path_excel)
 
     conn = create_connection()
     cursor = conn.cursor()
 
+    # Borra todos los usuarios anteriores
+    cursor.execute("DELETE FROM usuarios")
+
     for _, row in df.iterrows():
         cursor.execute("""
-            INSERT OR REPLACE INTO usuarios (codigo, nombre_completo, empresa)
+            INSERT INTO usuarios (codigo, nombre_completo, empresa)
             VALUES (?, ?, ?)
         """, (
-            row['Código'],
-            row['Nombre'],
-            row['Empresa']
+            str(row['Código']).strip(),
+            str(row['Nombre']).strip(),
+            str(row['Empresa']).strip()
         ))
 
     conn.commit()
     conn.close()
+
 
 def get_config(clave):
     conn = create_connection()
@@ -112,4 +127,13 @@ def set_config(clave, valor):
     """, (clave, valor))
     conn.commit()
     conn.close()
+
+def get_user_by_code(code):
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM usuarios WHERE codigo=?", (code,))
+    row = cursor.fetchone()
+    conn.close()
+    return row
+
 
