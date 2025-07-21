@@ -2,19 +2,21 @@ import flet as ft
 import pandas as pd
 import json
 import math
+from datetime import datetime
 from components.Container import Container
 from components.AppBar import AppBar
 from components.TextField import TextField
 from components.Button import Button
 from components.Users import Users
 from components.Alert import Alert
-from helpers.helpers import generate_qr_base64, getDatacell, getDataColumns
-from database import init_db, get_all_registros, insert_registro, get_all_users, get_user_by_code, add_user_from_excel, set_config, get_config, insert_user
+from helpers.helpers import generate_qr_base64, getDatacell, getDataColumns, print_ticket_ethernet#, print_ticket_usb
+from database import init_db, get_all_registros, insert_registro, get_all_users, delete_all_registros, get_user_by_code, add_user_from_excel, set_config, get_config, insert_user
 
 
 def main(page: ft.Page):   
     init_db()
     current_tab = 0
+    config = None
     users = []
     data_table = None
     current_page = 0
@@ -23,64 +25,78 @@ def main(page: ft.Page):
     bisnness_name = "Corporación Tetronic"
     registers = get_all_registros()
     datacells = getDatacell(registers)
-    columns = getDataColumns(["ID", "nombre", "EMPRESA", "FECHA", "HORA"])
+    columns = getDataColumns(["ID", "NOMBRE", "EMPRESA", "FECHA", "HORA"])
 
     
     # PAGE PROPIETIES
     page.title = "Control " + bisnness_name
     page.theme_mode = ft.ThemeMode.DARK
 
-    # ONCHANGE
-    def onChangeReadQr(e):
-        user = {
-        "id": 1322,
-        "name": "Joel Trincado",
-        "company": "Corporación Tetronic",
-        "date": "01/01/2022",
-        "time": "00:00:00"
-    }
-        insert_registro(user["name"], user["name"], user["company"])
-        data = get_all_registros()
-        datacells = getDatacell(data)
-        registers_database.rows = datacells
-        qr_user = generate_qr_base64(user)
-        last_user.controls.clear()
-        last_user.controls = [
-            ft.Text("ÚLTIMO REGISTRO", size=26, weight=ft.FontWeight.BOLD),
-            ft.Divider(),
-            ft.Row(
-                [
-                   ft.Row(
-                       [
-                            ft.Icon(ft.Icons.PERSON, size=26),
-                            ft.Text(user["name"], size=26, weight=ft.FontWeight.BOLD),
-                       ]
-                   ),
-                   ft.Row(
-                       [
-                           ft.Text(user["id"], size=14),
-                       ]
-                   )
-                ], vertical_alignment=ft.CrossAxisAlignment.CENTER, alignment=ft.MainAxisAlignment.SPACE_BETWEEN
-            ),
-            ft.Row(
-                [
-                    ft.Text(user["company"], size=16, weight=ft.FontWeight.BOLD),
+    # ONCHANGE & ONSUBMIT
+    def onSubmitReadQr(e):
+        nonlocal config
+        config = get_config("impresora")
+        config = json.loads(config)
+        ip = config['ip']
+        port = config['puerto']
+        user = e.control.value
+        search_user = get_user_by_code(user)
+        if search_user is not None:
+            insert_registro(search_user[0] ,search_user[1], search_user[1], search_user[2])
+            date = datetime.now().strftime("%Y-%m-%d")
+            time = datetime.now().strftime("%H:%M:%S")
+            data = get_all_registros()
+            datacells = getDatacell(data)
+            registers_database.rows = datacells
+            qr_user = generate_qr_base64(user)
+            last_user.controls.clear()
+            last_user.controls = [
+                ft.Text("ÚLTIMO REGISTRO", size=26, weight=ft.FontWeight.BOLD),
+                ft.Divider(),
+                ft.Row(
+                    [
                     ft.Row(
                         [
-                            ft.Text(user["date"], size=16, weight=ft.FontWeight.BOLD),
-                            ft.Text(user["time"], size=16, weight=ft.FontWeight.BOLD),
-                        ], height=50
+                                ft.Icon(ft.Icons.PERSON, size=26),
+                                ft.Text(search_user[1], size=26, weight=ft.FontWeight.BOLD),
+                        ]
                     ),
-                ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN
-            ),
-            ft.Container(
-                content=ft.Image(src_base64=qr_user, width=150, height=150),
-                alignment=ft.alignment.center
-            )
-            ]
-        read_qr.value = ""
-        read_qr.focus()
+                    ft.Row(
+                        [
+                            ft.Text(search_user[0], size=14),
+                        ]
+                    )
+                    ], vertical_alignment=ft.CrossAxisAlignment.CENTER, alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+                ),
+                ft.Row(
+                    [
+                        ft.Text(search_user[2], size=16, weight=ft.FontWeight.BOLD),
+                        ft.Row(
+                            [
+                                ft.Text(date, size=16, weight=ft.FontWeight.BOLD),
+                                ft.Text(time, size=16, weight=ft.FontWeight.BOLD),
+                            ], height=50
+                        ),
+                    ], alignment=ft.MainAxisAlignment.SPACE_BETWEEN
+                ),
+                ft.Container(
+                    content=ft.Image(src_base64=qr_user, width=150, height=150),
+                    alignment=ft.alignment.center
+                )
+                ]
+            # if config["tipo"] == "USB":
+            #     print_ticket_usb(printer_name=config["impresora"])
+            # else:
+            #     print_ticket_ethernet(ip=config["ip"], port=config["puerto"])
+            # read_qr.focus()
+            print_ticket_ethernet(ip=str(ip), port=port, user=search_user, date=date, time=time)
+            read_qr.value = ""
+            read_qr.focus()
+        else:
+            snack_bar = ft.SnackBar(ft.Text("Usuario no registrado. Ve a la pantalla de Usuarios para agregarlo."))
+            read_qr.value = ""
+            page.open(snack_bar)
+            read_qr.focus()
         page.update()
 
     
@@ -94,8 +110,6 @@ def main(page: ft.Page):
             callback()
 
         page.update()
-
-
 
     def onChangePage(e):
         nonlocal current_tab, users
@@ -145,35 +159,76 @@ def main(page: ft.Page):
 
     #ONCLICK
     def upload_files(path):
-        nonlocal users
+        nonlocal users, data_table
         try:
             users_path = path.replace("\\", "/")
             add_user_from_excel(users_path)
             users = get_all_users()
-
-            # Actualizar tabla directamente
-            data_table.rows = Users(users[:page_size]).build().rows
-            current_page = 0
-            page_text.value = f"Página 1 de {math.ceil(len(users)/page_size)}"
+            show_page(0)
             page.update()
+            dt = Users(users[:page_size]).build()
+            data_table = ft.DataTable(
+                columns=[
+                    ft.DataColumn(ft.Text("ID")),
+                    ft.DataColumn(ft.Text("Nombre")),
+                    ft.DataColumn(ft.Text("Empresa")),
+                ],
+                rows=dt.rows,
+                expand=True,
+            )
 
+            page_text.value = f"Página 1 de {math.ceil(len(users)/page_size)}"
             snack_bar = ft.SnackBar(ft.Text("Usuarios cargados correctamente"))
             page.open(snack_bar)
+            page.update()
 
         except Exception as e:
             print(e)
-            snack_bar = ft.SnackBar(ft.Text("Error al cargar los usuarios"))
+            snack_bar = ft.SnackBar(ft.Text(f"Error al cargar los usuarios: {users_path}"))
             page.open(snack_bar)
 
         page.update()
 
+    def delete_registers(e):
+        delete_all_registros()
+        data = get_all_registros()
+        datacells = getDatacell(data)
+        registers_database.rows = datacells
+        alert_delete_registers.open = False
+        snack_bar = ft.SnackBar(ft.Text("Registros eliminados correctamente"))
+        page.open(snack_bar)
+        last_user.controls.clear()
+        last_user.controls = [
+            ft.Text("ÚLTIMO REGISTRO", size=26, weight=ft.FontWeight.BOLD),
+        ]
+        page.update()
 
-    def download_report_excel(e):
+    def openAlertRegisters(e):
+        alert_delete_registers.open = True
+        page.update()
+
+    def closeAlertRegisters(e):
+        alert_delete_registers.open = False
+        page.update()
+
+
+    import os
+
+    def download_report_csv(e):
+
         plain_data = get_plain_data()
         columns = ["ID", "Nombre", "Empresa", "Fecha", "Hora"]
         df = pd.DataFrame(plain_data, columns=columns)
-        df.to_excel("reporte.xlsx", index=False)
-        page.launch_url("reporte.xlsx")
+
+        try:
+            
+            df.to_csv(path_or_buf=f'/storage/emulated/0/Download/reporte.csv', index=False)
+            snack_bar = ft.SnackBar(ft.Text(f"Reporte guardado en {os.getcwd()}"))
+            page.open(snack_bar)
+        except Exception as ex:
+            snack_bar = ft.SnackBar(ft.Text("Error al guardar el reporte: " + str(ex)))
+            page.open(snack_bar)
+        page.update()
 
     #FUCTIONS
     def get_plain_data():
@@ -229,15 +284,17 @@ def main(page: ft.Page):
                         icon=ft.Icons.UPLOAD,
                         on_click=lambda _: file_picker.pick_files(
                             allowed_extensions=["xlsx"],
-                            allow_multiple=False
-                        )
+                            allow_multiple=False,
+                        ),
+                            width=150
                     ).build(),
                     Button(
                         text="AGREGAR USUARIO",
                         icon=ft.Icons.ADD,
                         bgcolor=ft.Colors.GREEN_400,
                         color=ft.Colors.WHITE,
-                        on_click=lambda _: openAlertUser()
+                        on_click=lambda _: openAlertUser(),
+                        width=150
                     ).build()
                 ], alignment=ft.MainAxisAlignment.END),
                 ft.Container(
@@ -278,8 +335,8 @@ def main(page: ft.Page):
         codigo_field.value = ""
         name_field.value = ""
         company_field.value = ""
-        show_page(1, callback=view_page_1)
         page.open(ft.SnackBar(ft.Text("Usuario agregado correctamente")))
+        show_page(0)
         page.update()
 
 
@@ -306,6 +363,7 @@ def main(page: ft.Page):
         page.update()
 
     def guardar_configuracion(e):
+        nonlocal config
         if modo_impresora.value == "USB":
             config = {
                 "tipo": "USB",
@@ -317,8 +375,8 @@ def main(page: ft.Page):
                 "ip": ip_field.value,
                 "puerto": port_field.value
             }
-        
         set_config("impresora", json.dumps(config))  # Serializa a JSON
+        show_page(0)
         page.open(ft.SnackBar(ft.Text("Configuración guardada")))
 
     def load_config():
@@ -339,8 +397,11 @@ def main(page: ft.Page):
 
 
     # page_0
-    read_qr = TextField(label="Leer QR", onSubmit=onChangeReadQr).build()
-    download_report = Button(text="DESCARGAR REPORTE", on_click=download_report_excel).build()
+    read_qr = TextField(label="Leer QR", onSubmit=onSubmitReadQr, keyboard_type=ft.KeyboardType.NUMBER).build()
+    download_report = Button(text="DESCARGAR REPORTE", on_click=download_report_csv).build()
+    delete_registers_button = Button(text="BORRAR REGISTROS", on_click=openAlertRegisters, bgcolor=ft.Colors.RED_400, icon=ft.Icons.DELETE).build()
+    alert_delete_registers = Alert(content=ft.Text("Seguro que desea borrar los registros?"), action="Borrar", onAdd=delete_registers, onCancel=closeAlertRegisters).build()
+    alert_delete_registers.open = False
     content_data = ft.Column(
         [
             ft.Row(
@@ -348,7 +409,9 @@ def main(page: ft.Page):
                     read_qr
                 ], height=50
             ),
-            download_report
+            download_report,
+            delete_registers_button,
+            alert_delete_registers
         ], alignment=ft.MainAxisAlignment.START
     )
     last_user = ft.Column(
@@ -369,7 +432,7 @@ def main(page: ft.Page):
                 [
                     Container(height=200, business_name=bisnness_name, content=content_data).build(),
                     Container(business_name=bisnness_name, content=last_user).build(),
-                ], width=400
+                ], width=450
             ),
             ft.Column(
                 [
@@ -388,7 +451,7 @@ def main(page: ft.Page):
     file_picker = ft.FilePicker(
     on_result=lambda e: upload_files(e.files[0].path)) 
     page.overlay.append(file_picker) 
-    codigo_field = TextField(label="Código").build()
+    codigo_field = TextField(label="Código", keyboard_type=ft.KeyboardType.NUMBER).build()
     name_field = TextField(label="Nombre").build()
     company_field = TextField(label="Empresa").build()
     page_text = ft.Text("", size=16)
@@ -410,10 +473,10 @@ def main(page: ft.Page):
     modo_impresora = ft.Dropdown(
         label="Tipo de conexión",
         options=[
-            ft.dropdown.Option("USB"),
+            #ft.dropdown.Option("USB"),
             ft.dropdown.Option("Ethernet")
         ],
-        value="USB",  # por defecto
+        value="Ethernet",  # por defecto
         width=300,
         on_change=lambda e: toggle_config_mode(),
         border_color=ft.Colors.WHITE
@@ -425,8 +488,8 @@ def main(page: ft.Page):
         width=300, border_color=ft.Colors.WHITE,
     )
 
-    ip_field = TextField(label="Dirección IP", width=300).build()
-    port_field = TextField(label="Puerto", width=300, value="9100").build()
+    ip_field = TextField(label="Dirección IP", width=300, keyboard_type=ft.KeyboardType.NUMBER).build()
+    port_field = TextField(label="Puerto", width=300, value="9100", keyboard_type=ft.KeyboardType.NUMBER).build()
 
     config_container = Container(
         business_name=bisnness_name,

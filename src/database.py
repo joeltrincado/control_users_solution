@@ -1,7 +1,6 @@
 import sqlite3
 from datetime import datetime
 import pandas as pd
-import json
 
 def create_connection():
     conn = sqlite3.connect("visitas.db")
@@ -15,6 +14,7 @@ def init_db():
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS registros (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            codigo TEXT NOT NULL,
             nombre TEXT NOT NULL,
             apellido TEXT NOT NULL,
             fecha_entrada TEXT NOT NULL,
@@ -44,15 +44,15 @@ def init_db():
     conn.close()
 
 
-def insert_registro(nombre, apellido, empresa):
+def insert_registro(codigo, nombre, apellido, empresa):
     fecha_actual = datetime.now().strftime("%Y-%m-%d")
     hora_actual = datetime.now().strftime("%H:%M:%S")
     conn = create_connection()
     cursor = conn.cursor()
     cursor.execute("""
-        INSERT INTO registros (nombre, apellido, fecha_entrada, hora_entrada, empresa)
-        VALUES (?, ?, ?, ?, ?)
-    """, (nombre, apellido, fecha_actual, hora_actual, empresa))
+        INSERT INTO registros (codigo, nombre, apellido, fecha_entrada, hora_entrada, empresa)
+        VALUES (?, ?, ?, ?, ?, ?)
+    """, (codigo, nombre, apellido, fecha_actual, hora_actual, empresa))
     conn.commit()
     conn.close()
 
@@ -135,5 +135,12 @@ def get_user_by_code(code):
     row = cursor.fetchone()
     conn.close()
     return row
+
+def delete_all_registros():
+    conn = create_connection()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM registros")
+    conn.commit()
+    conn.close()
 
 
