@@ -20,6 +20,7 @@ dependencies = [
 # Combined with project.name to build bundle ID for iOS and Android apps
 org = "cherrydevs.com"
 
+
 # project display name that is used as an app title on Android and iOS home screens,
 # shown in window titles and about app dialogs on desktop.
 product = "Control usuarios"

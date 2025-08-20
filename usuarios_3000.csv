@@ -1,0 +1,3001 @@
+﻿Código,Nombre,Empresa
+EMP000001,Gonzalo Sánchez,Aceros Nova
+EMP000002,María Escobar,Hotel Aurora
+EMP000003,Paula Reyes,Logística Delta
+EMP000004,Pedro Ramírez,Tech Andina
+EMP000005,Noelia Rodríguez,Textiles Orion
+EMP000006,Natalia Escobar,Café Bonanza
+EMP000007,Óscar Pérez,Construcciones Riviera
+EMP000008,Jimena Guerrero,Farmacéutica Solaris
+EMP000009,Carlos Hernández,Grupo Horizonte
+EMP000010,Lucía Morales,Plásticos Andrómeda
+EMP000011,Pedro Salazar,Agro Campo Vivo
+EMP000012,Ramiro Hernández,Energía Boreal
+EMP000013,Alejandra Díaz,Servicios Altamira
+EMP000014,Beatriz Núñez,Industrias Prisma
+EMP000015,Rubén Suárez,Transportes Colibrí
+EMP000016,Sergio Vargas,Banca Fénix
+EMP000017,Emilio Domínguez,Editorial Constelación
+EMP000018,Paula García,Alimentos La Hacienda
+EMP000019,Felipe Flores,Cerámicas Nacar
+EMP000020,Rubén Guerrero,Red Médica Vital
+EMP000021,Adriana Ruiz,Ingeniería Atlántida
+EMP000022,Laura Morales,Abarrotes El Roble
+EMP000023,Felipe Jiménez,Sistemas Olivo
+EMP000024,José Pérez,Químicos Pacífico
+EMP000025,Raúl Rodríguez,Moda Eclipse
+EMP000026,Héctor Silva,Telecom Ícaro
+EMP000027,Ramiro Torres,Aeronáutica Boreas
+EMP000028,Carlos Rojas,Vinos El Encanto
+EMP000029,Daniela Suárez,Artes Gráficas Trébol
+EMP000030,Carmen Ortiz,Automotriz Solaris
+EMP000031,Lucía Vega,Aceros Nova
+EMP000032,Fernando Soto,Hotel Aurora
+EMP000033,Verónica Romero,Logística Delta
+EMP000034,Pablo Díaz,Tech Andina
+EMP000035,Beatriz González,Textiles Orion
+EMP000036,Carlos Fuentes,Café Bonanza
+EMP000037,Pedro Palacios,Construcciones Riviera
+EMP000038,Fernando Pérez,Farmacéutica Solaris
+EMP000039,Pedro Rodríguez,Grupo Horizonte
+EMP000040,Raúl Ruiz,Plásticos Andrómeda
+EMP000041,Daniela Soto,Agro Campo Vivo
+EMP000042,Rocío Flores,Energía Boreal
+EMP000043,Rocío Silva,Servicios Altamira
+EMP000044,Elena Fuentes,Industrias Prisma
+EMP000045,Paula Valdez,Transportes Colibrí
+EMP000046,Natalia Núñez,Banca Fénix
+EMP000047,Luis Campos,Editorial Constelación
+EMP000048,Gonzalo Flores,Alimentos La Hacienda
+EMP000049,Óscar Rojas,Cerámicas Nacar
+EMP000050,Valeria Flores,Red Médica Vital
+EMP000051,Daniela Ortiz,Ingeniería Atlántida
+EMP000052,Paula Soto,Abarrotes El Roble
+EMP000053,Rubén Vega,Sistemas Olivo
+EMP000054,Pedro Pacheco,Químicos Pacífico
+EMP000055,Ricardo Palacios,Moda Eclipse
+EMP000056,Karina López,Telecom Ícaro
+EMP000057,Pedro Martínez,Aeronáutica Boreas
+EMP000058,Ricardo Delgado,Vinos El Encanto
+EMP000059,Paula González,Artes Gráficas Trébol
+EMP000060,Elena Aguilar,Automotriz Solaris
+EMP000061,Beatriz Mendoza,Aceros Nova
+EMP000062,Elena Núñez,Hotel Aurora
+EMP000063,Patricia Delgado,Logística Delta
+EMP000064,Lourdes Ibarra,Tech Andina
+EMP000065,Laura Torres,Textiles Orion
+EMP000066,Miguel Reyes,Café Bonanza
+EMP000067,Noelia Vega,Construcciones Riviera
+EMP000068,Óscar Torres,Farmacéutica Solaris
+EMP000069,Noelia Domínguez,Grupo Horizonte
+EMP000070,Claudia Domínguez,Plásticos Andrómeda
+EMP000071,Marta Romero,Agro Campo Vivo
+EMP000072,Pedro Ramírez,Energía Boreal
+EMP000073,Iván Cortés,Servicios Altamira
+EMP000074,Lucía Carrillo,Industrias Prisma
+EMP000075,Ana Sánchez,Transportes Colibrí
+EMP000076,Laura Soto,Banca Fénix
+EMP000077,Jorge Pacheco,Editorial Constelación
+EMP000078,Claudia Campos,Alimentos La Hacienda
+EMP000079,Luis Ortiz,Cerámicas Nacar
+EMP000080,Raúl Campos,Red Médica Vital
+EMP000081,Daniela Molina,Ingeniería Atlántida
+EMP000082,Diego Vega,Abarrotes El Roble
+EMP000083,Juan Pacheco,Sistemas Olivo
+EMP000084,Bruno Sánchez,Químicos Pacífico
+EMP000085,Natalia Suárez,Moda Eclipse
+EMP000086,Felipe Ruiz,Telecom Ícaro
+EMP000087,Karina Núñez,Aeronáutica Boreas
+EMP000088,Adriana Sánchez,Vinos El Encanto
+EMP000089,Fernando Guerrero,Artes Gráficas Trébol
+EMP000090,Jorge Ibarra,Automotriz Solaris
+EMP000091,Juan Rojas,Aceros Nova
+EMP000092,Bruno Torres,Hotel Aurora
+EMP000093,Iván Carrillo,Logística Delta
+EMP000094,Sofía Salazar,Tech Andina
+EMP000095,José Soto,Textiles Orion
+EMP000096,Isabel Soto,Café Bonanza
+EMP000097,Iván Campos,Construcciones Riviera
+EMP000098,Andrés Cruz,Farmacéutica Solaris
+EMP000099,Rocío Carrillo,Grupo Horizonte
+EMP000100,Jorge Suárez,Plásticos Andrómeda
+EMP000101,Karina Molina,Agro Campo Vivo
+EMP000102,Juan Campos,Energía Boreal
+EMP000103,Ricardo Cortés,Servicios Altamira
+EMP000104,María Sánchez,Industrias Prisma
+EMP000105,Rocío Álvarez,Transportes Colibrí
+EMP000106,Valeria López,Banca Fénix
+EMP000107,Valeria Aguilar,Editorial Constelación
+EMP000108,Lucía Pérez,Alimentos La Hacienda
+EMP000109,Bruno Cortés,Cerámicas Nacar
+EMP000110,Luis Carrillo,Red Médica Vital
+EMP000111,Óscar Palacios,Ingeniería Atlántida
+EMP000112,Miguel Ramírez,Abarrotes El Roble
+EMP000113,Eduardo Navarro,Sistemas Olivo
+EMP000114,Alejandra Flores,Químicos Pacífico
+EMP000115,Diego Molina,Moda Eclipse
+EMP000116,Ramiro Guerrero,Telecom Ícaro
+EMP000117,Elena Suárez,Aeronáutica Boreas
+EMP000118,Felipe Rojas,Vinos El Encanto
+EMP000119,Rubén Díaz,Artes Gráficas Trébol
+EMP000120,Beatriz Álvarez,Automotriz Solaris
+EMP000121,Marta Fuentes,Aceros Nova
+EMP000122,Lourdes Romero,Hotel Aurora
+EMP000123,Emilio Molina,Logística Delta
+EMP000124,Emilio Sánchez,Tech Andina
+EMP000125,Valeria Vargas,Textiles Orion
+EMP000126,Luis Jiménez,Café Bonanza
+EMP000127,María Domínguez,Construcciones Riviera
+EMP000128,Alejandra Vargas,Farmacéutica Solaris
+EMP000129,Jimena Vargas,Grupo Horizonte
+EMP000130,Juan González,Plásticos Andrómeda
+EMP000131,Beatriz Soto,Agro Campo Vivo
+EMP000132,Ana Vargas,Energía Boreal
+EMP000133,Luis Martínez,Servicios Altamira
+EMP000134,Adriana González,Industrias Prisma
+EMP000135,Iván Reyes,Transportes Colibrí
+EMP000136,Paula Fuentes,Banca Fénix
+EMP000137,Patricia Morales,Editorial Constelación
+EMP000138,Óscar Ramírez,Alimentos La Hacienda
+EMP000139,Bruno Aguilar,Cerámicas Nacar
+EMP000140,Pablo Navarro,Red Médica Vital
+EMP000141,Valeria Navarro,Ingeniería Atlántida
+EMP000142,Sergio Díaz,Abarrotes El Roble
+EMP000143,José Rodríguez,Sistemas Olivo
+EMP000144,Eduardo Guerrero,Químicos Pacífico
+EMP000145,Héctor Guerrero,Moda Eclipse
+EMP000146,Sergio Ibarra,Telecom Ícaro
+EMP000147,Bruno López,Aeronáutica Boreas
+EMP000148,Natalia Núñez,Vinos El Encanto
+EMP000149,Lourdes Rodríguez,Artes Gráficas Trébol
+EMP000150,Ana Delgado,Automotriz Solaris
+EMP000151,Bruno Jiménez,Aceros Nova
+EMP000152,José Reyes,Hotel Aurora
+EMP000153,Andrés Díaz,Logística Delta
+EMP000154,Óscar Chávez,Tech Andina
+EMP000155,Miguel Guerrero,Textiles Orion
+EMP000156,Sofía Ruiz,Café Bonanza
+EMP000157,Daniela Reyes,Construcciones Riviera
+EMP000158,Luis Chávez,Farmacéutica Solaris
+EMP000159,Alejandra Rodríguez,Grupo Horizonte
+EMP000160,Ana Núñez,Plásticos Andrómeda
+EMP000161,Óscar García,Agro Campo Vivo
+EMP000162,Lucía Carrillo,Energía Boreal
+EMP000163,Valeria Flores,Servicios Altamira
+EMP000164,Sergio Cortés,Industrias Prisma
+EMP000165,Alberto Morales,Transportes Colibrí
+EMP000166,Marta López,Banca Fénix
+EMP000167,Jorge Ortiz,Editorial Constelación
+EMP000168,Juan Ortiz,Alimentos La Hacienda
+EMP000169,Diego Ibarra,Cerámicas Nacar
+EMP000170,Fernando Guerrero,Red Médica Vital
+EMP000171,Rubén Rojas,Ingeniería Atlántida
+EMP000172,Alejandra Fuentes,Abarrotes El Roble
+EMP000173,Beatriz Cortés,Sistemas Olivo
+EMP000174,Laura Díaz,Químicos Pacífico
+EMP000175,Fernando Morales,Moda Eclipse
+EMP000176,Ana Domínguez,Telecom Ícaro
+EMP000177,Noelia Suárez,Aeronáutica Boreas
+EMP000178,Ana Escobar,Vinos El Encanto
+EMP000179,Ricardo López,Artes Gráficas Trébol
+EMP000180,Ana Domínguez,Automotriz Solaris
+EMP000181,Alberto Salazar,Aceros Nova
+EMP000182,Gabriela Flores,Hotel Aurora
+EMP000183,Ana Salazar,Logística Delta
+EMP000184,Lucía Gómez,Tech Andina
+EMP000185,Luis Campos,Textiles Orion
+EMP000186,Luis Pacheco,Café Bonanza
+EMP000187,Valeria Delgado,Construcciones Riviera
+EMP000188,Carmen Aguilar,Farmacéutica Solaris
+EMP000189,Valeria Domínguez,Grupo Horizonte
+EMP000190,Ramiro Martínez,Plásticos Andrómeda
+EMP000191,Verónica Pérez,Agro Campo Vivo
+EMP000192,Sergio Fuentes,Energía Boreal
+EMP000193,Jimena Aguilar,Servicios Altamira
+EMP000194,Gabriela Mendoza,Industrias Prisma
+EMP000195,Diego Morales,Transportes Colibrí
+EMP000196,Eduardo Miranda,Banca Fénix
+EMP000197,Ricardo Reyes,Editorial Constelación
+EMP000198,Diego Delgado,Alimentos La Hacienda
+EMP000199,Miguel Fuentes,Cerámicas Nacar
+EMP000200,Lourdes Álvarez,Red Médica Vital
+EMP000201,Daniela Mendoza,Ingeniería Atlántida
+EMP000202,Felipe González,Abarrotes El Roble
+EMP000203,Juan Ibarra,Sistemas Olivo
+EMP000204,Verónica Aguilar,Químicos Pacífico
+EMP000205,José González,Moda Eclipse
+EMP000206,Óscar Morales,Telecom Ícaro
+EMP000207,Iván Torres,Aeronáutica Boreas
+EMP000208,Miguel Silva,Vinos El Encanto
+EMP000209,Luis Reyes,Artes Gráficas Trébol
+EMP000210,Rocío Castillo,Automotriz Solaris
+EMP000211,Jorge Chávez,Aceros Nova
+EMP000212,Óscar Miranda,Hotel Aurora
+EMP000213,Isabel Peña,Logística Delta
+EMP000214,Lourdes Molina,Tech Andina
+EMP000215,Juan Fuentes,Textiles Orion
+EMP000216,Alejandra Álvarez,Café Bonanza
+EMP000217,Eduardo Rodríguez,Construcciones Riviera
+EMP000218,Miguel Torres,Farmacéutica Solaris
+EMP000219,Carmen Rodríguez,Grupo Horizonte
+EMP000220,Noelia Vega,Plásticos Andrómeda
+EMP000221,Laura Ruiz,Agro Campo Vivo
+EMP000222,Fernando Campos,Energía Boreal
+EMP000223,Elena Miranda,Servicios Altamira
+EMP000224,Adriana Morales,Industrias Prisma
+EMP000225,Natalia Soto,Transportes Colibrí
+EMP000226,Diego Salazar,Banca Fénix
+EMP000227,Patricia Torres,Editorial Constelación
+EMP000228,Ana Pérez,Alimentos La Hacienda
+EMP000229,Gonzalo Guerrero,Cerámicas Nacar
+EMP000230,Paula Martínez,Red Médica Vital
+EMP000231,Juan Jiménez,Ingeniería Atlántida
+EMP000232,Karina Ramírez,Abarrotes El Roble
+EMP000233,Gonzalo Torres,Sistemas Olivo
+EMP000234,Jorge Escobar,Químicos Pacífico
+EMP000235,Emilio Vega,Moda Eclipse
+EMP000236,Beatriz Guerrero,Telecom Ícaro
+EMP000237,Alejandra García,Aeronáutica Boreas
+EMP000238,Carmen González,Vinos El Encanto
+EMP000239,Rubén Cruz,Artes Gráficas Trébol
+EMP000240,Óscar Martínez,Automotriz Solaris
+EMP000241,Rocío Domínguez,Aceros Nova
+EMP000242,Alejandra Cruz,Hotel Aurora
+EMP000243,Claudia Ramírez,Logística Delta
+EMP000244,Carlos Álvarez,Tech Andina
+EMP000245,Rocío Martínez,Textiles Orion
+EMP000246,Héctor Morales,Café Bonanza
+EMP000247,Natalia Reyes,Construcciones Riviera
+EMP000248,Eduardo Rodríguez,Farmacéutica Solaris
+EMP000249,Héctor Palacios,Grupo Horizonte
+EMP000250,Alejandra Ramos,Plásticos Andrómeda
+EMP000251,Verónica Escobar,Agro Campo Vivo
+EMP000252,Laura Reyes,Energía Boreal
+EMP000253,Jorge Gómez,Servicios Altamira
+EMP000254,Sergio Hernández,Industrias Prisma
+EMP000255,Sofía Escobar,Transportes Colibrí
+EMP000256,Adriana Ramos,Banca Fénix
+EMP000257,Eduardo Escobar,Editorial Constelación
+EMP000258,Valeria Ruiz,Alimentos La Hacienda
+EMP000259,Jorge Valdez,Cerámicas Nacar
+EMP000260,José Ortiz,Red Médica Vital
+EMP000261,Carlos Navarro,Ingeniería Atlántida
+EMP000262,Pedro Díaz,Abarrotes El Roble
+EMP000263,Daniela Silva,Sistemas Olivo
+EMP000264,Isabel Vargas,Químicos Pacífico
+EMP000265,Pedro Hernández,Moda Eclipse
+EMP000266,Eduardo Díaz,Telecom Ícaro
+EMP000267,Marta Jiménez,Aeronáutica Boreas
+EMP000268,Paula González,Vinos El Encanto
+EMP000269,Karina Ruiz,Artes Gráficas Trébol
+EMP000270,Héctor Núñez,Automotriz Solaris
+EMP000271,Iván Delgado,Aceros Nova
+EMP000272,Natalia Suárez,Hotel Aurora
+EMP000273,Adriana Hernández,Logística Delta
+EMP000274,Carmen Torres,Tech Andina
+EMP000275,Sofía Domínguez,Textiles Orion
+EMP000276,Diego Martínez,Café Bonanza
+EMP000277,José Campos,Construcciones Riviera
+EMP000278,Claudia Silva,Farmacéutica Solaris
+EMP000279,Bruno Mendoza,Grupo Horizonte
+EMP000280,Claudia Campos,Plásticos Andrómeda
+EMP000281,Iván Sánchez,Agro Campo Vivo
+EMP000282,Raúl Aguilar,Energía Boreal
+EMP000283,Andrés Torres,Servicios Altamira
+EMP000284,Carlos Miranda,Industrias Prisma
+EMP000285,Claudia García,Transportes Colibrí
+EMP000286,Gabriela Suárez,Banca Fénix
+EMP000287,Natalia Rojas,Editorial Constelación
+EMP000288,Noelia Escobar,Alimentos La Hacienda
+EMP000289,Eduardo Díaz,Cerámicas Nacar
+EMP000290,Rocío Guerrero,Red Médica Vital
+EMP000291,Luis Fuentes,Ingeniería Atlántida
+EMP000292,Adriana Peña,Abarrotes El Roble
+EMP000293,Ricardo Fuentes,Sistemas Olivo
+EMP000294,Carmen Rojas,Químicos Pacífico
+EMP000295,Isabel Salazar,Moda Eclipse
+EMP000296,Isabel Fuentes,Telecom Ícaro
+EMP000297,Sergio Mendoza,Aeronáutica Boreas
+EMP000298,Marta Valdez,Vinos El Encanto
+EMP000299,Fernando Vega,Artes Gráficas Trébol
+EMP000300,Miguel Díaz,Automotriz Solaris
+EMP000301,Sergio Fuentes,Aceros Nova
+EMP000302,Raúl Pacheco,Hotel Aurora
+EMP000303,Noelia Gómez,Logística Delta
+EMP000304,Verónica Aguilar,Tech Andina
+EMP000305,Isabel Delgado,Textiles Orion
+EMP000306,Alejandra García,Café Bonanza
+EMP000307,Isabel Castillo,Construcciones Riviera
+EMP000308,Elena Guerrero,Farmacéutica Solaris
+EMP000309,Jimena Campos,Grupo Horizonte
+EMP000310,Lourdes Mendoza,Plásticos Andrómeda
+EMP000311,Daniela Chávez,Agro Campo Vivo
+EMP000312,Emilio Pacheco,Energía Boreal
+EMP000313,Elena Salazar,Servicios Altamira
+EMP000314,Alberto Escobar,Industrias Prisma
+EMP000315,Jorge Fuentes,Transportes Colibrí
+EMP000316,Lucía Castillo,Banca Fénix
+EMP000317,Iván Fuentes,Editorial Constelación
+EMP000318,Gonzalo Peña,Alimentos La Hacienda
+EMP000319,Adriana Pérez,Cerámicas Nacar
+EMP000320,Felipe Reyes,Red Médica Vital
+EMP000321,Natalia Álvarez,Ingeniería Atlántida
+EMP000322,Pedro Díaz,Abarrotes El Roble
+EMP000323,Laura Hernández,Sistemas Olivo
+EMP000324,Carlos Reyes,Químicos Pacífico
+EMP000325,Alberto Peña,Moda Eclipse
+EMP000326,Karina González,Telecom Ícaro
+EMP000327,Daniela Ramos,Aeronáutica Boreas
+EMP000328,Gonzalo Aguilar,Vinos El Encanto
+EMP000329,Andrés Miranda,Artes Gráficas Trébol
+EMP000330,Rubén Ortiz,Automotriz Solaris
+EMP000331,Patricia Delgado,Aceros Nova
+EMP000332,Valeria Cruz,Hotel Aurora
+EMP000333,Lourdes Valdez,Logística Delta
+EMP000334,Juan Carrillo,Tech Andina
+EMP000335,Karina Rodríguez,Textiles Orion
+EMP000336,Karina Guerrero,Café Bonanza
+EMP000337,Pedro Gómez,Construcciones Riviera
+EMP000338,Rubén Molina,Farmacéutica Solaris
+EMP000339,Daniela López,Grupo Horizonte
+EMP000340,Alejandra Reyes,Plásticos Andrómeda
+EMP000341,Carmen Ibarra,Agro Campo Vivo
+EMP000342,Miguel Ibarra,Energía Boreal
+EMP000343,Eduardo Molina,Servicios Altamira
+EMP000344,Alejandra Campos,Industrias Prisma
+EMP000345,Ricardo Carrillo,Transportes Colibrí
+EMP000346,Emilio Peña,Banca Fénix
+EMP000347,Bruno Salazar,Editorial Constelación
+EMP000348,Claudia Vega,Alimentos La Hacienda
+EMP000349,Emilio Flores,Cerámicas Nacar
+EMP000350,Noelia Navarro,Red Médica Vital
+EMP000351,Emilio Torres,Ingeniería Atlántida
+EMP000352,Felipe Reyes,Abarrotes El Roble
+EMP000353,Gonzalo Ruiz,Sistemas Olivo
+EMP000354,Karina Palacios,Químicos Pacífico
+EMP000355,Gabriela Cortés,Moda Eclipse
+EMP000356,Gonzalo Reyes,Telecom Ícaro
+EMP000357,Paula Chávez,Aeronáutica Boreas
+EMP000358,Luis Miranda,Vinos El Encanto
+EMP000359,Fernando Reyes,Artes Gráficas Trébol
+EMP000360,Paula Jiménez,Automotriz Solaris
+EMP000361,Ricardo Suárez,Aceros Nova
+EMP000362,Lucía Ramírez,Hotel Aurora
+EMP000363,Laura Vargas,Logística Delta
+EMP000364,Raúl Valdez,Tech Andina
+EMP000365,Laura Miranda,Textiles Orion
+EMP000366,Elena González,Café Bonanza
+EMP000367,Sergio Ramos,Construcciones Riviera
+EMP000368,Adriana Suárez,Farmacéutica Solaris
+EMP000369,Daniela Ramos,Grupo Horizonte
+EMP000370,Ana Morales,Plásticos Andrómeda
+EMP000371,Sergio Ortiz,Agro Campo Vivo
+EMP000372,Karina Domínguez,Energía Boreal
+EMP000373,Rubén Hernández,Servicios Altamira
+EMP000374,Felipe Aguilar,Industrias Prisma
+EMP000375,Raúl Navarro,Transportes Colibrí
+EMP000376,Juan Silva,Banca Fénix
+EMP000377,Isabel Carrillo,Editorial Constelación
+EMP000378,Raúl Ramos,Alimentos La Hacienda
+EMP000379,Óscar Escobar,Cerámicas Nacar
+EMP000380,Noelia Suárez,Red Médica Vital
+EMP000381,Ramiro Vargas,Ingeniería Atlántida
+EMP000382,Patricia Vargas,Abarrotes El Roble
+EMP000383,Paula Guerrero,Sistemas Olivo
+EMP000384,Patricia Hernández,Químicos Pacífico
+EMP000385,Raúl Jiménez,Moda Eclipse
+EMP000386,Eduardo Pacheco,Telecom Ícaro
+EMP000387,Marta Rojas,Aeronáutica Boreas
+EMP000388,Jorge Ibarra,Vinos El Encanto
+EMP000389,Miguel Peña,Artes Gráficas Trébol
+EMP000390,Óscar Hernández,Automotriz Solaris
+EMP000391,Marta Domínguez,Aceros Nova
+EMP000392,Pablo Fuentes,Hotel Aurora
+EMP000393,María Pérez,Logística Delta
+EMP000394,Lourdes Guerrero,Tech Andina
+EMP000395,Miguel Ibarra,Textiles Orion
+EMP000396,Sofía López,Café Bonanza
+EMP000397,Diego Ortiz,Construcciones Riviera
+EMP000398,Ricardo Morales,Farmacéutica Solaris
+EMP000399,Daniela Mendoza,Grupo Horizonte
+EMP000400,Adriana Carrillo,Plásticos Andrómeda
+EMP000401,Raúl Ruiz,Agro Campo Vivo
+EMP000402,Felipe Ramos,Energía Boreal
+EMP000403,Diego Pérez,Servicios Altamira
+EMP000404,Alberto Hernández,Industrias Prisma
+EMP000405,Noelia Suárez,Transportes Colibrí
+EMP000406,Ana Silva,Banca Fénix
+EMP000407,Pedro Núñez,Editorial Constelación
+EMP000408,Luis Palacios,Alimentos La Hacienda
+EMP000409,Lourdes Martínez,Cerámicas Nacar
+EMP000410,Felipe Hernández,Red Médica Vital
+EMP000411,Valeria Díaz,Ingeniería Atlántida
+EMP000412,María Peña,Abarrotes El Roble
+EMP000413,Laura Reyes,Sistemas Olivo
+EMP000414,Miguel Navarro,Químicos Pacífico
+EMP000415,Eduardo Sánchez,Moda Eclipse
+EMP000416,Pablo Morales,Telecom Ícaro
+EMP000417,Daniela Valdez,Aeronáutica Boreas
+EMP000418,Diego Palacios,Vinos El Encanto
+EMP000419,Rocío Flores,Artes Gráficas Trébol
+EMP000420,Ramiro Campos,Automotriz Solaris
+EMP000421,Noelia Miranda,Aceros Nova
+EMP000422,Carmen Palacios,Hotel Aurora
+EMP000423,Jorge Álvarez,Logística Delta
+EMP000424,José Domínguez,Tech Andina
+EMP000425,María Álvarez,Textiles Orion
+EMP000426,Pablo Pacheco,Café Bonanza
+EMP000427,Raúl Delgado,Construcciones Riviera
+EMP000428,Beatriz Díaz,Farmacéutica Solaris
+EMP000429,Luis Domínguez,Grupo Horizonte
+EMP000430,Rubén Soto,Plásticos Andrómeda
+EMP000431,Valeria Rodríguez,Agro Campo Vivo
+EMP000432,Rubén Palacios,Energía Boreal
+EMP000433,Isabel Pacheco,Servicios Altamira
+EMP000434,Ramiro Sánchez,Industrias Prisma
+EMP000435,Pablo Martínez,Transportes Colibrí
+EMP000436,Héctor Suárez,Banca Fénix
+EMP000437,Claudia Fuentes,Editorial Constelación
+EMP000438,Rocío González,Alimentos La Hacienda
+EMP000439,Iván Núñez,Cerámicas Nacar
+EMP000440,Adriana García,Red Médica Vital
+EMP000441,Sergio Cortés,Ingeniería Atlántida
+EMP000442,José Guerrero,Abarrotes El Roble
+EMP000443,Rocío Soto,Sistemas Olivo
+EMP000444,Daniela Miranda,Químicos Pacífico
+EMP000445,Laura Guerrero,Moda Eclipse
+EMP000446,Sofía Rojas,Telecom Ícaro
+EMP000447,Gabriela Núñez,Aeronáutica Boreas
+EMP000448,Paula Peña,Vinos El Encanto
+EMP000449,Óscar Palacios,Artes Gráficas Trébol
+EMP000450,Alberto Ibarra,Automotriz Solaris
+EMP000451,Claudia Rojas,Aceros Nova
+EMP000452,Jimena Ruiz,Hotel Aurora
+EMP000453,Ricardo Reyes,Logística Delta
+EMP000454,Lucía Ruiz,Tech Andina
+EMP000455,Emilio Reyes,Textiles Orion
+EMP000456,Felipe Ibarra,Café Bonanza
+EMP000457,Pablo Peña,Construcciones Riviera
+EMP000458,Eduardo Ortiz,Farmacéutica Solaris
+EMP000459,Adriana Hernández,Grupo Horizonte
+EMP000460,Patricia Mendoza,Plásticos Andrómeda
+EMP000461,Sofía Cortés,Agro Campo Vivo
+EMP000462,Elena Silva,Energía Boreal
+EMP000463,Diego Jiménez,Servicios Altamira
+EMP000464,Paula Campos,Industrias Prisma
+EMP000465,Rubén Ruiz,Transportes Colibrí
+EMP000466,Alejandra García,Banca Fénix
+EMP000467,Gabriela Díaz,Editorial Constelación
+EMP000468,Lucía Reyes,Alimentos La Hacienda
+EMP000469,Bruno Ramos,Cerámicas Nacar
+EMP000470,Patricia Vega,Red Médica Vital
+EMP000471,Felipe Reyes,Ingeniería Atlántida
+EMP000472,Rubén Navarro,Abarrotes El Roble
+EMP000473,Lourdes Miranda,Sistemas Olivo
+EMP000474,Patricia Chávez,Químicos Pacífico
+EMP000475,María Pérez,Moda Eclipse
+EMP000476,Fernando Vargas,Telecom Ícaro
+EMP000477,Marta Valdez,Aeronáutica Boreas
+EMP000478,Valeria Álvarez,Vinos El Encanto
+EMP000479,Eduardo Domínguez,Artes Gráficas Trébol
+EMP000480,Rocío Navarro,Automotriz Solaris
+EMP000481,Alejandra Molina,Aceros Nova
+EMP000482,Héctor Guerrero,Hotel Aurora
+EMP000483,Noelia Vega,Logística Delta
+EMP000484,Adriana Silva,Tech Andina
+EMP000485,Rubén Ibarra,Textiles Orion
+EMP000486,Paula Álvarez,Café Bonanza
+EMP000487,Diego Vargas,Construcciones Riviera
+EMP000488,Carmen Rojas,Farmacéutica Solaris
+EMP000489,Andrés Mendoza,Grupo Horizonte
+EMP000490,Carmen Escobar,Plásticos Andrómeda
+EMP000491,Óscar Carrillo,Agro Campo Vivo
+EMP000492,Rubén Gómez,Energía Boreal
+EMP000493,Andrés Morales,Servicios Altamira
+EMP000494,Noelia Navarro,Industrias Prisma
+EMP000495,Paula Rojas,Transportes Colibrí
+EMP000496,Jimena Carrillo,Banca Fénix
+EMP000497,Gabriela Campos,Editorial Constelación
+EMP000498,Fernando Rodríguez,Alimentos La Hacienda
+EMP000499,Andrés Castillo,Cerámicas Nacar
+EMP000500,Pedro Romero,Red Médica Vital
+EMP000501,Sofía Álvarez,Ingeniería Atlántida
+EMP000502,Juan Miranda,Abarrotes El Roble
+EMP000503,Óscar Ramírez,Sistemas Olivo
+EMP000504,Paula Martínez,Químicos Pacífico
+EMP000505,Ana Vega,Moda Eclipse
+EMP000506,Fernando Valdez,Telecom Ícaro
+EMP000507,Miguel Soto,Aeronáutica Boreas
+EMP000508,Felipe Cortés,Vinos El Encanto
+EMP000509,José García,Artes Gráficas Trébol
+EMP000510,Pablo Castillo,Automotriz Solaris
+EMP000511,Alberto Navarro,Aceros Nova
+EMP000512,Emilio Jiménez,Hotel Aurora
+EMP000513,Sofía López,Logística Delta
+EMP000514,Diego Navarro,Tech Andina
+EMP000515,Carmen González,Textiles Orion
+EMP000516,Marta Cortés,Café Bonanza
+EMP000517,Luis Aguilar,Construcciones Riviera
+EMP000518,Gonzalo Pacheco,Farmacéutica Solaris
+EMP000519,Ana Cruz,Grupo Horizonte
+EMP000520,Laura Aguilar,Plásticos Andrómeda
+EMP000521,Isabel Pérez,Agro Campo Vivo
+EMP000522,Valeria Sánchez,Energía Boreal
+EMP000523,Alejandra Carrillo,Servicios Altamira
+EMP000524,Sergio Campos,Industrias Prisma
+EMP000525,Ramiro Peña,Transportes Colibrí
+EMP000526,Pedro Palacios,Banca Fénix
+EMP000527,Gabriela Ortiz,Editorial Constelación
+EMP000528,Emilio Chávez,Alimentos La Hacienda
+EMP000529,Isabel Domínguez,Cerámicas Nacar
+EMP000530,Claudia Álvarez,Red Médica Vital
+EMP000531,Pablo Peña,Ingeniería Atlántida
+EMP000532,Ana Peña,Abarrotes El Roble
+EMP000533,Noelia Rodríguez,Sistemas Olivo
+EMP000534,Felipe Morales,Químicos Pacífico
+EMP000535,Gonzalo Morales,Moda Eclipse
+EMP000536,Diego Fuentes,Telecom Ícaro
+EMP000537,Lucía Flores,Aeronáutica Boreas
+EMP000538,Valeria Gómez,Vinos El Encanto
+EMP000539,Alejandra González,Artes Gráficas Trébol
+EMP000540,Jorge García,Automotriz Solaris
+EMP000541,Sergio Chávez,Aceros Nova
+EMP000542,Rubén Campos,Hotel Aurora
+EMP000543,Alberto Castillo,Logística Delta
+EMP000544,Carlos Vargas,Tech Andina
+EMP000545,Fernando Miranda,Textiles Orion
+EMP000546,Fernando Valdez,Café Bonanza
+EMP000547,Daniela González,Construcciones Riviera
+EMP000548,Natalia Vargas,Farmacéutica Solaris
+EMP000549,Diego Soto,Grupo Horizonte
+EMP000550,Jimena Fuentes,Plásticos Andrómeda
+EMP000551,Andrés Guerrero,Agro Campo Vivo
+EMP000552,Carmen Suárez,Energía Boreal
+EMP000553,Pedro Núñez,Servicios Altamira
+EMP000554,Laura Ruiz,Industrias Prisma
+EMP000555,Laura González,Transportes Colibrí
+EMP000556,Ana Flores,Banca Fénix
+EMP000557,Isabel Campos,Editorial Constelación
+EMP000558,Noelia Aguilar,Alimentos La Hacienda
+EMP000559,Fernando Chávez,Cerámicas Nacar
+EMP000560,Carmen Ibarra,Red Médica Vital
+EMP000561,Rubén Álvarez,Ingeniería Atlántida
+EMP000562,Rubén Delgado,Abarrotes El Roble
+EMP000563,Paula Salazar,Sistemas Olivo
+EMP000564,Óscar Cortés,Químicos Pacífico
+EMP000565,Emilio Pérez,Moda Eclipse
+EMP000566,Ramiro Martínez,Telecom Ícaro
+EMP000567,Claudia Escobar,Aeronáutica Boreas
+EMP000568,Ricardo Campos,Vinos El Encanto
+EMP000569,Diego Hernández,Artes Gráficas Trébol
+EMP000570,Lucía Vargas,Automotriz Solaris
+EMP000571,Natalia Aguilar,Aceros Nova
+EMP000572,Jimena Hernández,Hotel Aurora
+EMP000573,Felipe Pacheco,Logística Delta
+EMP000574,Paula Aguilar,Tech Andina
+EMP000575,Carlos Carrillo,Textiles Orion
+EMP000576,Felipe Gómez,Café Bonanza
+EMP000577,Alberto Molina,Construcciones Riviera
+EMP000578,Lourdes Chávez,Farmacéutica Solaris
+EMP000579,Paula Gómez,Grupo Horizonte
+EMP000580,Jimena Guerrero,Plásticos Andrómeda
+EMP000581,Gonzalo Cortés,Agro Campo Vivo
+EMP000582,Lucía Navarro,Energía Boreal
+EMP000583,Héctor Ramos,Servicios Altamira
+EMP000584,Adriana Mendoza,Industrias Prisma
+EMP000585,Eduardo Rodríguez,Transportes Colibrí
+EMP000586,Jorge Jiménez,Banca Fénix
+EMP000587,Sergio Valdez,Editorial Constelación
+EMP000588,Patricia Castillo,Alimentos La Hacienda
+EMP000589,Eduardo Delgado,Cerámicas Nacar
+EMP000590,Felipe Vega,Red Médica Vital
+EMP000591,Carlos Ibarra,Ingeniería Atlántida
+EMP000592,Lucía Mendoza,Abarrotes El Roble
+EMP000593,Diego Mendoza,Sistemas Olivo
+EMP000594,Carmen Palacios,Químicos Pacífico
+EMP000595,Marta Salazar,Moda Eclipse
+EMP000596,Juan Fuentes,Telecom Ícaro
+EMP000597,Óscar Ibarra,Aeronáutica Boreas
+EMP000598,Sergio López,Vinos El Encanto
+EMP000599,Andrés Molina,Artes Gráficas Trébol
+EMP000600,Rocío Peña,Automotriz Solaris
+EMP000601,Felipe Cortés,Aceros Nova
+EMP000602,Gonzalo Chávez,Hotel Aurora
+EMP000603,Felipe López,Logística Delta
+EMP000604,Elena Ruiz,Tech Andina
+EMP000605,Alejandra Ramírez,Textiles Orion
+EMP000606,Fernando Chávez,Café Bonanza
+EMP000607,Rubén Cortés,Construcciones Riviera
+EMP000608,Carmen Hernández,Farmacéutica Solaris
+EMP000609,Gonzalo Campos,Grupo Horizonte
+EMP000610,Valeria Miranda,Plásticos Andrómeda
+EMP000611,Jorge Álvarez,Agro Campo Vivo
+EMP000612,Alejandra García,Energía Boreal
+EMP000613,Alejandra Ramos,Servicios Altamira
+EMP000614,Lucía Vargas,Industrias Prisma
+EMP000615,Carmen Ibarra,Transportes Colibrí
+EMP000616,Carmen Núñez,Banca Fénix
+EMP000617,Laura Cortés,Editorial Constelación
+EMP000618,Beatriz Castillo,Alimentos La Hacienda
+EMP000619,Iván Miranda,Cerámicas Nacar
+EMP000620,Paula Ramos,Red Médica Vital
+EMP000621,Alberto Navarro,Ingeniería Atlántida
+EMP000622,Valeria Ibarra,Abarrotes El Roble
+EMP000623,Alejandra Cruz,Sistemas Olivo
+EMP000624,Raúl Díaz,Químicos Pacífico
+EMP000625,Ramiro Salazar,Moda Eclipse
+EMP000626,Noelia Ramírez,Telecom Ícaro
+EMP000627,Luis Ruiz,Aeronáutica Boreas
+EMP000628,Karina Ramos,Vinos El Encanto
+EMP000629,Adriana Salazar,Artes Gráficas Trébol
+EMP000630,Paula García,Automotriz Solaris
+EMP000631,Fernando Rojas,Aceros Nova
+EMP000632,Isabel Domínguez,Hotel Aurora
+EMP000633,Jimena Fuentes,Logística Delta
+EMP000634,Patricia Cruz,Tech Andina
+EMP000635,Emilio Suárez,Textiles Orion
+EMP000636,Alberto Silva,Café Bonanza
+EMP000637,Adriana Vega,Construcciones Riviera
+EMP000638,Felipe Suárez,Farmacéutica Solaris
+EMP000639,Raúl Ibarra,Grupo Horizonte
+EMP000640,Ricardo Díaz,Plásticos Andrómeda
+EMP000641,Rubén Reyes,Agro Campo Vivo
+EMP000642,Pablo Ortiz,Energía Boreal
+EMP000643,Pedro Palacios,Servicios Altamira
+EMP000644,Sergio Martínez,Industrias Prisma
+EMP000645,Ricardo Escobar,Transportes Colibrí
+EMP000646,Alberto Miranda,Banca Fénix
+EMP000647,Raúl Ortiz,Editorial Constelación
+EMP000648,Eduardo Núñez,Alimentos La Hacienda
+EMP000649,Laura Cortés,Cerámicas Nacar
+EMP000650,Carlos Ramírez,Red Médica Vital
+EMP000651,Iván Domínguez,Ingeniería Atlántida
+EMP000652,Adriana Rodríguez,Abarrotes El Roble
+EMP000653,Emilio Rodríguez,Sistemas Olivo
+EMP000654,Gabriela Ibarra,Químicos Pacífico
+EMP000655,Juan Rojas,Moda Eclipse
+EMP000656,Laura Ramos,Telecom Ícaro
+EMP000657,Lourdes Cruz,Aeronáutica Boreas
+EMP000658,Luis Navarro,Vinos El Encanto
+EMP000659,Diego Jiménez,Artes Gráficas Trébol
+EMP000660,Verónica Valdez,Automotriz Solaris
+EMP000661,Marta Núñez,Aceros Nova
+EMP000662,Lucía Jiménez,Hotel Aurora
+EMP000663,Natalia Suárez,Logística Delta
+EMP000664,Raúl Mendoza,Tech Andina
+EMP000665,Gonzalo Miranda,Textiles Orion
+EMP000666,Felipe Cortés,Café Bonanza
+EMP000667,Óscar Martínez,Construcciones Riviera
+EMP000668,Verónica González,Farmacéutica Solaris
+EMP000669,Valeria Soto,Grupo Horizonte
+EMP000670,Natalia Castillo,Plásticos Andrómeda
+EMP000671,Pedro Escobar,Agro Campo Vivo
+EMP000672,Lucía Guerrero,Energía Boreal
+EMP000673,José Carrillo,Servicios Altamira
+EMP000674,Gonzalo Miranda,Industrias Prisma
+EMP000675,José Chávez,Transportes Colibrí
+EMP000676,Jorge Valdez,Banca Fénix
+EMP000677,Isabel Hernández,Editorial Constelación
+EMP000678,Carlos Mendoza,Alimentos La Hacienda
+EMP000679,Ana Castillo,Cerámicas Nacar
+EMP000680,Héctor Romero,Red Médica Vital
+EMP000681,Claudia Cruz,Ingeniería Atlántida
+EMP000682,Valeria Molina,Abarrotes El Roble
+EMP000683,Sergio Aguilar,Sistemas Olivo
+EMP000684,Natalia Gómez,Químicos Pacífico
+EMP000685,Jorge Gómez,Moda Eclipse
+EMP000686,Lucía Peña,Telecom Ícaro
+EMP000687,Raúl Peña,Aeronáutica Boreas
+EMP000688,Natalia Reyes,Vinos El Encanto
+EMP000689,Patricia Domínguez,Artes Gráficas Trébol
+EMP000690,Laura Vargas,Automotriz Solaris
+EMP000691,Daniela Soto,Aceros Nova
+EMP000692,Diego Ibarra,Hotel Aurora
+EMP000693,Diego Fuentes,Logística Delta
+EMP000694,Juan Ibarra,Tech Andina
+EMP000695,Fernando Pacheco,Textiles Orion
+EMP000696,Óscar Flores,Café Bonanza
+EMP000697,Luis Chávez,Construcciones Riviera
+EMP000698,Héctor Domínguez,Farmacéutica Solaris
+EMP000699,Isabel Soto,Grupo Horizonte
+EMP000700,Claudia Valdez,Plásticos Andrómeda
+EMP000701,Diego Ibarra,Agro Campo Vivo
+EMP000702,Isabel Díaz,Energía Boreal
+EMP000703,Raúl Navarro,Servicios Altamira
+EMP000704,José Reyes,Industrias Prisma
+EMP000705,Raúl Aguilar,Transportes Colibrí
+EMP000706,Héctor Aguilar,Banca Fénix
+EMP000707,Fernando Valdez,Editorial Constelación
+EMP000708,Fernando Hernández,Alimentos La Hacienda
+EMP000709,Eduardo Delgado,Cerámicas Nacar
+EMP000710,Paula García,Red Médica Vital
+EMP000711,Pablo Pacheco,Ingeniería Atlántida
+EMP000712,Karina Escobar,Abarrotes El Roble
+EMP000713,Ana Campos,Sistemas Olivo
+EMP000714,Noelia Cortés,Químicos Pacífico
+EMP000715,Fernando Palacios,Moda Eclipse
+EMP000716,Pedro Campos,Telecom Ícaro
+EMP000717,Héctor Vargas,Aeronáutica Boreas
+EMP000718,Gonzalo Díaz,Vinos El Encanto
+EMP000719,Verónica Torres,Artes Gráficas Trébol
+EMP000720,Natalia Carrillo,Automotriz Solaris
+EMP000721,Bruno Palacios,Aceros Nova
+EMP000722,Eduardo Pacheco,Hotel Aurora
+EMP000723,Miguel Soto,Logística Delta
+EMP000724,José Soto,Tech Andina
+EMP000725,Lourdes Martínez,Textiles Orion
+EMP000726,Isabel Chávez,Café Bonanza
+EMP000727,Carlos Domínguez,Construcciones Riviera
+EMP000728,Rocío Rojas,Farmacéutica Solaris
+EMP000729,Miguel Pérez,Grupo Horizonte
+EMP000730,Fernando Mendoza,Plásticos Andrómeda
+EMP000731,Noelia Ramos,Agro Campo Vivo
+EMP000732,Sofía Díaz,Energía Boreal
+EMP000733,Miguel Suárez,Servicios Altamira
+EMP000734,Rocío Molina,Industrias Prisma
+EMP000735,Iván Ruiz,Transportes Colibrí
+EMP000736,Jorge Torres,Banca Fénix
+EMP000737,Alberto Castillo,Editorial Constelación
+EMP000738,Noelia Jiménez,Alimentos La Hacienda
+EMP000739,Carmen Ibarra,Cerámicas Nacar
+EMP000740,Luis Cruz,Red Médica Vital
+EMP000741,Felipe Vargas,Ingeniería Atlántida
+EMP000742,Natalia Rojas,Abarrotes El Roble
+EMP000743,Natalia Delgado,Sistemas Olivo
+EMP000744,Alejandra Romero,Químicos Pacífico
+EMP000745,Lucía Delgado,Moda Eclipse
+EMP000746,Juan Torres,Telecom Ícaro
+EMP000747,Óscar Sánchez,Aeronáutica Boreas
+EMP000748,Daniela Romero,Vinos El Encanto
+EMP000749,Natalia Escobar,Artes Gráficas Trébol
+EMP000750,Natalia Torres,Automotriz Solaris
+EMP000751,Jimena Ortiz,Aceros Nova
+EMP000752,Gonzalo Romero,Hotel Aurora
+EMP000753,José Pacheco,Logística Delta
+EMP000754,Pedro Navarro,Tech Andina
+EMP000755,María Peña,Textiles Orion
+EMP000756,Alejandra Mendoza,Café Bonanza
+EMP000757,Verónica Vargas,Construcciones Riviera
+EMP000758,Lourdes González,Farmacéutica Solaris
+EMP000759,Gonzalo Ibarra,Grupo Horizonte
+EMP000760,Rubén Álvarez,Plásticos Andrómeda
+EMP000761,Lourdes Ramos,Agro Campo Vivo
+EMP000762,Carmen Ramírez,Energía Boreal
+EMP000763,Carlos Martínez,Servicios Altamira
+EMP000764,Isabel Cortés,Industrias Prisma
+EMP000765,Carmen Rodríguez,Transportes Colibrí
+EMP000766,Valeria Suárez,Banca Fénix
+EMP000767,Miguel Ortiz,Editorial Constelación
+EMP000768,Daniela Romero,Alimentos La Hacienda
+EMP000769,Eduardo Escobar,Cerámicas Nacar
+EMP000770,Rubén Suárez,Red Médica Vital
+EMP000771,Sergio Domínguez,Ingeniería Atlántida
+EMP000772,Noelia Rojas,Abarrotes El Roble
+EMP000773,Laura Ramos,Sistemas Olivo
+EMP000774,Lourdes Rodríguez,Químicos Pacífico
+EMP000775,Patricia Peña,Moda Eclipse
+EMP000776,Sergio Ruiz,Telecom Ícaro
+EMP000777,Carlos Valdez,Aeronáutica Boreas
+EMP000778,Rocío Morales,Vinos El Encanto
+EMP000779,Emilio Chávez,Artes Gráficas Trébol
+EMP000780,Valeria Romero,Automotriz Solaris
+EMP000781,José Pacheco,Aceros Nova
+EMP000782,Rocío Suárez,Hotel Aurora
+EMP000783,Lourdes Silva,Logística Delta
+EMP000784,Ana Delgado,Tech Andina
+EMP000785,Paula Díaz,Textiles Orion
+EMP000786,Carmen Ibarra,Café Bonanza
+EMP000787,Lucía Fuentes,Construcciones Riviera
+EMP000788,Elena Núñez,Farmacéutica Solaris
+EMP000789,Gonzalo Campos,Grupo Horizonte
+EMP000790,María López,Plásticos Andrómeda
+EMP000791,Adriana Reyes,Agro Campo Vivo
+EMP000792,Miguel Aguilar,Energía Boreal
+EMP000793,Elena González,Servicios Altamira
+EMP000794,Felipe Vega,Industrias Prisma
+EMP000795,Elena Domínguez,Transportes Colibrí
+EMP000796,Elena Vargas,Banca Fénix
+EMP000797,Adriana Palacios,Editorial Constelación
+EMP000798,Laura Campos,Alimentos La Hacienda
+EMP000799,Juan Ruiz,Cerámicas Nacar
+EMP000800,Laura Ramírez,Red Médica Vital
+EMP000801,Óscar Torres,Ingeniería Atlántida
+EMP000802,Sofía Sánchez,Abarrotes El Roble
+EMP000803,Eduardo Hernández,Sistemas Olivo
+EMP000804,Miguel García,Químicos Pacífico
+EMP000805,Héctor Reyes,Moda Eclipse
+EMP000806,Jimena Mendoza,Telecom Ícaro
+EMP000807,María Gómez,Aeronáutica Boreas
+EMP000808,Diego López,Vinos El Encanto
+EMP000809,Miguel Escobar,Artes Gráficas Trébol
+EMP000810,Sergio Molina,Automotriz Solaris
+EMP000811,Carmen Escobar,Aceros Nova
+EMP000812,Luis Navarro,Hotel Aurora
+EMP000813,Emilio Palacios,Logística Delta
+EMP000814,Rocío Salazar,Tech Andina
+EMP000815,Jimena Rodríguez,Textiles Orion
+EMP000816,Emilio Salazar,Café Bonanza
+EMP000817,Pedro Peña,Construcciones Riviera
+EMP000818,Carlos Rojas,Farmacéutica Solaris
+EMP000819,Eduardo Molina,Grupo Horizonte
+EMP000820,Isabel Ibarra,Plásticos Andrómeda
+EMP000821,Lourdes Hernández,Agro Campo Vivo
+EMP000822,Ana Navarro,Energía Boreal
+EMP000823,Marta Guerrero,Servicios Altamira
+EMP000824,Natalia Rodríguez,Industrias Prisma
+EMP000825,Patricia Miranda,Transportes Colibrí
+EMP000826,Emilio González,Banca Fénix
+EMP000827,Lucía Mendoza,Editorial Constelación
+EMP000828,Ramiro Cruz,Alimentos La Hacienda
+EMP000829,Luis Ramírez,Cerámicas Nacar
+EMP000830,Paula Peña,Red Médica Vital
+EMP000831,Gonzalo Domínguez,Ingeniería Atlántida
+EMP000832,Alejandra Miranda,Abarrotes El Roble
+EMP000833,Ricardo Ortiz,Sistemas Olivo
+EMP000834,Ramiro Molina,Químicos Pacífico
+EMP000835,Fernando Ibarra,Moda Eclipse
+EMP000836,Iván Campos,Telecom Ícaro
+EMP000837,Claudia Rodríguez,Aeronáutica Boreas
+EMP000838,Rubén Sánchez,Vinos El Encanto
+EMP000839,Lourdes Núñez,Artes Gráficas Trébol
+EMP000840,Karina Vega,Automotriz Solaris
+EMP000841,Bruno Morales,Aceros Nova
+EMP000842,Claudia Chávez,Hotel Aurora
+EMP000843,Pedro Ramos,Logística Delta
+EMP000844,Adriana Ibarra,Tech Andina
+EMP000845,Marta Ramos,Textiles Orion
+EMP000846,Bruno Rodríguez,Café Bonanza
+EMP000847,Ricardo Guerrero,Construcciones Riviera
+EMP000848,Ricardo Fuentes,Farmacéutica Solaris
+EMP000849,Diego Romero,Grupo Horizonte
+EMP000850,Laura Pacheco,Plásticos Andrómeda
+EMP000851,Alberto González,Agro Campo Vivo
+EMP000852,Lucía Pérez,Energía Boreal
+EMP000853,Lucía Guerrero,Servicios Altamira
+EMP000854,José Escobar,Industrias Prisma
+EMP000855,Noelia Romero,Transportes Colibrí
+EMP000856,Miguel Vega,Banca Fénix
+EMP000857,Ana Domínguez,Editorial Constelación
+EMP000858,Alejandra Vega,Alimentos La Hacienda
+EMP000859,Adriana Fuentes,Cerámicas Nacar
+EMP000860,Carmen Ramos,Red Médica Vital
+EMP000861,Héctor Fuentes,Ingeniería Atlántida
+EMP000862,Felipe Guerrero,Abarrotes El Roble
+EMP000863,Bruno López,Sistemas Olivo
+EMP000864,Fernando Campos,Químicos Pacífico
+EMP000865,Isabel Silva,Moda Eclipse
+EMP000866,José Aguilar,Telecom Ícaro
+EMP000867,Iván Morales,Aeronáutica Boreas
+EMP000868,Laura Fuentes,Vinos El Encanto
+EMP000869,Alberto Vargas,Artes Gráficas Trébol
+EMP000870,José Silva,Automotriz Solaris
+EMP000871,Alejandra Romero,Aceros Nova
+EMP000872,Carmen Carrillo,Hotel Aurora
+EMP000873,Paula Aguilar,Logística Delta
+EMP000874,Pedro Guerrero,Tech Andina
+EMP000875,Alejandra Palacios,Textiles Orion
+EMP000876,Verónica Peña,Café Bonanza
+EMP000877,Natalia Núñez,Construcciones Riviera
+EMP000878,Alejandra Hernández,Farmacéutica Solaris
+EMP000879,Ramiro Fuentes,Grupo Horizonte
+EMP000880,Rubén Ruiz,Plásticos Andrómeda
+EMP000881,María Gómez,Agro Campo Vivo
+EMP000882,Paula Valdez,Energía Boreal
+EMP000883,Felipe Álvarez,Servicios Altamira
+EMP000884,Adriana Silva,Industrias Prisma
+EMP000885,Juan Gómez,Transportes Colibrí
+EMP000886,Laura Aguilar,Banca Fénix
+EMP000887,Eduardo Delgado,Editorial Constelación
+EMP000888,Luis Cruz,Alimentos La Hacienda
+EMP000889,Noelia Soto,Cerámicas Nacar
+EMP000890,María Pérez,Red Médica Vital
+EMP000891,Noelia Molina,Ingeniería Atlántida
+EMP000892,Elena Ortiz,Abarrotes El Roble
+EMP000893,Sergio Ibarra,Sistemas Olivo
+EMP000894,Adriana Flores,Químicos Pacífico
+EMP000895,Rocío Álvarez,Moda Eclipse
+EMP000896,Bruno Mendoza,Telecom Ícaro
+EMP000897,Karina Aguilar,Aeronáutica Boreas
+EMP000898,Ramiro Pérez,Vinos El Encanto
+EMP000899,Ana Cruz,Artes Gráficas Trébol
+EMP000900,Jorge Carrillo,Automotriz Solaris
+EMP000901,Verónica López,Aceros Nova
+EMP000902,Natalia Pérez,Hotel Aurora
+EMP000903,Paula Chávez,Logística Delta
+EMP000904,Eduardo Guerrero,Tech Andina
+EMP000905,Patricia Campos,Textiles Orion
+EMP000906,Emilio Ramos,Café Bonanza
+EMP000907,Paula Morales,Construcciones Riviera
+EMP000908,Felipe Salazar,Farmacéutica Solaris
+EMP000909,Carmen Silva,Grupo Horizonte
+EMP000910,Claudia Sánchez,Plásticos Andrómeda
+EMP000911,Fernando Pacheco,Agro Campo Vivo
+EMP000912,Natalia Domínguez,Energía Boreal
+EMP000913,Patricia Molina,Servicios Altamira
+EMP000914,Eduardo Álvarez,Industrias Prisma
+EMP000915,Carlos Vargas,Transportes Colibrí
+EMP000916,Marta Campos,Banca Fénix
+EMP000917,Ana García,Editorial Constelación
+EMP000918,Elena Álvarez,Alimentos La Hacienda
+EMP000919,Elena Palacios,Cerámicas Nacar
+EMP000920,Miguel Carrillo,Red Médica Vital
+EMP000921,Diego Castillo,Ingeniería Atlántida
+EMP000922,Ricardo Sánchez,Abarrotes El Roble
+EMP000923,Juan Cortés,Sistemas Olivo
+EMP000924,Noelia Guerrero,Químicos Pacífico
+EMP000925,Sofía Ramírez,Moda Eclipse
+EMP000926,Raúl Suárez,Telecom Ícaro
+EMP000927,Beatriz Vargas,Aeronáutica Boreas
+EMP000928,Iván Vega,Vinos El Encanto
+EMP000929,Eduardo Silva,Artes Gráficas Trébol
+EMP000930,Luis Delgado,Automotriz Solaris
+EMP000931,Noelia Martínez,Aceros Nova
+EMP000932,Claudia Hernández,Hotel Aurora
+EMP000933,Daniela González,Logística Delta
+EMP000934,Ricardo Aguilar,Tech Andina
+EMP000935,Claudia Aguilar,Textiles Orion
+EMP000936,Marta Miranda,Café Bonanza
+EMP000937,Gonzalo Ramos,Construcciones Riviera
+EMP000938,Fernando Sánchez,Farmacéutica Solaris
+EMP000939,Marta Hernández,Grupo Horizonte
+EMP000940,Ricardo Flores,Plásticos Andrómeda
+EMP000941,Verónica Ibarra,Agro Campo Vivo
+EMP000942,Rubén Romero,Energía Boreal
+EMP000943,Lucía Guerrero,Servicios Altamira
+EMP000944,José Reyes,Industrias Prisma
+EMP000945,Claudia Domínguez,Transportes Colibrí
+EMP000946,Marta Molina,Banca Fénix
+EMP000947,Lucía Delgado,Editorial Constelación
+EMP000948,Isabel Escobar,Alimentos La Hacienda
+EMP000949,Adriana Vargas,Cerámicas Nacar
+EMP000950,Adriana Palacios,Red Médica Vital
+EMP000951,Jorge González,Ingeniería Atlántida
+EMP000952,Iván Soto,Abarrotes El Roble
+EMP000953,Carmen Molina,Sistemas Olivo
+EMP000954,Iván Díaz,Químicos Pacífico
+EMP000955,Karina Silva,Moda Eclipse
+EMP000956,Héctor Rojas,Telecom Ícaro
+EMP000957,Lourdes Cruz,Aeronáutica Boreas
+EMP000958,Valeria Rodríguez,Vinos El Encanto
+EMP000959,Laura Torres,Artes Gráficas Trébol
+EMP000960,Andrés Gómez,Automotriz Solaris
+EMP000961,Ramiro Cruz,Aceros Nova
+EMP000962,Felipe Carrillo,Hotel Aurora
+EMP000963,Lourdes González,Logística Delta
+EMP000964,Sofía Palacios,Tech Andina
+EMP000965,Gonzalo Cortés,Textiles Orion
+EMP000966,Daniela Carrillo,Café Bonanza
+EMP000967,Pablo Carrillo,Construcciones Riviera
+EMP000968,Jimena Chávez,Farmacéutica Solaris
+EMP000969,Natalia Aguilar,Grupo Horizonte
+EMP000970,Lourdes Soto,Plásticos Andrómeda
+EMP000971,Verónica Mendoza,Agro Campo Vivo
+EMP000972,Gonzalo Mendoza,Energía Boreal
+EMP000973,Laura Chávez,Servicios Altamira
+EMP000974,Luis Navarro,Industrias Prisma
+EMP000975,Emilio Soto,Transportes Colibrí
+EMP000976,Isabel Ruiz,Banca Fénix
+EMP000977,Jimena López,Editorial Constelación
+EMP000978,Héctor Salazar,Alimentos La Hacienda
+EMP000979,Luis Álvarez,Cerámicas Nacar
+EMP000980,Daniela Chávez,Red Médica Vital
+EMP000981,Carlos López,Ingeniería Atlántida
+EMP000982,Rocío Castillo,Abarrotes El Roble
+EMP000983,Luis Núñez,Sistemas Olivo
+EMP000984,Lucía Peña,Químicos Pacífico
+EMP000985,Ramiro Salazar,Moda Eclipse
+EMP000986,Raúl Ibarra,Telecom Ícaro
+EMP000987,Jimena Vega,Aeronáutica Boreas
+EMP000988,Noelia Martínez,Vinos El Encanto
+EMP000989,Emilio Aguilar,Artes Gráficas Trébol
+EMP000990,Lourdes Díaz,Automotriz Solaris
+EMP000991,Ricardo Campos,Aceros Nova
+EMP000992,Alberto Salazar,Hotel Aurora
+EMP000993,Laura López,Logística Delta
+EMP000994,Emilio Rodríguez,Tech Andina
+EMP000995,Adriana Miranda,Textiles Orion
+EMP000996,Lucía Salazar,Café Bonanza
+EMP000997,Lourdes Gómez,Construcciones Riviera
+EMP000998,Carlos Reyes,Farmacéutica Solaris
+EMP000999,Beatriz Chávez,Grupo Horizonte
+EMP001000,Emilio Molina,Plásticos Andrómeda
+EMP001001,Gabriela Peña,Agro Campo Vivo
+EMP001002,Jorge Romero,Energía Boreal
+EMP001003,Rocío Castillo,Servicios Altamira
+EMP001004,Raúl Ramos,Industrias Prisma
+EMP001005,Karina Jiménez,Transportes Colibrí
+EMP001006,Natalia Campos,Banca Fénix
+EMP001007,Ana Soto,Editorial Constelación
+EMP001008,Lourdes Jiménez,Alimentos La Hacienda
+EMP001009,Luis Jiménez,Cerámicas Nacar
+EMP001010,José Vega,Red Médica Vital
+EMP001011,Natalia Ortiz,Ingeniería Atlántida
+EMP001012,Fernando Torres,Abarrotes El Roble
+EMP001013,Bruno Fuentes,Sistemas Olivo
+EMP001014,Ramiro Cruz,Químicos Pacífico
+EMP001015,Adriana Pérez,Moda Eclipse
+EMP001016,Jimena Fuentes,Telecom Ícaro
+EMP001017,Laura Silva,Aeronáutica Boreas
+EMP001018,Isabel Núñez,Vinos El Encanto
+EMP001019,Rubén Fuentes,Artes Gráficas Trébol
+EMP001020,Marta Ramírez,Automotriz Solaris
+EMP001021,Ramiro Miranda,Aceros Nova
+EMP001022,Lucía Álvarez,Hotel Aurora
+EMP001023,Alejandra Ortiz,Logística Delta
+EMP001024,Lourdes Jiménez,Tech Andina
+EMP001025,Miguel Fuentes,Textiles Orion
+EMP001026,Rubén Escobar,Café Bonanza
+EMP001027,Natalia Molina,Construcciones Riviera
+EMP001028,Lucía Núñez,Farmacéutica Solaris
+EMP001029,Eduardo Guerrero,Grupo Horizonte
+EMP001030,Iván Romero,Plásticos Andrómeda
+EMP001031,María Romero,Agro Campo Vivo
+EMP001032,Isabel Gómez,Energía Boreal
+EMP001033,Elena Jiménez,Servicios Altamira
+EMP001034,Karina Cortés,Industrias Prisma
+EMP001035,Andrés Vargas,Transportes Colibrí
+EMP001036,Miguel Cruz,Banca Fénix
+EMP001037,Luis Castillo,Editorial Constelación
+EMP001038,José Salazar,Alimentos La Hacienda
+EMP001039,Karina Suárez,Cerámicas Nacar
+EMP001040,Noelia Molina,Red Médica Vital
+EMP001041,Carlos Fuentes,Ingeniería Atlántida
+EMP001042,Adriana Palacios,Abarrotes El Roble
+EMP001043,Verónica Ramírez,Sistemas Olivo
+EMP001044,Ramiro Ortiz,Químicos Pacífico
+EMP001045,Laura Flores,Moda Eclipse
+EMP001046,Sofía Valdez,Telecom Ícaro
+EMP001047,Karina Peña,Aeronáutica Boreas
+EMP001048,Jorge Rojas,Vinos El Encanto
+EMP001049,Emilio Martínez,Artes Gráficas Trébol
+EMP001050,Sergio Romero,Automotriz Solaris
+EMP001051,Natalia Rojas,Aceros Nova
+EMP001052,Valeria Chávez,Hotel Aurora
+EMP001053,Verónica Castillo,Logística Delta
+EMP001054,Felipe Escobar,Tech Andina
+EMP001055,Emilio Vargas,Textiles Orion
+EMP001056,Óscar Reyes,Café Bonanza
+EMP001057,Isabel Navarro,Construcciones Riviera
+EMP001058,Andrés Romero,Farmacéutica Solaris
+EMP001059,Natalia Aguilar,Grupo Horizonte
+EMP001060,Emilio Ibarra,Plásticos Andrómeda
+EMP001061,Karina Castillo,Agro Campo Vivo
+EMP001062,Karina Ortiz,Energía Boreal
+EMP001063,Iván Molina,Servicios Altamira
+EMP001064,Sergio Flores,Industrias Prisma
+EMP001065,Andrés Campos,Transportes Colibrí
+EMP001066,Miguel Torres,Banca Fénix
+EMP001067,Ana Núñez,Editorial Constelación
+EMP001068,Alberto Romero,Alimentos La Hacienda
+EMP001069,Alejandra Rodríguez,Cerámicas Nacar
+EMP001070,Beatriz Molina,Red Médica Vital
+EMP001071,Carmen Castillo,Ingeniería Atlántida
+EMP001072,Lucía Carrillo,Abarrotes El Roble
+EMP001073,Jorge Ruiz,Sistemas Olivo
+EMP001074,Emilio Salazar,Químicos Pacífico
+EMP001075,Laura Guerrero,Moda Eclipse
+EMP001076,Lucía Vargas,Telecom Ícaro
+EMP001077,Emilio Silva,Aeronáutica Boreas
+EMP001078,María Ramos,Vinos El Encanto
+EMP001079,Ana Delgado,Artes Gráficas Trébol
+EMP001080,Iván Romero,Automotriz Solaris
+EMP001081,Valeria Ortiz,Aceros Nova
+EMP001082,Lucía Romero,Hotel Aurora
+EMP001083,Pedro Hernández,Logística Delta
+EMP001084,Ricardo Rodríguez,Tech Andina
+EMP001085,Beatriz Núñez,Textiles Orion
+EMP001086,Adriana Cruz,Café Bonanza
+EMP001087,Miguel Martínez,Construcciones Riviera
+EMP001088,Fernando Navarro,Farmacéutica Solaris
+EMP001089,Rubén Ramírez,Grupo Horizonte
+EMP001090,Felipe Miranda,Plásticos Andrómeda
+EMP001091,Alberto Chávez,Agro Campo Vivo
+EMP001092,Verónica García,Energía Boreal
+EMP001093,Lucía Hernández,Servicios Altamira
+EMP001094,Diego Morales,Industrias Prisma
+EMP001095,Laura Vega,Transportes Colibrí
+EMP001096,Bruno Campos,Banca Fénix
+EMP001097,Gabriela Guerrero,Editorial Constelación
+EMP001098,Carmen Palacios,Alimentos La Hacienda
+EMP001099,Fernando Reyes,Cerámicas Nacar
+EMP001100,Isabel Sánchez,Red Médica Vital
+EMP001101,Ana Reyes,Ingeniería Atlántida
+EMP001102,Sergio Soto,Abarrotes El Roble
+EMP001103,Verónica Ibarra,Sistemas Olivo
+EMP001104,Luis Sánchez,Químicos Pacífico
+EMP001105,Patricia Campos,Moda Eclipse
+EMP001106,Óscar Hernández,Telecom Ícaro
+EMP001107,Gonzalo Salazar,Aeronáutica Boreas
+EMP001108,Pablo Reyes,Vinos El Encanto
+EMP001109,Beatriz Cruz,Artes Gráficas Trébol
+EMP001110,Fernando Guerrero,Automotriz Solaris
+EMP001111,Juan Peña,Aceros Nova
+EMP001112,Héctor Reyes,Hotel Aurora
+EMP001113,Pablo Ramos,Logística Delta
+EMP001114,Sofía Fuentes,Tech Andina
+EMP001115,Eduardo Pérez,Textiles Orion
+EMP001116,Gabriela Romero,Café Bonanza
+EMP001117,Luis Molina,Construcciones Riviera
+EMP001118,Óscar Salazar,Farmacéutica Solaris
+EMP001119,Iván Vega,Grupo Horizonte
+EMP001120,María Ortiz,Plásticos Andrómeda
+EMP001121,Alberto Martínez,Agro Campo Vivo
+EMP001122,Gonzalo Ortiz,Energía Boreal
+EMP001123,Rocío Torres,Servicios Altamira
+EMP001124,Noelia Hernández,Industrias Prisma
+EMP001125,Héctor González,Transportes Colibrí
+EMP001126,Héctor Reyes,Banca Fénix
+EMP001127,Bruno Fuentes,Editorial Constelación
+EMP001128,Gonzalo Rodríguez,Alimentos La Hacienda
+EMP001129,Karina Domínguez,Cerámicas Nacar
+EMP001130,Noelia Carrillo,Red Médica Vital
+EMP001131,Adriana Ramírez,Ingeniería Atlántida
+EMP001132,Carlos Silva,Abarrotes El Roble
+EMP001133,Óscar Jiménez,Sistemas Olivo
+EMP001134,Lourdes Gómez,Químicos Pacífico
+EMP001135,Karina Pacheco,Moda Eclipse
+EMP001136,Daniela Valdez,Telecom Ícaro
+EMP001137,Alberto Soto,Aeronáutica Boreas
+EMP001138,Sofía Ramírez,Vinos El Encanto
+EMP001139,Luis Miranda,Artes Gráficas Trébol
+EMP001140,Karina Ibarra,Automotriz Solaris
+EMP001141,Carlos Castillo,Aceros Nova
+EMP001142,Andrés Martínez,Hotel Aurora
+EMP001143,Andrés Martínez,Logística Delta
+EMP001144,Ricardo Álvarez,Tech Andina
+EMP001145,Iván Delgado,Textiles Orion
+EMP001146,Óscar Navarro,Café Bonanza
+EMP001147,Diego Martínez,Construcciones Riviera
+EMP001148,Felipe Núñez,Farmacéutica Solaris
+EMP001149,Andrés Castillo,Grupo Horizonte
+EMP001150,Héctor Palacios,Plásticos Andrómeda
+EMP001151,Ana Núñez,Agro Campo Vivo
+EMP001152,Adriana Ruiz,Energía Boreal
+EMP001153,Carmen Romero,Servicios Altamira
+EMP001154,Claudia Delgado,Industrias Prisma
+EMP001155,Noelia Chávez,Transportes Colibrí
+EMP001156,Raúl Jiménez,Banca Fénix
+EMP001157,Sofía Cortés,Editorial Constelación
+EMP001158,Rubén Cortés,Alimentos La Hacienda
+EMP001159,Rocío Molina,Cerámicas Nacar
+EMP001160,Paula Pérez,Red Médica Vital
+EMP001161,Bruno Guerrero,Ingeniería Atlántida
+EMP001162,Lucía Guerrero,Abarrotes El Roble
+EMP001163,Ramiro Gómez,Sistemas Olivo
+EMP001164,Óscar Castillo,Químicos Pacífico
+EMP001165,Ricardo Rodríguez,Moda Eclipse
+EMP001166,Lucía Mendoza,Telecom Ícaro
+EMP001167,Eduardo Castillo,Aeronáutica Boreas
+EMP001168,Isabel Chávez,Vinos El Encanto
+EMP001169,Ramiro Miranda,Artes Gráficas Trébol
+EMP001170,Claudia Flores,Automotriz Solaris
+EMP001171,Rubén Chávez,Aceros Nova
+EMP001172,Héctor Chávez,Hotel Aurora
+EMP001173,Carlos Rojas,Logística Delta
+EMP001174,Héctor Peña,Tech Andina
+EMP001175,Claudia Ruiz,Textiles Orion
+EMP001176,Gonzalo López,Café Bonanza
+EMP001177,Luis Fuentes,Construcciones Riviera
+EMP001178,Gonzalo Delgado,Farmacéutica Solaris
+EMP001179,Rocío Salazar,Grupo Horizonte
+EMP001180,Noelia Pacheco,Plásticos Andrómeda
+EMP001181,Jorge Hernández,Agro Campo Vivo
+EMP001182,Laura Campos,Energía Boreal
+EMP001183,Natalia Chávez,Servicios Altamira
+EMP001184,Carlos Ramírez,Industrias Prisma
+EMP001185,Luis Reyes,Transportes Colibrí
+EMP001186,Karina Núñez,Banca Fénix
+EMP001187,Rocío Romero,Editorial Constelación
+EMP001188,Raúl Aguilar,Alimentos La Hacienda
+EMP001189,Carlos Campos,Cerámicas Nacar
+EMP001190,Laura Pacheco,Red Médica Vital
+EMP001191,Emilio Romero,Ingeniería Atlántida
+EMP001192,Rocío Chávez,Abarrotes El Roble
+EMP001193,Felipe González,Sistemas Olivo
+EMP001194,Pablo Ramírez,Químicos Pacífico
+EMP001195,Gabriela Romero,Moda Eclipse
+EMP001196,Marta Mendoza,Telecom Ícaro
+EMP001197,Lourdes Ruiz,Aeronáutica Boreas
+EMP001198,Valeria Sánchez,Vinos El Encanto
+EMP001199,María Escobar,Artes Gráficas Trébol
+EMP001200,Sofía Cortés,Automotriz Solaris
+EMP001201,Gabriela Ortiz,Aceros Nova
+EMP001202,Alejandra Sánchez,Hotel Aurora
+EMP001203,Diego Palacios,Logística Delta
+EMP001204,Diego Miranda,Tech Andina
+EMP001205,Emilio Morales,Textiles Orion
+EMP001206,Verónica Castillo,Café Bonanza
+EMP001207,Rubén Cortés,Construcciones Riviera
+EMP001208,Andrés Sánchez,Farmacéutica Solaris
+EMP001209,Miguel González,Grupo Horizonte
+EMP001210,Emilio Gómez,Plásticos Andrómeda
+EMP001211,Beatriz Chávez,Agro Campo Vivo
+EMP001212,Lucía Pacheco,Energía Boreal
+EMP001213,Ricardo Fuentes,Servicios Altamira
+EMP001214,Héctor Miranda,Industrias Prisma
+EMP001215,Luis Vega,Transportes Colibrí
+EMP001216,Óscar Castillo,Banca Fénix
+EMP001217,Isabel Flores,Editorial Constelación
+EMP001218,Beatriz Miranda,Alimentos La Hacienda
+EMP001219,Rubén Soto,Cerámicas Nacar
+EMP001220,Sofía Romero,Red Médica Vital
+EMP001221,Iván Vargas,Ingeniería Atlántida
+EMP001222,Carmen Díaz,Abarrotes El Roble
+EMP001223,Miguel Reyes,Sistemas Olivo
+EMP001224,Patricia Hernández,Químicos Pacífico
+EMP001225,Rocío Vega,Moda Eclipse
+EMP001226,Pablo Romero,Telecom Ícaro
+EMP001227,Daniela Vega,Aeronáutica Boreas
+EMP001228,Miguel Peña,Vinos El Encanto
+EMP001229,Lucía González,Artes Gráficas Trébol
+EMP001230,Isabel Delgado,Automotriz Solaris
+EMP001231,Beatriz Rojas,Aceros Nova
+EMP001232,Alberto Molina,Hotel Aurora
+EMP001233,Sergio Palacios,Logística Delta
+EMP001234,Sergio Aguilar,Tech Andina
+EMP001235,Luis Ramírez,Textiles Orion
+EMP001236,Ricardo Núñez,Café Bonanza
+EMP001237,Luis Chávez,Construcciones Riviera
+EMP001238,Daniela Pacheco,Farmacéutica Solaris
+EMP001239,Gabriela Silva,Grupo Horizonte
+EMP001240,Miguel Palacios,Plásticos Andrómeda
+EMP001241,Alejandra Soto,Agro Campo Vivo
+EMP001242,Jimena Gómez,Energía Boreal
+EMP001243,Karina Ramírez,Servicios Altamira
+EMP001244,Claudia Salazar,Industrias Prisma
+EMP001245,Ana Sánchez,Transportes Colibrí
+EMP001246,Gabriela Cruz,Banca Fénix
+EMP001247,Isabel Flores,Editorial Constelación
+EMP001248,Jorge Mendoza,Alimentos La Hacienda
+EMP001249,Beatriz Vargas,Cerámicas Nacar
+EMP001250,Héctor Molina,Red Médica Vital
+EMP001251,Fernando Pérez,Ingeniería Atlántida
+EMP001252,Diego Díaz,Abarrotes El Roble
+EMP001253,Gonzalo Vega,Sistemas Olivo
+EMP001254,Paula Ramírez,Químicos Pacífico
+EMP001255,Gonzalo Álvarez,Moda Eclipse
+EMP001256,Verónica Suárez,Telecom Ícaro
+EMP001257,Lucía Salazar,Aeronáutica Boreas
+EMP001258,Lourdes Flores,Vinos El Encanto
+EMP001259,Jimena Domínguez,Artes Gráficas Trébol
+EMP001260,Laura Flores,Automotriz Solaris
+EMP001261,Eduardo Peña,Aceros Nova
+EMP001262,Bruno Campos,Hotel Aurora
+EMP001263,Adriana Aguilar,Logística Delta
+EMP001264,Carlos Hernández,Tech Andina
+EMP001265,Lucía Martínez,Textiles Orion
+EMP001266,Lourdes Palacios,Café Bonanza
+EMP001267,Pablo Torres,Construcciones Riviera
+EMP001268,Lourdes Morales,Farmacéutica Solaris
+EMP001269,Karina Aguilar,Grupo Horizonte
+EMP001270,Sergio Peña,Plásticos Andrómeda
+EMP001271,Gonzalo Hernández,Agro Campo Vivo
+EMP001272,Patricia Soto,Energía Boreal
+EMP001273,Óscar Castillo,Servicios Altamira
+EMP001274,Lourdes Álvarez,Industrias Prisma
+EMP001275,Alberto Reyes,Transportes Colibrí
+EMP001276,Natalia Delgado,Banca Fénix
+EMP001277,Isabel Ibarra,Editorial Constelación
+EMP001278,Luis Valdez,Alimentos La Hacienda
+EMP001279,Ana Flores,Cerámicas Nacar
+EMP001280,Emilio Ramos,Red Médica Vital
+EMP001281,Alberto Ibarra,Ingeniería Atlántida
+EMP001282,Elena Jiménez,Abarrotes El Roble
+EMP001283,Ramiro Cruz,Sistemas Olivo
+EMP001284,Ricardo Miranda,Químicos Pacífico
+EMP001285,Ricardo Rojas,Moda Eclipse
+EMP001286,Héctor Delgado,Telecom Ícaro
+EMP001287,Miguel Carrillo,Aeronáutica Boreas
+EMP001288,Rocío Salazar,Vinos El Encanto
+EMP001289,Alejandra Rodríguez,Artes Gráficas Trébol
+EMP001290,Ricardo Reyes,Automotriz Solaris
+EMP001291,Daniela Sánchez,Aceros Nova
+EMP001292,Paula Chávez,Hotel Aurora
+EMP001293,Valeria Cruz,Logística Delta
+EMP001294,José López,Tech Andina
+EMP001295,Fernando Ortiz,Textiles Orion
+EMP001296,Verónica Ramos,Café Bonanza
+EMP001297,Valeria Flores,Construcciones Riviera
+EMP001298,Ricardo Aguilar,Farmacéutica Solaris
+EMP001299,Bruno Mendoza,Grupo Horizonte
+EMP001300,Andrés Carrillo,Plásticos Andrómeda
+EMP001301,Jorge Cortés,Agro Campo Vivo
+EMP001302,Iván Ibarra,Energía Boreal
+EMP001303,Patricia Álvarez,Servicios Altamira
+EMP001304,Patricia Hernández,Industrias Prisma
+EMP001305,Lucía Delgado,Transportes Colibrí
+EMP001306,Iván Ibarra,Banca Fénix
+EMP001307,Valeria Morales,Editorial Constelación
+EMP001308,Jimena Silva,Alimentos La Hacienda
+EMP001309,Ana López,Cerámicas Nacar
+EMP001310,Fernando Cortés,Red Médica Vital
+EMP001311,Ramiro Núñez,Ingeniería Atlántida
+EMP001312,Natalia Navarro,Abarrotes El Roble
+EMP001313,Fernando Suárez,Sistemas Olivo
+EMP001314,Juan Rodríguez,Químicos Pacífico
+EMP001315,Claudia Ramírez,Moda Eclipse
+EMP001316,Diego Rojas,Telecom Ícaro
+EMP001317,Rocío Carrillo,Aeronáutica Boreas
+EMP001318,Marta Romero,Vinos El Encanto
+EMP001319,Carlos Delgado,Artes Gráficas Trébol
+EMP001320,Ana Aguilar,Automotriz Solaris
+EMP001321,Alejandra Díaz,Aceros Nova
+EMP001322,Rocío Vega,Hotel Aurora
+EMP001323,Fernando González,Logística Delta
+EMP001324,Raúl Salazar,Tech Andina
+EMP001325,Emilio Carrillo,Textiles Orion
+EMP001326,Alejandra Ruiz,Café Bonanza
+EMP001327,Verónica Pacheco,Construcciones Riviera
+EMP001328,Verónica Sánchez,Farmacéutica Solaris
+EMP001329,Miguel Rodríguez,Grupo Horizonte
+EMP001330,Marta Romero,Plásticos Andrómeda
+EMP001331,Adriana Vega,Agro Campo Vivo
+EMP001332,Rocío Carrillo,Energía Boreal
+EMP001333,Laura Díaz,Servicios Altamira
+EMP001334,Ramiro Salazar,Industrias Prisma
+EMP001335,Marta Salazar,Transportes Colibrí
+EMP001336,Carlos Martínez,Banca Fénix
+EMP001337,Carlos Ramírez,Editorial Constelación
+EMP001338,Beatriz Jiménez,Alimentos La Hacienda
+EMP001339,Alberto Molina,Cerámicas Nacar
+EMP001340,Daniela Cruz,Red Médica Vital
+EMP001341,Ramiro Salazar,Ingeniería Atlántida
+EMP001342,Miguel Mendoza,Abarrotes El Roble
+EMP001343,Verónica Mendoza,Sistemas Olivo
+EMP001344,Jorge Delgado,Químicos Pacífico
+EMP001345,Verónica Escobar,Moda Eclipse
+EMP001346,Isabel Domínguez,Telecom Ícaro
+EMP001347,Adriana Salazar,Aeronáutica Boreas
+EMP001348,Iván Suárez,Vinos El Encanto
+EMP001349,Patricia Miranda,Artes Gráficas Trébol
+EMP001350,Pablo Álvarez,Automotriz Solaris
+EMP001351,Alberto Hernández,Aceros Nova
+EMP001352,Rocío Jiménez,Hotel Aurora
+EMP001353,Natalia Sánchez,Logística Delta
+EMP001354,Sergio Domínguez,Tech Andina
+EMP001355,Isabel Rojas,Textiles Orion
+EMP001356,Rubén Soto,Café Bonanza
+EMP001357,María Campos,Construcciones Riviera
+EMP001358,Alberto Torres,Farmacéutica Solaris
+EMP001359,Lourdes Palacios,Grupo Horizonte
+EMP001360,Jimena Aguilar,Plásticos Andrómeda
+EMP001361,Pedro Rojas,Agro Campo Vivo
+EMP001362,Ana Domínguez,Energía Boreal
+EMP001363,Alberto Flores,Servicios Altamira
+EMP001364,Gabriela Soto,Industrias Prisma
+EMP001365,Bruno Peña,Transportes Colibrí
+EMP001366,Karina Ortiz,Banca Fénix
+EMP001367,Laura Pacheco,Editorial Constelación
+EMP001368,Valeria Martínez,Alimentos La Hacienda
+EMP001369,Pablo Valdez,Cerámicas Nacar
+EMP001370,Carmen Díaz,Red Médica Vital
+EMP001371,María Chávez,Ingeniería Atlántida
+EMP001372,Ricardo Ramos,Abarrotes El Roble
+EMP001373,Laura Ramos,Sistemas Olivo
+EMP001374,Rubén Morales,Químicos Pacífico
+EMP001375,Sergio Salazar,Moda Eclipse
+EMP001376,Karina Peña,Telecom Ícaro
+EMP001377,Alberto Escobar,Aeronáutica Boreas
+EMP001378,Bruno López,Vinos El Encanto
+EMP001379,Beatriz Ramírez,Artes Gráficas Trébol
+EMP001380,Gabriela Morales,Automotriz Solaris
+EMP001381,Alejandra Mendoza,Aceros Nova
+EMP001382,Eduardo Navarro,Hotel Aurora
+EMP001383,Gabriela Ortiz,Logística Delta
+EMP001384,Ricardo Gómez,Tech Andina
+EMP001385,Daniela Suárez,Textiles Orion
+EMP001386,Adriana Suárez,Café Bonanza
+EMP001387,Héctor Pacheco,Construcciones Riviera
+EMP001388,Karina Rojas,Farmacéutica Solaris
+EMP001389,Natalia Núñez,Grupo Horizonte
+EMP001390,Rubén Torres,Plásticos Andrómeda
+EMP001391,Verónica Navarro,Agro Campo Vivo
+EMP001392,Andrés Reyes,Energía Boreal
+EMP001393,Paula Vega,Servicios Altamira
+EMP001394,Isabel Vargas,Industrias Prisma
+EMP001395,Isabel Palacios,Transportes Colibrí
+EMP001396,Fernando Miranda,Banca Fénix
+EMP001397,Elena Valdez,Editorial Constelación
+EMP001398,Beatriz Cortés,Alimentos La Hacienda
+EMP001399,Ricardo Navarro,Cerámicas Nacar
+EMP001400,Héctor Vega,Red Médica Vital
+EMP001401,Bruno Ruiz,Ingeniería Atlántida
+EMP001402,Fernando Sánchez,Abarrotes El Roble
+EMP001403,Pablo Pacheco,Sistemas Olivo
+EMP001404,Óscar Ortiz,Químicos Pacífico
+EMP001405,Marta Silva,Moda Eclipse
+EMP001406,Karina Cruz,Telecom Ícaro
+EMP001407,Fernando Martínez,Aeronáutica Boreas
+EMP001408,Fernando Miranda,Vinos El Encanto
+EMP001409,Lucía Silva,Artes Gráficas Trébol
+EMP001410,Emilio Núñez,Automotriz Solaris
+EMP001411,Diego Escobar,Aceros Nova
+EMP001412,Alberto Morales,Hotel Aurora
+EMP001413,Andrés Suárez,Logística Delta
+EMP001414,Paula Vega,Tech Andina
+EMP001415,Rubén Ruiz,Textiles Orion
+EMP001416,Miguel Rodríguez,Café Bonanza
+EMP001417,Verónica Escobar,Construcciones Riviera
+EMP001418,Jimena Reyes,Farmacéutica Solaris
+EMP001419,Valeria López,Grupo Horizonte
+EMP001420,Eduardo Molina,Plásticos Andrómeda
+EMP001421,Pedro Soto,Agro Campo Vivo
+EMP001422,Pedro López,Energía Boreal
+EMP001423,José Ramos,Servicios Altamira
+EMP001424,Adriana Miranda,Industrias Prisma
+EMP001425,Alberto Rodríguez,Transportes Colibrí
+EMP001426,Natalia Palacios,Banca Fénix
+EMP001427,Miguel García,Editorial Constelación
+EMP001428,Alejandra Flores,Alimentos La Hacienda
+EMP001429,Sergio Núñez,Cerámicas Nacar
+EMP001430,Alberto Navarro,Red Médica Vital
+EMP001431,Lourdes Díaz,Ingeniería Atlántida
+EMP001432,Felipe Castillo,Abarrotes El Roble
+EMP001433,Ricardo Castillo,Sistemas Olivo
+EMP001434,Lourdes López,Químicos Pacífico
+EMP001435,Karina Pérez,Moda Eclipse
+EMP001436,Lourdes Aguilar,Telecom Ícaro
+EMP001437,Pedro Suárez,Aeronáutica Boreas
+EMP001438,Noelia Rojas,Vinos El Encanto
+EMP001439,Carlos Gómez,Artes Gráficas Trébol
+EMP001440,Sergio Gómez,Automotriz Solaris
+EMP001441,Carlos Delgado,Aceros Nova
+EMP001442,Patricia Gómez,Hotel Aurora
+EMP001443,Noelia Castillo,Logística Delta
+EMP001444,Carlos García,Tech Andina
+EMP001445,Isabel Aguilar,Textiles Orion
+EMP001446,Ramiro Rodríguez,Café Bonanza
+EMP001447,Adriana Castillo,Construcciones Riviera
+EMP001448,Daniela Núñez,Farmacéutica Solaris
+EMP001449,Óscar Molina,Grupo Horizonte
+EMP001450,Patricia Ramírez,Plásticos Andrómeda
+EMP001451,Iván Ibarra,Agro Campo Vivo
+EMP001452,Paula Díaz,Energía Boreal
+EMP001453,Carmen Jiménez,Servicios Altamira
+EMP001454,Jorge Rojas,Industrias Prisma
+EMP001455,Daniela Núñez,Transportes Colibrí
+EMP001456,Diego Miranda,Banca Fénix
+EMP001457,Sofía García,Editorial Constelación
+EMP001458,Noelia Jiménez,Alimentos La Hacienda
+EMP001459,Fernando Aguilar,Cerámicas Nacar
+EMP001460,Natalia Carrillo,Red Médica Vital
+EMP001461,Andrés Gómez,Ingeniería Atlántida
+EMP001462,Verónica Soto,Abarrotes El Roble
+EMP001463,Marta Guerrero,Sistemas Olivo
+EMP001464,Iván Mendoza,Químicos Pacífico
+EMP001465,Lucía Delgado,Moda Eclipse
+EMP001466,Eduardo Rodríguez,Telecom Ícaro
+EMP001467,Sofía Ramírez,Aeronáutica Boreas
+EMP001468,Alberto Mendoza,Vinos El Encanto
+EMP001469,Valeria García,Artes Gráficas Trébol
+EMP001470,Diego Ortiz,Automotriz Solaris
+EMP001471,Valeria Chávez,Aceros Nova
+EMP001472,Felipe Ruiz,Hotel Aurora
+EMP001473,Adriana Álvarez,Logística Delta
+EMP001474,Jimena Rojas,Tech Andina
+EMP001475,Pablo García,Textiles Orion
+EMP001476,Diego Núñez,Café Bonanza
+EMP001477,Rocío Valdez,Construcciones Riviera
+EMP001478,Valeria López,Farmacéutica Solaris
+EMP001479,Eduardo Sánchez,Grupo Horizonte
+EMP001480,Daniela Álvarez,Plásticos Andrómeda
+EMP001481,Jorge Delgado,Agro Campo Vivo
+EMP001482,Natalia Salazar,Energía Boreal
+EMP001483,Beatriz Palacios,Servicios Altamira
+EMP001484,Isabel Valdez,Industrias Prisma
+EMP001485,Carmen Soto,Transportes Colibrí
+EMP001486,Fernando Romero,Banca Fénix
+EMP001487,Verónica Vargas,Editorial Constelación
+EMP001488,Pedro Ramírez,Alimentos La Hacienda
+EMP001489,Alberto Cruz,Cerámicas Nacar
+EMP001490,Daniela Escobar,Red Médica Vital
+EMP001491,Ramiro Romero,Ingeniería Atlántida
+EMP001492,Sergio Valdez,Abarrotes El Roble
+EMP001493,Alejandra Navarro,Sistemas Olivo
+EMP001494,Felipe Suárez,Químicos Pacífico
+EMP001495,Eduardo Morales,Moda Eclipse
+EMP001496,Felipe Reyes,Telecom Ícaro
+EMP001497,Natalia Carrillo,Aeronáutica Boreas
+EMP001498,Ramiro Pérez,Vinos El Encanto
+EMP001499,Gabriela Chávez,Artes Gráficas Trébol
+EMP001500,Gabriela Miranda,Automotriz Solaris
+EMP001501,Rocío González,Aceros Nova
+EMP001502,Pablo Sánchez,Hotel Aurora
+EMP001503,Ana Vega,Logística Delta
+EMP001504,Iván Díaz,Tech Andina
+EMP001505,Pablo Suárez,Textiles Orion
+EMP001506,Laura Flores,Café Bonanza
+EMP001507,Ricardo Molina,Construcciones Riviera
+EMP001508,Emilio Sánchez,Farmacéutica Solaris
+EMP001509,Natalia Morales,Grupo Horizonte
+EMP001510,Beatriz Domínguez,Plásticos Andrómeda
+EMP001511,Patricia Pérez,Agro Campo Vivo
+EMP001512,Iván Chávez,Energía Boreal
+EMP001513,Ana Ibarra,Servicios Altamira
+EMP001514,Miguel Salazar,Industrias Prisma
+EMP001515,Sergio Ibarra,Transportes Colibrí
+EMP001516,Pablo López,Banca Fénix
+EMP001517,Alejandra Ibarra,Editorial Constelación
+EMP001518,Natalia Álvarez,Alimentos La Hacienda
+EMP001519,Bruno Hernández,Cerámicas Nacar
+EMP001520,Marta Torres,Red Médica Vital
+EMP001521,Juan Escobar,Ingeniería Atlántida
+EMP001522,Elena Domínguez,Abarrotes El Roble
+EMP001523,Luis Martínez,Sistemas Olivo
+EMP001524,Claudia Silva,Químicos Pacífico
+EMP001525,Rubén González,Moda Eclipse
+EMP001526,Óscar López,Telecom Ícaro
+EMP001527,Luis Navarro,Aeronáutica Boreas
+EMP001528,Carlos Castillo,Vinos El Encanto
+EMP001529,Sergio Gómez,Artes Gráficas Trébol
+EMP001530,Karina Ramírez,Automotriz Solaris
+EMP001531,Karina Núñez,Aceros Nova
+EMP001532,Bruno Núñez,Hotel Aurora
+EMP001533,Sergio Romero,Logística Delta
+EMP001534,Raúl Chávez,Tech Andina
+EMP001535,Raúl Ortiz,Textiles Orion
+EMP001536,Lucía Pacheco,Café Bonanza
+EMP001537,Eduardo Suárez,Construcciones Riviera
+EMP001538,Miguel Núñez,Farmacéutica Solaris
+EMP001539,Héctor Sánchez,Grupo Horizonte
+EMP001540,Sofía Suárez,Plásticos Andrómeda
+EMP001541,Marta Molina,Agro Campo Vivo
+EMP001542,Miguel Rojas,Energía Boreal
+EMP001543,Pedro García,Servicios Altamira
+EMP001544,Felipe Hernández,Industrias Prisma
+EMP001545,Isabel Ibarra,Transportes Colibrí
+EMP001546,Natalia Rojas,Banca Fénix
+EMP001547,Óscar Guerrero,Editorial Constelación
+EMP001548,Óscar Ortiz,Alimentos La Hacienda
+EMP001549,Pedro Reyes,Cerámicas Nacar
+EMP001550,Daniela Silva,Red Médica Vital
+EMP001551,Laura Ruiz,Ingeniería Atlántida
+EMP001552,Andrés Rojas,Abarrotes El Roble
+EMP001553,Felipe Sánchez,Sistemas Olivo
+EMP001554,Carlos Fuentes,Químicos Pacífico
+EMP001555,Sergio Peña,Moda Eclipse
+EMP001556,Karina Hernández,Telecom Ícaro
+EMP001557,Valeria Morales,Aeronáutica Boreas
+EMP001558,Luis Rodríguez,Vinos El Encanto
+EMP001559,Ramiro Martínez,Artes Gráficas Trébol
+EMP001560,Emilio Campos,Automotriz Solaris
+EMP001561,Natalia Miranda,Aceros Nova
+EMP001562,Ana Reyes,Hotel Aurora
+EMP001563,Noelia Martínez,Logística Delta
+EMP001564,Marta Chávez,Tech Andina
+EMP001565,Pedro Suárez,Textiles Orion
+EMP001566,Elena Carrillo,Café Bonanza
+EMP001567,Karina López,Construcciones Riviera
+EMP001568,Miguel Salazar,Farmacéutica Solaris
+EMP001569,Fernando Vargas,Grupo Horizonte
+EMP001570,Bruno Aguilar,Plásticos Andrómeda
+EMP001571,Ricardo Aguilar,Agro Campo Vivo
+EMP001572,Ramiro Palacios,Energía Boreal
+EMP001573,Natalia Mendoza,Servicios Altamira
+EMP001574,Valeria Álvarez,Industrias Prisma
+EMP001575,Laura Fuentes,Transportes Colibrí
+EMP001576,Gabriela Vargas,Banca Fénix
+EMP001577,Sergio Álvarez,Editorial Constelación
+EMP001578,Paula López,Alimentos La Hacienda
+EMP001579,Alejandra Domínguez,Cerámicas Nacar
+EMP001580,Noelia Gómez,Red Médica Vital
+EMP001581,Gonzalo Pacheco,Ingeniería Atlántida
+EMP001582,Claudia Vega,Abarrotes El Roble
+EMP001583,Patricia López,Sistemas Olivo
+EMP001584,Héctor Núñez,Químicos Pacífico
+EMP001585,Eduardo Ortiz,Moda Eclipse
+EMP001586,Gabriela Mendoza,Telecom Ícaro
+EMP001587,Rubén Ramos,Aeronáutica Boreas
+EMP001588,Sergio Cruz,Vinos El Encanto
+EMP001589,Isabel Ortiz,Artes Gráficas Trébol
+EMP001590,Sofía Carrillo,Automotriz Solaris
+EMP001591,Óscar Navarro,Aceros Nova
+EMP001592,Valeria Vargas,Hotel Aurora
+EMP001593,Isabel Miranda,Logística Delta
+EMP001594,Laura Ibarra,Tech Andina
+EMP001595,Ana Vega,Textiles Orion
+EMP001596,Sergio Ramos,Café Bonanza
+EMP001597,Alejandra Molina,Construcciones Riviera
+EMP001598,Miguel Ortiz,Farmacéutica Solaris
+EMP001599,Valeria Torres,Grupo Horizonte
+EMP001600,Elena Jiménez,Plásticos Andrómeda
+EMP001601,Lourdes Pérez,Agro Campo Vivo
+EMP001602,Emilio Romero,Energía Boreal
+EMP001603,Lucía Suárez,Servicios Altamira
+EMP001604,Bruno Díaz,Industrias Prisma
+EMP001605,Ana Ruiz,Transportes Colibrí
+EMP001606,Raúl Pacheco,Banca Fénix
+EMP001607,Ramiro Campos,Editorial Constelación
+EMP001608,Carlos González,Alimentos La Hacienda
+EMP001609,Andrés Carrillo,Cerámicas Nacar
+EMP001610,Jimena Rojas,Red Médica Vital
+EMP001611,Eduardo Vega,Ingeniería Atlántida
+EMP001612,Elena Navarro,Abarrotes El Roble
+EMP001613,Elena Jiménez,Sistemas Olivo
+EMP001614,Isabel García,Químicos Pacífico
+EMP001615,Elena Díaz,Moda Eclipse
+EMP001616,Noelia Sánchez,Telecom Ícaro
+EMP001617,Noelia Carrillo,Aeronáutica Boreas
+EMP001618,Alberto Reyes,Vinos El Encanto
+EMP001619,Rubén Campos,Artes Gráficas Trébol
+EMP001620,Beatriz Morales,Automotriz Solaris
+EMP001621,Marta Reyes,Aceros Nova
+EMP001622,Alejandra Mendoza,Hotel Aurora
+EMP001623,Karina Castillo,Logística Delta
+EMP001624,Raúl Ibarra,Tech Andina
+EMP001625,Óscar Núñez,Textiles Orion
+EMP001626,Héctor Álvarez,Café Bonanza
+EMP001627,Diego Romero,Construcciones Riviera
+EMP001628,Iván Cortés,Farmacéutica Solaris
+EMP001629,Daniela Rodríguez,Grupo Horizonte
+EMP001630,Bruno Navarro,Plásticos Andrómeda
+EMP001631,Felipe Mendoza,Agro Campo Vivo
+EMP001632,Elena Romero,Energía Boreal
+EMP001633,Ricardo Ramos,Servicios Altamira
+EMP001634,Carlos Aguilar,Industrias Prisma
+EMP001635,Pedro Escobar,Transportes Colibrí
+EMP001636,Laura Hernández,Banca Fénix
+EMP001637,Diego Vega,Editorial Constelación
+EMP001638,Jimena Domínguez,Alimentos La Hacienda
+EMP001639,Bruno Ramos,Cerámicas Nacar
+EMP001640,Fernando Cruz,Red Médica Vital
+EMP001641,Andrés Jiménez,Ingeniería Atlántida
+EMP001642,Pedro Ortiz,Abarrotes El Roble
+EMP001643,Pablo Reyes,Sistemas Olivo
+EMP001644,Patricia Vega,Químicos Pacífico
+EMP001645,Lourdes Pacheco,Moda Eclipse
+EMP001646,Adriana Torres,Telecom Ícaro
+EMP001647,Felipe Cortés,Aeronáutica Boreas
+EMP001648,Bruno Núñez,Vinos El Encanto
+EMP001649,Noelia Cortés,Artes Gráficas Trébol
+EMP001650,Daniela Flores,Automotriz Solaris
+EMP001651,Bruno Silva,Aceros Nova
+EMP001652,Jorge Ramírez,Hotel Aurora
+EMP001653,Bruno Suárez,Logística Delta
+EMP001654,Patricia Gómez,Tech Andina
+EMP001655,Óscar Núñez,Textiles Orion
+EMP001656,Ana Molina,Café Bonanza
+EMP001657,Carlos González,Construcciones Riviera
+EMP001658,Eduardo López,Farmacéutica Solaris
+EMP001659,Felipe García,Grupo Horizonte
+EMP001660,Sergio Ramírez,Plásticos Andrómeda
+EMP001661,Gonzalo Vargas,Agro Campo Vivo
+EMP001662,Luis Miranda,Energía Boreal
+EMP001663,Laura García,Servicios Altamira
+EMP001664,Elena Salazar,Industrias Prisma
+EMP001665,Daniela Romero,Transportes Colibrí
+EMP001666,Ana Peña,Banca Fénix
+EMP001667,Gonzalo Fuentes,Editorial Constelación
+EMP001668,Verónica Navarro,Alimentos La Hacienda
+EMP001669,Eduardo Cortés,Cerámicas Nacar
+EMP001670,María García,Red Médica Vital
+EMP001671,Óscar Vega,Ingeniería Atlántida
+EMP001672,Sergio García,Abarrotes El Roble
+EMP001673,María Molina,Sistemas Olivo
+EMP001674,Bruno Ruiz,Químicos Pacífico
+EMP001675,Óscar Castillo,Moda Eclipse
+EMP001676,María Salazar,Telecom Ícaro
+EMP001677,Rubén Pacheco,Aeronáutica Boreas
+EMP001678,Claudia Gómez,Vinos El Encanto
+EMP001679,José Rodríguez,Artes Gráficas Trébol
+EMP001680,Gabriela Cruz,Automotriz Solaris
+EMP001681,Valeria Díaz,Aceros Nova
+EMP001682,Verónica Molina,Hotel Aurora
+EMP001683,Diego Silva,Logística Delta
+EMP001684,Paula Delgado,Tech Andina
+EMP001685,Lucía Romero,Textiles Orion
+EMP001686,Marta Ibarra,Café Bonanza
+EMP001687,Pablo Reyes,Construcciones Riviera
+EMP001688,Rubén Vargas,Farmacéutica Solaris
+EMP001689,Isabel Pacheco,Grupo Horizonte
+EMP001690,Lucía Núñez,Plásticos Andrómeda
+EMP001691,Lourdes Carrillo,Agro Campo Vivo
+EMP001692,Carlos Pérez,Energía Boreal
+EMP001693,Marta Ortiz,Servicios Altamira
+EMP001694,Raúl Vega,Industrias Prisma
+EMP001695,Alberto López,Transportes Colibrí
+EMP001696,Gonzalo García,Banca Fénix
+EMP001697,Rubén Flores,Editorial Constelación
+EMP001698,Lucía Cortés,Alimentos La Hacienda
+EMP001699,Claudia Núñez,Cerámicas Nacar
+EMP001700,Adriana Aguilar,Red Médica Vital
+EMP001701,José Molina,Ingeniería Atlántida
+EMP001702,Carlos Vargas,Abarrotes El Roble
+EMP001703,Elena Valdez,Sistemas Olivo
+EMP001704,Pablo Navarro,Químicos Pacífico
+EMP001705,Paula Martínez,Moda Eclipse
+EMP001706,Luis Pacheco,Telecom Ícaro
+EMP001707,Paula Suárez,Aeronáutica Boreas
+EMP001708,Pablo Fuentes,Vinos El Encanto
+EMP001709,Carlos Gómez,Artes Gráficas Trébol
+EMP001710,Ricardo Hernández,Automotriz Solaris
+EMP001711,Elena Domínguez,Aceros Nova
+EMP001712,Laura Carrillo,Hotel Aurora
+EMP001713,Beatriz Delgado,Logística Delta
+EMP001714,Luis Álvarez,Tech Andina
+EMP001715,Jorge Aguilar,Textiles Orion
+EMP001716,Valeria Aguilar,Café Bonanza
+EMP001717,Raúl Pacheco,Construcciones Riviera
+EMP001718,Óscar Jiménez,Farmacéutica Solaris
+EMP001719,Raúl Carrillo,Grupo Horizonte
+EMP001720,Noelia Ramírez,Plásticos Andrómeda
+EMP001721,Rubén Rojas,Agro Campo Vivo
+EMP001722,Lucía Salazar,Energía Boreal
+EMP001723,Noelia Silva,Servicios Altamira
+EMP001724,Ana Rodríguez,Industrias Prisma
+EMP001725,Claudia Vargas,Transportes Colibrí
+EMP001726,Luis Jiménez,Banca Fénix
+EMP001727,Ramiro Palacios,Editorial Constelación
+EMP001728,Verónica Campos,Alimentos La Hacienda
+EMP001729,Marta Palacios,Cerámicas Nacar
+EMP001730,Ricardo Hernández,Red Médica Vital
+EMP001731,Gonzalo Ruiz,Ingeniería Atlántida
+EMP001732,Emilio Cortés,Abarrotes El Roble
+EMP001733,Pedro Silva,Sistemas Olivo
+EMP001734,Alejandra Ortiz,Químicos Pacífico
+EMP001735,Claudia Gómez,Moda Eclipse
+EMP001736,Natalia Domínguez,Telecom Ícaro
+EMP001737,Eduardo Ortiz,Aeronáutica Boreas
+EMP001738,Lucía Palacios,Vinos El Encanto
+EMP001739,Verónica Castillo,Artes Gráficas Trébol
+EMP001740,Valeria Miranda,Automotriz Solaris
+EMP001741,Luis Pérez,Aceros Nova
+EMP001742,Paula Cruz,Hotel Aurora
+EMP001743,Raúl Miranda,Logística Delta
+EMP001744,Gonzalo Cruz,Tech Andina
+EMP001745,Noelia Ortiz,Textiles Orion
+EMP001746,Ricardo Romero,Café Bonanza
+EMP001747,José Pérez,Construcciones Riviera
+EMP001748,Juan Álvarez,Farmacéutica Solaris
+EMP001749,Emilio Romero,Grupo Horizonte
+EMP001750,Felipe Ruiz,Plásticos Andrómeda
+EMP001751,José Ramírez,Agro Campo Vivo
+EMP001752,Lucía Gómez,Energía Boreal
+EMP001753,Claudia Chávez,Servicios Altamira
+EMP001754,Alejandra Vega,Industrias Prisma
+EMP001755,Iván Ramos,Transportes Colibrí
+EMP001756,José Hernández,Banca Fénix
+EMP001757,Lucía Silva,Editorial Constelación
+EMP001758,Alejandra Pérez,Alimentos La Hacienda
+EMP001759,Ramiro Campos,Cerámicas Nacar
+EMP001760,Ricardo Ortiz,Red Médica Vital
+EMP001761,Juan Castillo,Ingeniería Atlántida
+EMP001762,Sergio Ortiz,Abarrotes El Roble
+EMP001763,Karina Pérez,Sistemas Olivo
+EMP001764,Bruno Vega,Químicos Pacífico
+EMP001765,Valeria Aguilar,Moda Eclipse
+EMP001766,Gabriela Flores,Telecom Ícaro
+EMP001767,Natalia Ortiz,Aeronáutica Boreas
+EMP001768,Jorge Ramírez,Vinos El Encanto
+EMP001769,Paula Álvarez,Artes Gráficas Trébol
+EMP001770,Paula Cortés,Automotriz Solaris
+EMP001771,Laura González,Aceros Nova
+EMP001772,Jorge Guerrero,Hotel Aurora
+EMP001773,Paula Ramos,Logística Delta
+EMP001774,Isabel Navarro,Tech Andina
+EMP001775,Luis Romero,Textiles Orion
+EMP001776,Diego Reyes,Café Bonanza
+EMP001777,Bruno Soto,Construcciones Riviera
+EMP001778,Patricia Campos,Farmacéutica Solaris
+EMP001779,Verónica Díaz,Grupo Horizonte
+EMP001780,Daniela Rodríguez,Plásticos Andrómeda
+EMP001781,Miguel Álvarez,Agro Campo Vivo
+EMP001782,Juan Delgado,Energía Boreal
+EMP001783,Adriana Peña,Servicios Altamira
+EMP001784,Raúl Jiménez,Industrias Prisma
+EMP001785,Emilio Jiménez,Transportes Colibrí
+EMP001786,Claudia Núñez,Banca Fénix
+EMP001787,Ramiro Ramírez,Editorial Constelación
+EMP001788,Isabel Mendoza,Alimentos La Hacienda
+EMP001789,Ramiro Valdez,Cerámicas Nacar
+EMP001790,Andrés Navarro,Red Médica Vital
+EMP001791,Ricardo Gómez,Ingeniería Atlántida
+EMP001792,Marta Mendoza,Abarrotes El Roble
+EMP001793,Fernando Escobar,Sistemas Olivo
+EMP001794,Rubén Soto,Químicos Pacífico
+EMP001795,Patricia Aguilar,Moda Eclipse
+EMP001796,Valeria Mendoza,Telecom Ícaro
+EMP001797,Raúl Ruiz,Aeronáutica Boreas
+EMP001798,Marta Romero,Vinos El Encanto
+EMP001799,Carmen Aguilar,Artes Gráficas Trébol
+EMP001800,Andrés Domínguez,Automotriz Solaris
+EMP001801,Óscar Gómez,Aceros Nova
+EMP001802,Natalia Palacios,Hotel Aurora
+EMP001803,Alejandra Hernández,Logística Delta
+EMP001804,Bruno Ibarra,Tech Andina
+EMP001805,Beatriz Morales,Textiles Orion
+EMP001806,Emilio Castillo,Café Bonanza
+EMP001807,Rubén González,Construcciones Riviera
+EMP001808,Sergio Pacheco,Farmacéutica Solaris
+EMP001809,Patricia Ramírez,Grupo Horizonte
+EMP001810,Gonzalo Álvarez,Plásticos Andrómeda
+EMP001811,Valeria Torres,Agro Campo Vivo
+EMP001812,Eduardo Cruz,Energía Boreal
+EMP001813,Beatriz Guerrero,Servicios Altamira
+EMP001814,Raúl González,Industrias Prisma
+EMP001815,Emilio Campos,Transportes Colibrí
+EMP001816,Alberto Domínguez,Banca Fénix
+EMP001817,Marta Suárez,Editorial Constelación
+EMP001818,Iván Valdez,Alimentos La Hacienda
+EMP001819,Sergio Suárez,Cerámicas Nacar
+EMP001820,Carlos Romero,Red Médica Vital
+EMP001821,Rubén Suárez,Ingeniería Atlántida
+EMP001822,Ramiro Soto,Abarrotes El Roble
+EMP001823,Lucía Rodríguez,Sistemas Olivo
+EMP001824,Karina Reyes,Químicos Pacífico
+EMP001825,Eduardo Fuentes,Moda Eclipse
+EMP001826,Héctor Flores,Telecom Ícaro
+EMP001827,Lourdes Peña,Aeronáutica Boreas
+EMP001828,Carlos Aguilar,Vinos El Encanto
+EMP001829,Lourdes Pacheco,Artes Gráficas Trébol
+EMP001830,Lourdes Delgado,Automotriz Solaris
+EMP001831,Felipe Jiménez,Aceros Nova
+EMP001832,Claudia Rodríguez,Hotel Aurora
+EMP001833,Juan Rodríguez,Logística Delta
+EMP001834,Diego Vargas,Tech Andina
+EMP001835,Iván Escobar,Textiles Orion
+EMP001836,Gabriela Vega,Café Bonanza
+EMP001837,Jimena Valdez,Construcciones Riviera
+EMP001838,Pablo Vargas,Farmacéutica Solaris
+EMP001839,Emilio Romero,Grupo Horizonte
+EMP001840,Marta Ibarra,Plásticos Andrómeda
+EMP001841,Karina Pacheco,Agro Campo Vivo
+EMP001842,Jimena Valdez,Energía Boreal
+EMP001843,Iván Cruz,Servicios Altamira
+EMP001844,Héctor Hernández,Industrias Prisma
+EMP001845,Alberto Rodríguez,Transportes Colibrí
+EMP001846,Fernando Ramos,Banca Fénix
+EMP001847,Lucía Sánchez,Editorial Constelación
+EMP001848,Bruno Cruz,Alimentos La Hacienda
+EMP001849,Héctor Álvarez,Cerámicas Nacar
+EMP001850,Adriana Ibarra,Red Médica Vital
+EMP001851,Elena Molina,Ingeniería Atlántida
+EMP001852,Alberto Silva,Abarrotes El Roble
+EMP001853,Alberto Rodríguez,Sistemas Olivo
+EMP001854,Emilio Rojas,Químicos Pacífico
+EMP001855,Rubén Chávez,Moda Eclipse
+EMP001856,Ricardo González,Telecom Ícaro
+EMP001857,Isabel Martínez,Aeronáutica Boreas
+EMP001858,Beatriz Sánchez,Vinos El Encanto
+EMP001859,María Jiménez,Artes Gráficas Trébol
+EMP001860,Lourdes Rodríguez,Automotriz Solaris
+EMP001861,Natalia Flores,Aceros Nova
+EMP001862,Noelia Reyes,Hotel Aurora
+EMP001863,Gabriela Gómez,Logística Delta
+EMP001864,Alejandra Flores,Tech Andina
+EMP001865,Adriana Vega,Textiles Orion
+EMP001866,Claudia Ibarra,Café Bonanza
+EMP001867,Pedro Delgado,Construcciones Riviera
+EMP001868,Gonzalo Gómez,Farmacéutica Solaris
+EMP001869,Sofía Soto,Grupo Horizonte
+EMP001870,Eduardo Guerrero,Plásticos Andrómeda
+EMP001871,Marta Hernández,Agro Campo Vivo
+EMP001872,Noelia Peña,Energía Boreal
+EMP001873,Andrés Chávez,Servicios Altamira
+EMP001874,Jimena Guerrero,Industrias Prisma
+EMP001875,Raúl García,Transportes Colibrí
+EMP001876,Beatriz Morales,Banca Fénix
+EMP001877,Elena Ruiz,Editorial Constelación
+EMP001878,Felipe Miranda,Alimentos La Hacienda
+EMP001879,Luis Aguilar,Cerámicas Nacar
+EMP001880,José Suárez,Red Médica Vital
+EMP001881,Sofía Romero,Ingeniería Atlántida
+EMP001882,Ricardo Díaz,Abarrotes El Roble
+EMP001883,Daniela Sánchez,Sistemas Olivo
+EMP001884,Diego Fuentes,Químicos Pacífico
+EMP001885,Patricia Molina,Moda Eclipse
+EMP001886,Gonzalo Mendoza,Telecom Ícaro
+EMP001887,Ramiro Ortiz,Aeronáutica Boreas
+EMP001888,Verónica Delgado,Vinos El Encanto
+EMP001889,Jimena Sánchez,Artes Gráficas Trébol
+EMP001890,Héctor Silva,Automotriz Solaris
+EMP001891,Daniela Peña,Aceros Nova
+EMP001892,Sofía Pacheco,Hotel Aurora
+EMP001893,Beatriz Álvarez,Logística Delta
+EMP001894,Verónica Domínguez,Tech Andina
+EMP001895,Lucía Pacheco,Textiles Orion
+EMP001896,Miguel Mendoza,Café Bonanza
+EMP001897,Carmen Reyes,Construcciones Riviera
+EMP001898,Isabel Sánchez,Farmacéutica Solaris
+EMP001899,Sofía Romero,Grupo Horizonte
+EMP001900,Rubén Cruz,Plásticos Andrómeda
+EMP001901,Iván Ortiz,Agro Campo Vivo
+EMP001902,Sergio Campos,Energía Boreal
+EMP001903,Miguel Aguilar,Servicios Altamira
+EMP001904,Raúl Guerrero,Industrias Prisma
+EMP001905,Sofía Cortés,Transportes Colibrí
+EMP001906,Gonzalo Suárez,Banca Fénix
+EMP001907,Rubén Núñez,Editorial Constelación
+EMP001908,Sofía Vega,Alimentos La Hacienda
+EMP001909,Jorge Cortés,Cerámicas Nacar
+EMP001910,Fernando Ramírez,Red Médica Vital
+EMP001911,Sofía Mendoza,Ingeniería Atlántida
+EMP001912,Emilio Peña,Abarrotes El Roble
+EMP001913,Ana Silva,Sistemas Olivo
+EMP001914,Juan Cortés,Químicos Pacífico
+EMP001915,Miguel Díaz,Moda Eclipse
+EMP001916,Raúl Vega,Telecom Ícaro
+EMP001917,Iván Núñez,Aeronáutica Boreas
+EMP001918,Patricia Ramos,Vinos El Encanto
+EMP001919,Natalia Cortés,Artes Gráficas Trébol
+EMP001920,Sergio Miranda,Automotriz Solaris
+EMP001921,Emilio Cortés,Aceros Nova
+EMP001922,Jorge Pérez,Hotel Aurora
+EMP001923,Pablo Hernández,Logística Delta
+EMP001924,Felipe Vargas,Tech Andina
+EMP001925,Fernando Martínez,Textiles Orion
+EMP001926,Paula Vargas,Café Bonanza
+EMP001927,Óscar Castillo,Construcciones Riviera
+EMP001928,Jorge Palacios,Farmacéutica Solaris
+EMP001929,Daniela Aguilar,Grupo Horizonte
+EMP001930,Noelia Palacios,Plásticos Andrómeda
+EMP001931,Karina Cortés,Agro Campo Vivo
+EMP001932,Alejandra Salazar,Energía Boreal
+EMP001933,Carmen Aguilar,Servicios Altamira
+EMP001934,Carmen Ruiz,Industrias Prisma
+EMP001935,Karina Suárez,Transportes Colibrí
+EMP001936,Rocío Suárez,Banca Fénix
+EMP001937,Felipe Martínez,Editorial Constelación
+EMP001938,Felipe Rojas,Alimentos La Hacienda
+EMP001939,Emilio Suárez,Cerámicas Nacar
+EMP001940,Elena Guerrero,Red Médica Vital
+EMP001941,José Escobar,Ingeniería Atlántida
+EMP001942,Lourdes Carrillo,Abarrotes El Roble
+EMP001943,Valeria Álvarez,Sistemas Olivo
+EMP001944,Carlos Chávez,Químicos Pacífico
+EMP001945,Diego Silva,Moda Eclipse
+EMP001946,Lucía Chávez,Telecom Ícaro
+EMP001947,Carmen Palacios,Aeronáutica Boreas
+EMP001948,Valeria Morales,Vinos El Encanto
+EMP001949,Noelia Domínguez,Artes Gráficas Trébol
+EMP001950,Rubén Silva,Automotriz Solaris
+EMP001951,Beatriz Peña,Aceros Nova
+EMP001952,Gonzalo Guerrero,Hotel Aurora
+EMP001953,Jorge Peña,Logística Delta
+EMP001954,Miguel Morales,Tech Andina
+EMP001955,Elena López,Textiles Orion
+EMP001956,Pablo Silva,Café Bonanza
+EMP001957,Óscar Ruiz,Construcciones Riviera
+EMP001958,Ramiro Suárez,Farmacéutica Solaris
+EMP001959,Jorge Mendoza,Grupo Horizonte
+EMP001960,Beatriz Castillo,Plásticos Andrómeda
+EMP001961,Fernando Aguilar,Agro Campo Vivo
+EMP001962,Paula Salazar,Energía Boreal
+EMP001963,Natalia Rodríguez,Servicios Altamira
+EMP001964,Miguel Carrillo,Industrias Prisma
+EMP001965,Sergio López,Transportes Colibrí
+EMP001966,Paula Núñez,Banca Fénix
+EMP001967,Miguel Valdez,Editorial Constelación
+EMP001968,Miguel Reyes,Alimentos La Hacienda
+EMP001969,Laura Miranda,Cerámicas Nacar
+EMP001970,Ricardo Reyes,Red Médica Vital
+EMP001971,Felipe Pacheco,Ingeniería Atlántida
+EMP001972,Marta Cortés,Abarrotes El Roble
+EMP001973,Laura Aguilar,Sistemas Olivo
+EMP001974,Gonzalo Ruiz,Químicos Pacífico
+EMP001975,Gonzalo Ramos,Moda Eclipse
+EMP001976,Raúl Chávez,Telecom Ícaro
+EMP001977,Luis Soto,Aeronáutica Boreas
+EMP001978,Karina Pérez,Vinos El Encanto
+EMP001979,Marta Salazar,Artes Gráficas Trébol
+EMP001980,Noelia Ruiz,Automotriz Solaris
+EMP001981,Rubén Romero,Aceros Nova
+EMP001982,Daniela Cortés,Hotel Aurora
+EMP001983,Ricardo Domínguez,Logística Delta
+EMP001984,Juan Palacios,Tech Andina
+EMP001985,Bruno Pérez,Textiles Orion
+EMP001986,Bruno Ibarra,Café Bonanza
+EMP001987,Gonzalo Fuentes,Construcciones Riviera
+EMP001988,Rubén Silva,Farmacéutica Solaris
+EMP001989,Luis Suárez,Grupo Horizonte
+EMP001990,Marta Morales,Plásticos Andrómeda
+EMP001991,Claudia Morales,Agro Campo Vivo
+EMP001992,Patricia Ruiz,Energía Boreal
+EMP001993,Ricardo Castillo,Servicios Altamira
+EMP001994,Adriana Vega,Industrias Prisma
+EMP001995,Pablo Ramírez,Transportes Colibrí
+EMP001996,Pablo Cortés,Banca Fénix
+EMP001997,Adriana Pacheco,Editorial Constelación
+EMP001998,Felipe López,Alimentos La Hacienda
+EMP001999,Carlos Rodríguez,Cerámicas Nacar
+EMP002000,Gonzalo Ibarra,Red Médica Vital
+EMP002001,María Sánchez,Ingeniería Atlántida
+EMP002002,Jorge Chávez,Abarrotes El Roble
+EMP002003,Daniela García,Sistemas Olivo
+EMP002004,Claudia Díaz,Químicos Pacífico
+EMP002005,Rubén Ramírez,Moda Eclipse
+EMP002006,Lourdes Álvarez,Telecom Ícaro
+EMP002007,Jorge Ruiz,Aeronáutica Boreas
+EMP002008,Lucía Núñez,Vinos El Encanto
+EMP002009,Rocío Torres,Artes Gráficas Trébol
+EMP002010,Lucía Romero,Automotriz Solaris
+EMP002011,Eduardo Núñez,Aceros Nova
+EMP002012,Jorge López,Hotel Aurora
+EMP002013,Marta Soto,Logística Delta
+EMP002014,Isabel Rojas,Tech Andina
+EMP002015,Rubén Carrillo,Textiles Orion
+EMP002016,Pedro Guerrero,Café Bonanza
+EMP002017,Lourdes Pérez,Construcciones Riviera
+EMP002018,Beatriz Rodríguez,Farmacéutica Solaris
+EMP002019,Juan Morales,Grupo Horizonte
+EMP002020,Alberto González,Plásticos Andrómeda
+EMP002021,Miguel Domínguez,Agro Campo Vivo
+EMP002022,Pedro Molina,Energía Boreal
+EMP002023,Natalia Chávez,Servicios Altamira
+EMP002024,Juan García,Industrias Prisma
+EMP002025,Rubén Jiménez,Transportes Colibrí
+EMP002026,Carmen Guerrero,Banca Fénix
+EMP002027,Rubén Ramírez,Editorial Constelación
+EMP002028,Alberto González,Alimentos La Hacienda
+EMP002029,Pedro Ortiz,Cerámicas Nacar
+EMP002030,Lucía Rojas,Red Médica Vital
+EMP002031,José Rodríguez,Ingeniería Atlántida
+EMP002032,Ricardo Romero,Abarrotes El Roble
+EMP002033,Isabel Ramírez,Sistemas Olivo
+EMP002034,Raúl Palacios,Químicos Pacífico
+EMP002035,Felipe Ramírez,Moda Eclipse
+EMP002036,Lourdes Pacheco,Telecom Ícaro
+EMP002037,Laura González,Aeronáutica Boreas
+EMP002038,Gabriela Aguilar,Vinos El Encanto
+EMP002039,Juan Peña,Artes Gráficas Trébol
+EMP002040,Lourdes Flores,Automotriz Solaris
+EMP002041,Emilio Silva,Aceros Nova
+EMP002042,Bruno Morales,Hotel Aurora
+EMP002043,Gonzalo Escobar,Logística Delta
+EMP002044,Laura Ramos,Tech Andina
+EMP002045,Verónica Pacheco,Textiles Orion
+EMP002046,Emilio Morales,Café Bonanza
+EMP002047,Lucía Rodríguez,Construcciones Riviera
+EMP002048,Miguel Carrillo,Farmacéutica Solaris
+EMP002049,Carmen Domínguez,Grupo Horizonte
+EMP002050,Bruno Ortiz,Plásticos Andrómeda
+EMP002051,Héctor Guerrero,Agro Campo Vivo
+EMP002052,Ricardo Ramírez,Energía Boreal
+EMP002053,Valeria Ruiz,Servicios Altamira
+EMP002054,Lourdes Pérez,Industrias Prisma
+EMP002055,Valeria Vega,Transportes Colibrí
+EMP002056,Ramiro Campos,Banca Fénix
+EMP002057,Bruno Campos,Editorial Constelación
+EMP002058,Fernando Palacios,Alimentos La Hacienda
+EMP002059,Rubén Hernández,Cerámicas Nacar
+EMP002060,Eduardo Álvarez,Red Médica Vital
+EMP002061,Elena Molina,Ingeniería Atlántida
+EMP002062,Ramiro Salazar,Abarrotes El Roble
+EMP002063,Andrés Escobar,Sistemas Olivo
+EMP002064,Marta Castillo,Químicos Pacífico
+EMP002065,Lourdes López,Moda Eclipse
+EMP002066,Valeria Cortés,Telecom Ícaro
+EMP002067,Raúl Sánchez,Aeronáutica Boreas
+EMP002068,Valeria Cortés,Vinos El Encanto
+EMP002069,Gonzalo Campos,Artes Gráficas Trébol
+EMP002070,Luis Molina,Automotriz Solaris
+EMP002071,Juan Romero,Aceros Nova
+EMP002072,Ricardo Ramírez,Hotel Aurora
+EMP002073,Raúl Aguilar,Logística Delta
+EMP002074,Sergio Romero,Tech Andina
+EMP002075,Óscar Pacheco,Textiles Orion
+EMP002076,Sofía Carrillo,Café Bonanza
+EMP002077,Alberto Palacios,Construcciones Riviera
+EMP002078,Luis Hernández,Farmacéutica Solaris
+EMP002079,Jimena González,Grupo Horizonte
+EMP002080,Juan Torres,Plásticos Andrómeda
+EMP002081,Elena Martínez,Agro Campo Vivo
+EMP002082,Ana Delgado,Energía Boreal
+EMP002083,Iván Castillo,Servicios Altamira
+EMP002084,Gonzalo Miranda,Industrias Prisma
+EMP002085,Iván Palacios,Transportes Colibrí
+EMP002086,Sergio Guerrero,Banca Fénix
+EMP002087,Rubén Delgado,Editorial Constelación
+EMP002088,Lucía Soto,Alimentos La Hacienda
+EMP002089,Óscar Suárez,Cerámicas Nacar
+EMP002090,Verónica Cruz,Red Médica Vital
+EMP002091,Paula Pérez,Ingeniería Atlántida
+EMP002092,Isabel Pérez,Abarrotes El Roble
+EMP002093,Iván Morales,Sistemas Olivo
+EMP002094,Laura Suárez,Químicos Pacífico
+EMP002095,Ricardo Delgado,Moda Eclipse
+EMP002096,Jimena Soto,Telecom Ícaro
+EMP002097,Felipe Núñez,Aeronáutica Boreas
+EMP002098,Natalia Núñez,Vinos El Encanto
+EMP002099,Luis Álvarez,Artes Gráficas Trébol
+EMP002100,Rubén Guerrero,Automotriz Solaris
+EMP002101,Bruno Reyes,Aceros Nova
+EMP002102,Ana Reyes,Hotel Aurora
+EMP002103,Lucía Guerrero,Logística Delta
+EMP002104,Carmen Ibarra,Tech Andina
+EMP002105,Verónica Campos,Textiles Orion
+EMP002106,Ana Álvarez,Café Bonanza
+EMP002107,Eduardo Escobar,Construcciones Riviera
+EMP002108,Eduardo Escobar,Farmacéutica Solaris
+EMP002109,Sofía Sánchez,Grupo Horizonte
+EMP002110,Juan Miranda,Plásticos Andrómeda
+EMP002111,Miguel Valdez,Agro Campo Vivo
+EMP002112,Juan Flores,Energía Boreal
+EMP002113,Patricia Silva,Servicios Altamira
+EMP002114,Gabriela Molina,Industrias Prisma
+EMP002115,Bruno Torres,Transportes Colibrí
+EMP002116,Jorge Romero,Banca Fénix
+EMP002117,Miguel Escobar,Editorial Constelación
+EMP002118,Karina Ruiz,Alimentos La Hacienda
+EMP002119,Bruno Sánchez,Cerámicas Nacar
+EMP002120,Karina Hernández,Red Médica Vital
+EMP002121,Adriana Guerrero,Ingeniería Atlántida
+EMP002122,Paula Molina,Abarrotes El Roble
+EMP002123,Luis Torres,Sistemas Olivo
+EMP002124,Beatriz Aguilar,Químicos Pacífico
+EMP002125,Gonzalo González,Moda Eclipse
+EMP002126,Patricia Ibarra,Telecom Ícaro
+EMP002127,Iván Romero,Aeronáutica Boreas
+EMP002128,Ana Cortés,Vinos El Encanto
+EMP002129,Pablo Flores,Artes Gráficas Trébol
+EMP002130,Rocío Flores,Automotriz Solaris
+EMP002131,Diego Palacios,Aceros Nova
+EMP002132,José Aguilar,Hotel Aurora
+EMP002133,Natalia Rojas,Logística Delta
+EMP002134,Carmen Vargas,Tech Andina
+EMP002135,Noelia Salazar,Textiles Orion
+EMP002136,Juan Martínez,Café Bonanza
+EMP002137,Juan Reyes,Construcciones Riviera
+EMP002138,Carlos Navarro,Farmacéutica Solaris
+EMP002139,Rocío Ortiz,Grupo Horizonte
+EMP002140,Laura Gómez,Plásticos Andrómeda
+EMP002141,Carlos Vega,Agro Campo Vivo
+EMP002142,Beatriz Escobar,Energía Boreal
+EMP002143,Lourdes Ramos,Servicios Altamira
+EMP002144,Pedro Mendoza,Industrias Prisma
+EMP002145,Valeria Ramos,Transportes Colibrí
+EMP002146,Bruno Mendoza,Banca Fénix
+EMP002147,Paula González,Editorial Constelación
+EMP002148,Pablo Romero,Alimentos La Hacienda
+EMP002149,Carmen Salazar,Cerámicas Nacar
+EMP002150,Natalia López,Red Médica Vital
+EMP002151,Sofía Vargas,Ingeniería Atlántida
+EMP002152,Gabriela Martínez,Abarrotes El Roble
+EMP002153,Marta González,Sistemas Olivo
+EMP002154,Daniela Castillo,Químicos Pacífico
+EMP002155,Karina Álvarez,Moda Eclipse
+EMP002156,Ricardo Pérez,Telecom Ícaro
+EMP002157,Alejandra Ibarra,Aeronáutica Boreas
+EMP002158,Juan Romero,Vinos El Encanto
+EMP002159,Andrés Castillo,Artes Gráficas Trébol
+EMP002160,Pablo Álvarez,Automotriz Solaris
+EMP002161,Noelia Peña,Aceros Nova
+EMP002162,Valeria Ibarra,Hotel Aurora
+EMP002163,Rocío Domínguez,Logística Delta
+EMP002164,Patricia Palacios,Tech Andina
+EMP002165,Karina Díaz,Textiles Orion
+EMP002166,Bruno Suárez,Café Bonanza
+EMP002167,Felipe Reyes,Construcciones Riviera
+EMP002168,Laura García,Farmacéutica Solaris
+EMP002169,Sergio Hernández,Grupo Horizonte
+EMP002170,Pedro Suárez,Plásticos Andrómeda
+EMP002171,Héctor Soto,Agro Campo Vivo
+EMP002172,Rubén García,Energía Boreal
+EMP002173,Adriana García,Servicios Altamira
+EMP002174,Felipe Fuentes,Industrias Prisma
+EMP002175,Raúl Escobar,Transportes Colibrí
+EMP002176,Bruno Álvarez,Banca Fénix
+EMP002177,José Morales,Editorial Constelación
+EMP002178,Gabriela Reyes,Alimentos La Hacienda
+EMP002179,Sergio Cortés,Cerámicas Nacar
+EMP002180,Ana Cruz,Red Médica Vital
+EMP002181,Beatriz Ruiz,Ingeniería Atlántida
+EMP002182,Lucía Martínez,Abarrotes El Roble
+EMP002183,Pedro Molina,Sistemas Olivo
+EMP002184,Sergio Valdez,Químicos Pacífico
+EMP002185,Rocío Ibarra,Moda Eclipse
+EMP002186,Noelia Pérez,Telecom Ícaro
+EMP002187,Jimena Rodríguez,Aeronáutica Boreas
+EMP002188,Iván Ramírez,Vinos El Encanto
+EMP002189,Gonzalo Delgado,Artes Gráficas Trébol
+EMP002190,Luis Domínguez,Automotriz Solaris
+EMP002191,Pablo López,Aceros Nova
+EMP002192,Claudia Fuentes,Hotel Aurora
+EMP002193,Miguel Reyes,Logística Delta
+EMP002194,Fernando Torres,Tech Andina
+EMP002195,Ricardo Delgado,Textiles Orion
+EMP002196,Rubén Escobar,Café Bonanza
+EMP002197,Ricardo Mendoza,Construcciones Riviera
+EMP002198,Emilio Ruiz,Farmacéutica Solaris
+EMP002199,Pedro González,Grupo Horizonte
+EMP002200,Andrés Ramírez,Plásticos Andrómeda
+EMP002201,Karina Palacios,Agro Campo Vivo
+EMP002202,Jimena Rodríguez,Energía Boreal
+EMP002203,Laura Rodríguez,Servicios Altamira
+EMP002204,Jorge Chávez,Industrias Prisma
+EMP002205,Daniela Mendoza,Transportes Colibrí
+EMP002206,Sergio Sánchez,Banca Fénix
+EMP002207,Óscar Silva,Editorial Constelación
+EMP002208,Karina Morales,Alimentos La Hacienda
+EMP002209,Emilio Álvarez,Cerámicas Nacar
+EMP002210,Daniela Torres,Red Médica Vital
+EMP002211,Carmen Pérez,Ingeniería Atlántida
+EMP002212,Jorge Pacheco,Abarrotes El Roble
+EMP002213,Isabel Miranda,Sistemas Olivo
+EMP002214,Rubén Campos,Químicos Pacífico
+EMP002215,Carlos Morales,Moda Eclipse
+EMP002216,Ricardo Cruz,Telecom Ícaro
+EMP002217,Lucía Miranda,Aeronáutica Boreas
+EMP002218,Valeria Silva,Vinos El Encanto
+EMP002219,Marta Salazar,Artes Gráficas Trébol
+EMP002220,Ana Pacheco,Automotriz Solaris
+EMP002221,Isabel Torres,Aceros Nova
+EMP002222,Sofía Hernández,Hotel Aurora
+EMP002223,Marta Chávez,Logística Delta
+EMP002224,Alejandra Escobar,Tech Andina
+EMP002225,Alejandra Reyes,Textiles Orion
+EMP002226,José Ibarra,Café Bonanza
+EMP002227,José Ramírez,Construcciones Riviera
+EMP002228,Carmen García,Farmacéutica Solaris
+EMP002229,Ana Palacios,Grupo Horizonte
+EMP002230,Pedro Ramírez,Plásticos Andrómeda
+EMP002231,Andrés Delgado,Agro Campo Vivo
+EMP002232,Rocío Pacheco,Energía Boreal
+EMP002233,Gonzalo Núñez,Servicios Altamira
+EMP002234,Lucía Domínguez,Industrias Prisma
+EMP002235,Jimena Torres,Transportes Colibrí
+EMP002236,Luis Hernández,Banca Fénix
+EMP002237,Luis Díaz,Editorial Constelación
+EMP002238,Lourdes Chávez,Alimentos La Hacienda
+EMP002239,Miguel Pérez,Cerámicas Nacar
+EMP002240,Adriana Sánchez,Red Médica Vital
+EMP002241,Carlos Ibarra,Ingeniería Atlántida
+EMP002242,Ana Flores,Abarrotes El Roble
+EMP002243,Pablo Guerrero,Sistemas Olivo
+EMP002244,Bruno Delgado,Químicos Pacífico
+EMP002245,Patricia Hernández,Moda Eclipse
+EMP002246,Raúl Pacheco,Telecom Ícaro
+EMP002247,Claudia Gómez,Aeronáutica Boreas
+EMP002248,Héctor Morales,Vinos El Encanto
+EMP002249,Sofía Ruiz,Artes Gráficas Trébol
+EMP002250,Paula Chávez,Automotriz Solaris
+EMP002251,Laura Martínez,Aceros Nova
+EMP002252,Verónica Peña,Hotel Aurora
+EMP002253,Verónica Reyes,Logística Delta
+EMP002254,Lourdes Castillo,Tech Andina
+EMP002255,Patricia Ramos,Textiles Orion
+EMP002256,Alejandra Navarro,Café Bonanza
+EMP002257,Ana Pérez,Construcciones Riviera
+EMP002258,Paula Ortiz,Farmacéutica Solaris
+EMP002259,Miguel Ramos,Grupo Horizonte
+EMP002260,Andrés Núñez,Plásticos Andrómeda
+EMP002261,Gabriela Reyes,Agro Campo Vivo
+EMP002262,Gonzalo Suárez,Energía Boreal
+EMP002263,María Ortiz,Servicios Altamira
+EMP002264,Beatriz Silva,Industrias Prisma
+EMP002265,Alberto Suárez,Transportes Colibrí
+EMP002266,Patricia Silva,Banca Fénix
+EMP002267,Pablo Salazar,Editorial Constelación
+EMP002268,Ricardo Ortiz,Alimentos La Hacienda
+EMP002269,Paula Gómez,Cerámicas Nacar
+EMP002270,María Mendoza,Red Médica Vital
+EMP002271,Ramiro Vargas,Ingeniería Atlántida
+EMP002272,María Palacios,Abarrotes El Roble
+EMP002273,Paula López,Sistemas Olivo
+EMP002274,Alberto Molina,Químicos Pacífico
+EMP002275,Héctor Palacios,Moda Eclipse
+EMP002276,Jimena Vargas,Telecom Ícaro
+EMP002277,Jorge Rodríguez,Aeronáutica Boreas
+EMP002278,Valeria Fuentes,Vinos El Encanto
+EMP002279,Valeria Ruiz,Artes Gráficas Trébol
+EMP002280,Óscar Escobar,Automotriz Solaris
+EMP002281,Ana Carrillo,Aceros Nova
+EMP002282,Pedro Aguilar,Hotel Aurora
+EMP002283,Raúl Silva,Logística Delta
+EMP002284,Sofía Gómez,Tech Andina
+EMP002285,Valeria Domínguez,Textiles Orion
+EMP002286,Ricardo Escobar,Café Bonanza
+EMP002287,Rubén Silva,Construcciones Riviera
+EMP002288,Jimena Hernández,Farmacéutica Solaris
+EMP002289,Beatriz Valdez,Grupo Horizonte
+EMP002290,Héctor Aguilar,Plásticos Andrómeda
+EMP002291,Pablo Cruz,Agro Campo Vivo
+EMP002292,Pablo Díaz,Energía Boreal
+EMP002293,Patricia Suárez,Servicios Altamira
+EMP002294,Isabel Gómez,Industrias Prisma
+EMP002295,Patricia Martínez,Transportes Colibrí
+EMP002296,Lucía López,Banca Fénix
+EMP002297,Pedro Campos,Editorial Constelación
+EMP002298,Pedro Hernández,Alimentos La Hacienda
+EMP002299,Gabriela Navarro,Cerámicas Nacar
+EMP002300,Juan Jiménez,Red Médica Vital
+EMP002301,Verónica Díaz,Ingeniería Atlántida
+EMP002302,Miguel Jiménez,Abarrotes El Roble
+EMP002303,Beatriz Gómez,Sistemas Olivo
+EMP002304,Ricardo López,Químicos Pacífico
+EMP002305,María Cruz,Moda Eclipse
+EMP002306,Jimena Miranda,Telecom Ícaro
+EMP002307,Laura Palacios,Aeronáutica Boreas
+EMP002308,Carmen Molina,Vinos El Encanto
+EMP002309,Rocío González,Artes Gráficas Trébol
+EMP002310,Rocío Miranda,Automotriz Solaris
+EMP002311,Eduardo Delgado,Aceros Nova
+EMP002312,Jimena Rodríguez,Hotel Aurora
+EMP002313,Adriana Álvarez,Logística Delta
+EMP002314,Ricardo Ramírez,Tech Andina
+EMP002315,Jorge Rojas,Textiles Orion
+EMP002316,Claudia Soto,Café Bonanza
+EMP002317,Patricia Núñez,Construcciones Riviera
+EMP002318,Ricardo Gómez,Farmacéutica Solaris
+EMP002319,Beatriz Vega,Grupo Horizonte
+EMP002320,Rubén Peña,Plásticos Andrómeda
+EMP002321,Héctor Vargas,Agro Campo Vivo
+EMP002322,Eduardo Domínguez,Energía Boreal
+EMP002323,Sofía Ortiz,Servicios Altamira
+EMP002324,Isabel Rojas,Industrias Prisma
+EMP002325,Rubén Castillo,Transportes Colibrí
+EMP002326,Miguel Gómez,Banca Fénix
+EMP002327,Bruno García,Editorial Constelación
+EMP002328,Rubén Aguilar,Alimentos La Hacienda
+EMP002329,Marta Palacios,Cerámicas Nacar
+EMP002330,Pablo Martínez,Red Médica Vital
+EMP002331,Sofía Campos,Ingeniería Atlántida
+EMP002332,Ricardo Peña,Abarrotes El Roble
+EMP002333,Pedro Soto,Sistemas Olivo
+EMP002334,Pablo Rodríguez,Químicos Pacífico
+EMP002335,Patricia Cruz,Moda Eclipse
+EMP002336,Adriana Escobar,Telecom Ícaro
+EMP002337,Luis Reyes,Aeronáutica Boreas
+EMP002338,Héctor Mendoza,Vinos El Encanto
+EMP002339,Jorge Soto,Artes Gráficas Trébol
+EMP002340,Lucía Miranda,Automotriz Solaris
+EMP002341,Eduardo Soto,Aceros Nova
+EMP002342,Bruno Jiménez,Hotel Aurora
+EMP002343,Emilio García,Logística Delta
+EMP002344,Diego Morales,Tech Andina
+EMP002345,Valeria Valdez,Textiles Orion
+EMP002346,Luis Silva,Café Bonanza
+EMP002347,Diego Rodríguez,Construcciones Riviera
+EMP002348,Bruno García,Farmacéutica Solaris
+EMP002349,Ana Ortiz,Grupo Horizonte
+EMP002350,Emilio Rojas,Plásticos Andrómeda
+EMP002351,Sergio Flores,Agro Campo Vivo
+EMP002352,Sergio Cortés,Energía Boreal
+EMP002353,Raúl Silva,Servicios Altamira
+EMP002354,Óscar Ortiz,Industrias Prisma
+EMP002355,José Navarro,Transportes Colibrí
+EMP002356,Pablo Núñez,Banca Fénix
+EMP002357,Felipe Pacheco,Editorial Constelación
+EMP002358,Pedro Flores,Alimentos La Hacienda
+EMP002359,Emilio González,Cerámicas Nacar
+EMP002360,Carlos Castillo,Red Médica Vital
+EMP002361,María Mendoza,Ingeniería Atlántida
+EMP002362,Diego Rodríguez,Abarrotes El Roble
+EMP002363,Luis Jiménez,Sistemas Olivo
+EMP002364,Jorge Ortiz,Químicos Pacífico
+EMP002365,Jorge Rojas,Moda Eclipse
+EMP002366,Luis Vega,Telecom Ícaro
+EMP002367,Lucía Jiménez,Aeronáutica Boreas
+EMP002368,Ramiro Peña,Vinos El Encanto
+EMP002369,Alberto Miranda,Artes Gráficas Trébol
+EMP002370,María Guerrero,Automotriz Solaris
+EMP002371,Lourdes Flores,Aceros Nova
+EMP002372,Ramiro Guerrero,Hotel Aurora
+EMP002373,Jorge López,Logística Delta
+EMP002374,José Jiménez,Tech Andina
+EMP002375,Elena Díaz,Textiles Orion
+EMP002376,Sergio Valdez,Café Bonanza
+EMP002377,Alejandra Rojas,Construcciones Riviera
+EMP002378,Bruno Suárez,Farmacéutica Solaris
+EMP002379,Diego Fuentes,Grupo Horizonte
+EMP002380,Fernando Álvarez,Plásticos Andrómeda
+EMP002381,Valeria Rodríguez,Agro Campo Vivo
+EMP002382,Ana Delgado,Energía Boreal
+EMP002383,Pablo Vega,Servicios Altamira
+EMP002384,Patricia Cruz,Industrias Prisma
+EMP002385,Ana Romero,Transportes Colibrí
+EMP002386,Juan Guerrero,Banca Fénix
+EMP002387,Lucía Castillo,Editorial Constelación
+EMP002388,Eduardo Soto,Alimentos La Hacienda
+EMP002389,Ramiro Navarro,Cerámicas Nacar
+EMP002390,Andrés Rodríguez,Red Médica Vital
+EMP002391,María Morales,Ingeniería Atlántida
+EMP002392,Jorge Soto,Abarrotes El Roble
+EMP002393,Fernando Pérez,Sistemas Olivo
+EMP002394,Alberto Sánchez,Químicos Pacífico
+EMP002395,Isabel Delgado,Moda Eclipse
+EMP002396,Alberto Cortés,Telecom Ícaro
+EMP002397,Eduardo Torres,Aeronáutica Boreas
+EMP002398,Lucía Núñez,Vinos El Encanto
+EMP002399,Óscar Ortiz,Artes Gráficas Trébol
+EMP002400,Sofía Romero,Automotriz Solaris
+EMP002401,Raúl Romero,Aceros Nova
+EMP002402,Sofía Chávez,Hotel Aurora
+EMP002403,Carlos Torres,Logística Delta
+EMP002404,Emilio Ibarra,Tech Andina
+EMP002405,Diego Vargas,Textiles Orion
+EMP002406,Paula Aguilar,Café Bonanza
+EMP002407,Ana Cruz,Construcciones Riviera
+EMP002408,Felipe Valdez,Farmacéutica Solaris
+EMP002409,Eduardo Rodríguez,Grupo Horizonte
+EMP002410,Lucía Fuentes,Plásticos Andrómeda
+EMP002411,Héctor Suárez,Agro Campo Vivo
+EMP002412,Sergio Carrillo,Energía Boreal
+EMP002413,Jimena Vargas,Servicios Altamira
+EMP002414,Alejandra López,Industrias Prisma
+EMP002415,Raúl Molina,Transportes Colibrí
+EMP002416,Sergio Suárez,Banca Fénix
+EMP002417,Natalia Navarro,Editorial Constelación
+EMP002418,Pablo Reyes,Alimentos La Hacienda
+EMP002419,Alberto Álvarez,Cerámicas Nacar
+EMP002420,Lucía Delgado,Red Médica Vital
+EMP002421,Beatriz Martínez,Ingeniería Atlántida
+EMP002422,Iván Aguilar,Abarrotes El Roble
+EMP002423,Gabriela Aguilar,Sistemas Olivo
+EMP002424,Natalia Peña,Químicos Pacífico
+EMP002425,Laura Sánchez,Moda Eclipse
+EMP002426,Felipe Chávez,Telecom Ícaro
+EMP002427,Sofía Flores,Aeronáutica Boreas
+EMP002428,Elena Díaz,Vinos El Encanto
+EMP002429,Miguel Martínez,Artes Gráficas Trébol
+EMP002430,Claudia Pérez,Automotriz Solaris
+EMP002431,Natalia Guerrero,Aceros Nova
+EMP002432,Andrés Soto,Hotel Aurora
+EMP002433,Laura Campos,Logística Delta
+EMP002434,Diego Mendoza,Tech Andina
+EMP002435,Bruno González,Textiles Orion
+EMP002436,Lucía Ortiz,Café Bonanza
+EMP002437,Alejandra Delgado,Construcciones Riviera
+EMP002438,Alejandra Mendoza,Farmacéutica Solaris
+EMP002439,Paula Molina,Grupo Horizonte
+EMP002440,Daniela García,Plásticos Andrómeda
+EMP002441,Rubén Peña,Agro Campo Vivo
+EMP002442,Jimena Molina,Energía Boreal
+EMP002443,Sergio Sánchez,Servicios Altamira
+EMP002444,Sergio Cruz,Industrias Prisma
+EMP002445,Laura Aguilar,Transportes Colibrí
+EMP002446,Jimena Domínguez,Banca Fénix
+EMP002447,Felipe Rodríguez,Editorial Constelación
+EMP002448,José Aguilar,Alimentos La Hacienda
+EMP002449,Karina Rodríguez,Cerámicas Nacar
+EMP002450,Fernando Suárez,Red Médica Vital
+EMP002451,Héctor Ramos,Ingeniería Atlántida
+EMP002452,Diego Ortiz,Abarrotes El Roble
+EMP002453,Lourdes Cortés,Sistemas Olivo
+EMP002454,Pablo Campos,Químicos Pacífico
+EMP002455,Alberto Martínez,Moda Eclipse
+EMP002456,Sofía Ruiz,Telecom Ícaro
+EMP002457,Marta Cruz,Aeronáutica Boreas
+EMP002458,Verónica Campos,Vinos El Encanto
+EMP002459,Natalia Valdez,Artes Gráficas Trébol
+EMP002460,Marta Martínez,Automotriz Solaris
+EMP002461,Marta Jiménez,Aceros Nova
+EMP002462,Rubén Reyes,Hotel Aurora
+EMP002463,Ana Escobar,Logística Delta
+EMP002464,Alberto Ruiz,Tech Andina
+EMP002465,Rocío Hernández,Textiles Orion
+EMP002466,Adriana Álvarez,Café Bonanza
+EMP002467,Isabel Ruiz,Construcciones Riviera
+EMP002468,Patricia Valdez,Farmacéutica Solaris
+EMP002469,Natalia Rodríguez,Grupo Horizonte
+EMP002470,Pedro Ramírez,Plásticos Andrómeda
+EMP002471,Isabel Escobar,Agro Campo Vivo
+EMP002472,Emilio Palacios,Energía Boreal
+EMP002473,Ricardo Ruiz,Servicios Altamira
+EMP002474,Bruno Ramos,Industrias Prisma
+EMP002475,Ramiro Núñez,Transportes Colibrí
+EMP002476,Lucía Díaz,Banca Fénix
+EMP002477,Emilio Morales,Editorial Constelación
+EMP002478,Sergio Escobar,Alimentos La Hacienda
+EMP002479,Patricia Carrillo,Cerámicas Nacar
+EMP002480,Gabriela Romero,Red Médica Vital
+EMP002481,Ana Salazar,Ingeniería Atlántida
+EMP002482,Jorge González,Abarrotes El Roble
+EMP002483,Isabel Miranda,Sistemas Olivo
+EMP002484,Iván Delgado,Químicos Pacífico
+EMP002485,Miguel Palacios,Moda Eclipse
+EMP002486,Gabriela Aguilar,Telecom Ícaro
+EMP002487,María Gómez,Aeronáutica Boreas
+EMP002488,Andrés Díaz,Vinos El Encanto
+EMP002489,Ana Reyes,Artes Gráficas Trébol
+EMP002490,Carlos Ibarra,Automotriz Solaris
+EMP002491,Ana Romero,Aceros Nova
+EMP002492,Beatriz Díaz,Hotel Aurora
+EMP002493,Paula Romero,Logística Delta
+EMP002494,Daniela Salazar,Tech Andina
+EMP002495,Marta Soto,Textiles Orion
+EMP002496,Carmen Pacheco,Café Bonanza
+EMP002497,María Reyes,Construcciones Riviera
+EMP002498,Rocío Cortés,Farmacéutica Solaris
+EMP002499,Ramiro Chávez,Grupo Horizonte
+EMP002500,Sofía Navarro,Plásticos Andrómeda
+EMP002501,Jimena Vega,Agro Campo Vivo
+EMP002502,Héctor Silva,Energía Boreal
+EMP002503,Jorge Torres,Servicios Altamira
+EMP002504,Noelia Valdez,Industrias Prisma
+EMP002505,Lucía Castillo,Transportes Colibrí
+EMP002506,María Ortiz,Banca Fénix
+EMP002507,Ana Flores,Editorial Constelación
+EMP002508,Pablo Palacios,Alimentos La Hacienda
+EMP002509,Elena Vargas,Cerámicas Nacar
+EMP002510,Lourdes Vargas,Red Médica Vital
+EMP002511,Natalia Morales,Ingeniería Atlántida
+EMP002512,Paula Núñez,Abarrotes El Roble
+EMP002513,Sergio Salazar,Sistemas Olivo
+EMP002514,María Palacios,Químicos Pacífico
+EMP002515,Karina Pacheco,Moda Eclipse
+EMP002516,Juan Navarro,Telecom Ícaro
+EMP002517,Miguel Núñez,Aeronáutica Boreas
+EMP002518,Sofía Campos,Vinos El Encanto
+EMP002519,Juan Vargas,Artes Gráficas Trébol
+EMP002520,Diego Campos,Automotriz Solaris
+EMP002521,Isabel Miranda,Aceros Nova
+EMP002522,Beatriz Núñez,Hotel Aurora
+EMP002523,Paula Guerrero,Logística Delta
+EMP002524,Raúl Silva,Tech Andina
+EMP002525,Daniela Torres,Textiles Orion
+EMP002526,Elena Ibarra,Café Bonanza
+EMP002527,Isabel Pacheco,Construcciones Riviera
+EMP002528,Gabriela Peña,Farmacéutica Solaris
+EMP002529,Marta Domínguez,Grupo Horizonte
+EMP002530,José García,Plásticos Andrómeda
+EMP002531,Iván Fuentes,Agro Campo Vivo
+EMP002532,Rocío Vega,Energía Boreal
+EMP002533,Lourdes Campos,Servicios Altamira
+EMP002534,Ramiro Castillo,Industrias Prisma
+EMP002535,Isabel Pacheco,Transportes Colibrí
+EMP002536,José Navarro,Banca Fénix
+EMP002537,Luis Jiménez,Editorial Constelación
+EMP002538,Paula Soto,Alimentos La Hacienda
+EMP002539,Ricardo Ruiz,Cerámicas Nacar
+EMP002540,Diego Núñez,Red Médica Vital
+EMP002541,Beatriz Núñez,Ingeniería Atlántida
+EMP002542,Isabel Díaz,Abarrotes El Roble
+EMP002543,Laura Molina,Sistemas Olivo
+EMP002544,Felipe Reyes,Químicos Pacífico
+EMP002545,Ana Campos,Moda Eclipse
+EMP002546,Marta Fuentes,Telecom Ícaro
+EMP002547,Ricardo Pacheco,Aeronáutica Boreas
+EMP002548,Miguel Rojas,Vinos El Encanto
+EMP002549,María Núñez,Artes Gráficas Trébol
+EMP002550,Patricia Castillo,Automotriz Solaris
+EMP002551,Diego Ramos,Aceros Nova
+EMP002552,Marta Ortiz,Hotel Aurora
+EMP002553,Noelia Martínez,Logística Delta
+EMP002554,Jimena Miranda,Tech Andina
+EMP002555,Pablo Díaz,Textiles Orion
+EMP002556,Adriana Rojas,Café Bonanza
+EMP002557,Beatriz Vargas,Construcciones Riviera
+EMP002558,Natalia Suárez,Farmacéutica Solaris
+EMP002559,Gonzalo Navarro,Grupo Horizonte
+EMP002560,Eduardo Silva,Plásticos Andrómeda
+EMP002561,Iván Álvarez,Agro Campo Vivo
+EMP002562,Jorge Fuentes,Energía Boreal
+EMP002563,Alejandra Gómez,Servicios Altamira
+EMP002564,Fernando Rodríguez,Industrias Prisma
+EMP002565,Alberto Ramírez,Transportes Colibrí
+EMP002566,Noelia Torres,Banca Fénix
+EMP002567,Bruno Vega,Editorial Constelación
+EMP002568,Felipe Gómez,Alimentos La Hacienda
+EMP002569,Natalia Jiménez,Cerámicas Nacar
+EMP002570,Lourdes Pérez,Red Médica Vital
+EMP002571,Pedro Silva,Ingeniería Atlántida
+EMP002572,Pedro Escobar,Abarrotes El Roble
+EMP002573,Isabel Ramos,Sistemas Olivo
+EMP002574,Adriana Romero,Químicos Pacífico
+EMP002575,Diego Domínguez,Moda Eclipse
+EMP002576,Fernando Ibarra,Telecom Ícaro
+EMP002577,Carmen Navarro,Aeronáutica Boreas
+EMP002578,Ana Soto,Vinos El Encanto
+EMP002579,Jimena Domínguez,Artes Gráficas Trébol
+EMP002580,Verónica González,Automotriz Solaris
+EMP002581,Alberto Díaz,Aceros Nova
+EMP002582,Iván Sánchez,Hotel Aurora
+EMP002583,Natalia Ortiz,Logística Delta
+EMP002584,Gabriela Álvarez,Tech Andina
+EMP002585,Sergio López,Textiles Orion
+EMP002586,Laura Ramírez,Café Bonanza
+EMP002587,Andrés Jiménez,Construcciones Riviera
+EMP002588,Sergio Aguilar,Farmacéutica Solaris
+EMP002589,Daniela Cruz,Grupo Horizonte
+EMP002590,Ricardo Miranda,Plásticos Andrómeda
+EMP002591,Sofía Palacios,Agro Campo Vivo
+EMP002592,Lucía Cortés,Energía Boreal
+EMP002593,Adriana Soto,Servicios Altamira
+EMP002594,Sofía Mendoza,Industrias Prisma
+EMP002595,Gonzalo López,Transportes Colibrí
+EMP002596,Juan Chávez,Banca Fénix
+EMP002597,Paula Morales,Editorial Constelación
+EMP002598,Felipe Palacios,Alimentos La Hacienda
+EMP002599,Jorge Aguilar,Cerámicas Nacar
+EMP002600,Felipe Flores,Red Médica Vital
+EMP002601,Patricia Carrillo,Ingeniería Atlántida
+EMP002602,Karina Pérez,Abarrotes El Roble
+EMP002603,Miguel Peña,Sistemas Olivo
+EMP002604,Claudia Soto,Químicos Pacífico
+EMP002605,Claudia Delgado,Moda Eclipse
+EMP002606,Claudia Navarro,Telecom Ícaro
+EMP002607,Raúl García,Aeronáutica Boreas
+EMP002608,Carlos Suárez,Vinos El Encanto
+EMP002609,Andrés Rojas,Artes Gráficas Trébol
+EMP002610,Rocío García,Automotriz Solaris
+EMP002611,Ricardo Carrillo,Aceros Nova
+EMP002612,Gabriela Díaz,Hotel Aurora
+EMP002613,María Pacheco,Logística Delta
+EMP002614,Juan Soto,Tech Andina
+EMP002615,Bruno Reyes,Textiles Orion
+EMP002616,Pedro Valdez,Café Bonanza
+EMP002617,Héctor Álvarez,Construcciones Riviera
+EMP002618,Miguel Rodríguez,Farmacéutica Solaris
+EMP002619,Raúl Salazar,Grupo Horizonte
+EMP002620,Jimena Álvarez,Plásticos Andrómeda
+EMP002621,Jorge González,Agro Campo Vivo
+EMP002622,Carlos Álvarez,Energía Boreal
+EMP002623,Fernando Ibarra,Servicios Altamira
+EMP002624,Bruno Molina,Industrias Prisma
+EMP002625,Ramiro Molina,Transportes Colibrí
+EMP002626,Adriana Guerrero,Banca Fénix
+EMP002627,Natalia Ramírez,Editorial Constelación
+EMP002628,Adriana Cortés,Alimentos La Hacienda
+EMP002629,Héctor Carrillo,Cerámicas Nacar
+EMP002630,Andrés Flores,Red Médica Vital
+EMP002631,Marta Hernández,Ingeniería Atlántida
+EMP002632,Pedro Vargas,Abarrotes El Roble
+EMP002633,Bruno Ramírez,Sistemas Olivo
+EMP002634,Elena Rojas,Químicos Pacífico
+EMP002635,María Domínguez,Moda Eclipse
+EMP002636,Iván Flores,Telecom Ícaro
+EMP002637,Carmen Romero,Aeronáutica Boreas
+EMP002638,Beatriz Núñez,Vinos El Encanto
+EMP002639,Carlos Ortiz,Artes Gráficas Trébol
+EMP002640,Gonzalo Torres,Automotriz Solaris
+EMP002641,Karina Suárez,Aceros Nova
+EMP002642,Verónica López,Hotel Aurora
+EMP002643,Ramiro López,Logística Delta
+EMP002644,Eduardo Rodríguez,Tech Andina
+EMP002645,Lourdes Hernández,Textiles Orion
+EMP002646,Ana Valdez,Café Bonanza
+EMP002647,Carmen Ramos,Construcciones Riviera
+EMP002648,Emilio Ortiz,Farmacéutica Solaris
+EMP002649,Carmen Vega,Grupo Horizonte
+EMP002650,Diego Navarro,Plásticos Andrómeda
+EMP002651,Rubén Cruz,Agro Campo Vivo
+EMP002652,Elena Valdez,Energía Boreal
+EMP002653,Natalia Soto,Servicios Altamira
+EMP002654,Juan Álvarez,Industrias Prisma
+EMP002655,Sergio Fuentes,Transportes Colibrí
+EMP002656,José Fuentes,Banca Fénix
+EMP002657,Gabriela Ruiz,Editorial Constelación
+EMP002658,Verónica Campos,Alimentos La Hacienda
+EMP002659,Rubén Ramírez,Cerámicas Nacar
+EMP002660,Sergio Rodríguez,Red Médica Vital
+EMP002661,Iván Rojas,Ingeniería Atlántida
+EMP002662,Verónica Sánchez,Abarrotes El Roble
+EMP002663,Fernando Sánchez,Sistemas Olivo
+EMP002664,José Cortés,Químicos Pacífico
+EMP002665,Andrés Campos,Moda Eclipse
+EMP002666,Andrés Palacios,Telecom Ícaro
+EMP002667,Diego Molina,Aeronáutica Boreas
+EMP002668,Andrés Silva,Vinos El Encanto
+EMP002669,Beatriz Ramos,Artes Gráficas Trébol
+EMP002670,Fernando Flores,Automotriz Solaris
+EMP002671,Carlos Vega,Aceros Nova
+EMP002672,Patricia Morales,Hotel Aurora
+EMP002673,Rubén Navarro,Logística Delta
+EMP002674,Adriana Reyes,Tech Andina
+EMP002675,Juan García,Textiles Orion
+EMP002676,Eduardo Pérez,Café Bonanza
+EMP002677,Carmen Aguilar,Construcciones Riviera
+EMP002678,Eduardo Cortés,Farmacéutica Solaris
+EMP002679,Laura Pérez,Grupo Horizonte
+EMP002680,Karina Salazar,Plásticos Andrómeda
+EMP002681,Luis Rojas,Agro Campo Vivo
+EMP002682,Bruno Rodríguez,Energía Boreal
+EMP002683,Diego Núñez,Servicios Altamira
+EMP002684,Pedro Ibarra,Industrias Prisma
+EMP002685,Fernando Torres,Transportes Colibrí
+EMP002686,Daniela López,Banca Fénix
+EMP002687,José Gómez,Editorial Constelación
+EMP002688,Carlos Castillo,Alimentos La Hacienda
+EMP002689,Rocío Pacheco,Cerámicas Nacar
+EMP002690,Ricardo Guerrero,Red Médica Vital
+EMP002691,Noelia Sánchez,Ingeniería Atlántida
+EMP002692,José Carrillo,Abarrotes El Roble
+EMP002693,Carlos García,Sistemas Olivo
+EMP002694,Miguel Fuentes,Químicos Pacífico
+EMP002695,Lourdes Flores,Moda Eclipse
+EMP002696,Adriana Silva,Telecom Ícaro
+EMP002697,Emilio Peña,Aeronáutica Boreas
+EMP002698,Paula Rojas,Vinos El Encanto
+EMP002699,Lucía Romero,Artes Gráficas Trébol
+EMP002700,Adriana Gómez,Automotriz Solaris
+EMP002701,Carmen Delgado,Aceros Nova
+EMP002702,Marta Ibarra,Hotel Aurora
+EMP002703,Paula Ortiz,Logística Delta
+EMP002704,Rubén Navarro,Tech Andina
+EMP002705,Sergio Núñez,Textiles Orion
+EMP002706,Jorge Sánchez,Café Bonanza
+EMP002707,Miguel Valdez,Construcciones Riviera
+EMP002708,Bruno López,Farmacéutica Solaris
+EMP002709,Jorge Rodríguez,Grupo Horizonte
+EMP002710,Sergio Domínguez,Plásticos Andrómeda
+EMP002711,Alberto Aguilar,Agro Campo Vivo
+EMP002712,Natalia Chávez,Energía Boreal
+EMP002713,Sofía Peña,Servicios Altamira
+EMP002714,Raúl Palacios,Industrias Prisma
+EMP002715,Héctor Peña,Transportes Colibrí
+EMP002716,María Pacheco,Banca Fénix
+EMP002717,Bruno Ramírez,Editorial Constelación
+EMP002718,Alberto Cortés,Alimentos La Hacienda
+EMP002719,Carmen Ramos,Cerámicas Nacar
+EMP002720,Emilio Martínez,Red Médica Vital
+EMP002721,Luis Torres,Ingeniería Atlántida
+EMP002722,Lourdes Mendoza,Abarrotes El Roble
+EMP002723,Juan Miranda,Sistemas Olivo
+EMP002724,Natalia Molina,Químicos Pacífico
+EMP002725,Karina Escobar,Moda Eclipse
+EMP002726,Pablo Rojas,Telecom Ícaro
+EMP002727,Pablo Vargas,Aeronáutica Boreas
+EMP002728,Eduardo Jiménez,Vinos El Encanto
+EMP002729,Gabriela Molina,Artes Gráficas Trébol
+EMP002730,Rubén Valdez,Automotriz Solaris
+EMP002731,Verónica Rodríguez,Aceros Nova
+EMP002732,Claudia Fuentes,Hotel Aurora
+EMP002733,Bruno Reyes,Logística Delta
+EMP002734,Alberto Silva,Tech Andina
+EMP002735,Eduardo Pacheco,Textiles Orion
+EMP002736,Lourdes Ortiz,Café Bonanza
+EMP002737,Laura Vega,Construcciones Riviera
+EMP002738,Verónica López,Farmacéutica Solaris
+EMP002739,Juan Núñez,Grupo Horizonte
+EMP002740,Jorge Salazar,Plásticos Andrómeda
+EMP002741,Alberto Cortés,Agro Campo Vivo
+EMP002742,Jorge González,Energía Boreal
+EMP002743,Felipe Cortés,Servicios Altamira
+EMP002744,Ricardo Reyes,Industrias Prisma
+EMP002745,Adriana Ruiz,Transportes Colibrí
+EMP002746,Ana Salazar,Banca Fénix
+EMP002747,Pedro Vega,Editorial Constelación
+EMP002748,Lourdes Ortiz,Alimentos La Hacienda
+EMP002749,Marta Reyes,Cerámicas Nacar
+EMP002750,Lucía Ibarra,Red Médica Vital
+EMP002751,Emilio Aguilar,Ingeniería Atlántida
+EMP002752,Emilio Pérez,Abarrotes El Roble
+EMP002753,Patricia Chávez,Sistemas Olivo
+EMP002754,Ricardo Sánchez,Químicos Pacífico
+EMP002755,Patricia Escobar,Moda Eclipse
+EMP002756,Lourdes Hernández,Telecom Ícaro
+EMP002757,José Delgado,Aeronáutica Boreas
+EMP002758,Sergio Martínez,Vinos El Encanto
+EMP002759,Alejandra Vega,Artes Gráficas Trébol
+EMP002760,Juan Pérez,Automotriz Solaris
+EMP002761,Ramiro Peña,Aceros Nova
+EMP002762,Gonzalo Álvarez,Hotel Aurora
+EMP002763,Iván Vega,Logística Delta
+EMP002764,Elena Núñez,Tech Andina
+EMP002765,Eduardo Ibarra,Textiles Orion
+EMP002766,Adriana Romero,Café Bonanza
+EMP002767,Ana Vargas,Construcciones Riviera
+EMP002768,Daniela Jiménez,Farmacéutica Solaris
+EMP002769,Alejandra Palacios,Grupo Horizonte
+EMP002770,Verónica Campos,Plásticos Andrómeda
+EMP002771,Alberto Miranda,Agro Campo Vivo
+EMP002772,Eduardo Romero,Energía Boreal
+EMP002773,Beatriz Chávez,Servicios Altamira
+EMP002774,Carmen Rodríguez,Industrias Prisma
+EMP002775,Felipe Fuentes,Transportes Colibrí
+EMP002776,Pedro García,Banca Fénix
+EMP002777,Adriana Silva,Editorial Constelación
+EMP002778,Gonzalo Castillo,Alimentos La Hacienda
+EMP002779,Alejandra Molina,Cerámicas Nacar
+EMP002780,Rocío Valdez,Red Médica Vital
+EMP002781,José Martínez,Ingeniería Atlántida
+EMP002782,Jorge Cortés,Abarrotes El Roble
+EMP002783,Miguel Miranda,Sistemas Olivo
+EMP002784,Noelia Rojas,Químicos Pacífico
+EMP002785,Sergio Rodríguez,Moda Eclipse
+EMP002786,Diego Peña,Telecom Ícaro
+EMP002787,Andrés Díaz,Aeronáutica Boreas
+EMP002788,Carmen Delgado,Vinos El Encanto
+EMP002789,Elena Ibarra,Artes Gráficas Trébol
+EMP002790,Andrés Miranda,Automotriz Solaris
+EMP002791,Adriana Rodríguez,Aceros Nova
+EMP002792,Felipe Ramos,Hotel Aurora
+EMP002793,Carlos Soto,Logística Delta
+EMP002794,Natalia Domínguez,Tech Andina
+EMP002795,Carmen Palacios,Textiles Orion
+EMP002796,Emilio Ibarra,Café Bonanza
+EMP002797,Eduardo Domínguez,Construcciones Riviera
+EMP002798,Iván Ramírez,Farmacéutica Solaris
+EMP002799,Patricia García,Grupo Horizonte
+EMP002800,Gabriela Escobar,Plásticos Andrómeda
+EMP002801,Ana Vega,Agro Campo Vivo
+EMP002802,Claudia Domínguez,Energía Boreal
+EMP002803,Alberto Salazar,Servicios Altamira
+EMP002804,Karina Gómez,Industrias Prisma
+EMP002805,Rubén Domínguez,Transportes Colibrí
+EMP002806,Sofía Rojas,Banca Fénix
+EMP002807,Miguel Rodríguez,Editorial Constelación
+EMP002808,Raúl Fuentes,Alimentos La Hacienda
+EMP002809,Ramiro Campos,Cerámicas Nacar
+EMP002810,Ricardo Salazar,Red Médica Vital
+EMP002811,Raúl Ramos,Ingeniería Atlántida
+EMP002812,Ramiro Valdez,Abarrotes El Roble
+EMP002813,Felipe Reyes,Sistemas Olivo
+EMP002814,Paula Delgado,Químicos Pacífico
+EMP002815,Adriana Castillo,Moda Eclipse
+EMP002816,Emilio Ramírez,Telecom Ícaro
+EMP002817,Miguel Ramos,Aeronáutica Boreas
+EMP002818,Ramiro Valdez,Vinos El Encanto
+EMP002819,Noelia Salazar,Artes Gráficas Trébol
+EMP002820,Isabel Valdez,Automotriz Solaris
+EMP002821,Alejandra Mendoza,Aceros Nova
+EMP002822,Beatriz Escobar,Hotel Aurora
+EMP002823,Alejandra Soto,Logística Delta
+EMP002824,Elena Díaz,Tech Andina
+EMP002825,Elena Peña,Textiles Orion
+EMP002826,Beatriz Castillo,Café Bonanza
+EMP002827,Natalia Silva,Construcciones Riviera
+EMP002828,Natalia Ramírez,Farmacéutica Solaris
+EMP002829,Beatriz Núñez,Grupo Horizonte
+EMP002830,Sofía Salazar,Plásticos Andrómeda
+EMP002831,Óscar Valdez,Agro Campo Vivo
+EMP002832,Gonzalo Mendoza,Energía Boreal
+EMP002833,Beatriz Sánchez,Servicios Altamira
+EMP002834,Felipe Silva,Industrias Prisma
+EMP002835,Alejandra Navarro,Transportes Colibrí
+EMP002836,Jimena Aguilar,Banca Fénix
+EMP002837,Eduardo Miranda,Editorial Constelación
+EMP002838,Sergio Pacheco,Alimentos La Hacienda
+EMP002839,Noelia Suárez,Cerámicas Nacar
+EMP002840,Fernando Guerrero,Red Médica Vital
+EMP002841,Juan Molina,Ingeniería Atlántida
+EMP002842,José Hernández,Abarrotes El Roble
+EMP002843,Raúl Cruz,Sistemas Olivo
+EMP002844,Ana Fuentes,Químicos Pacífico
+EMP002845,Ana Díaz,Moda Eclipse
+EMP002846,Paula Carrillo,Telecom Ícaro
+EMP002847,Jorge Castillo,Aeronáutica Boreas
+EMP002848,Natalia Torres,Vinos El Encanto
+EMP002849,Laura López,Artes Gráficas Trébol
+EMP002850,Rubén Castillo,Automotriz Solaris
+EMP002851,Elena Carrillo,Aceros Nova
+EMP002852,Óscar Martínez,Hotel Aurora
+EMP002853,Héctor Chávez,Logística Delta
+EMP002854,José Peña,Tech Andina
+EMP002855,Natalia Escobar,Textiles Orion
+EMP002856,Alejandra Vargas,Café Bonanza
+EMP002857,Noelia Núñez,Construcciones Riviera
+EMP002858,Alejandra Ortiz,Farmacéutica Solaris
+EMP002859,Valeria Salazar,Grupo Horizonte
+EMP002860,Rubén Castillo,Plásticos Andrómeda
+EMP002861,Rubén Fuentes,Agro Campo Vivo
+EMP002862,Ana Ortiz,Energía Boreal
+EMP002863,Raúl Ramos,Servicios Altamira
+EMP002864,Natalia Mendoza,Industrias Prisma
+EMP002865,Alejandra López,Transportes Colibrí
+EMP002866,Juan Escobar,Banca Fénix
+EMP002867,Diego Díaz,Editorial Constelación
+EMP002868,Verónica Palacios,Alimentos La Hacienda
+EMP002869,Emilio Vargas,Cerámicas Nacar
+EMP002870,Gonzalo Miranda,Red Médica Vital
+EMP002871,Beatriz Núñez,Ingeniería Atlántida
+EMP002872,Rocío Carrillo,Abarrotes El Roble
+EMP002873,Jimena Suárez,Sistemas Olivo
+EMP002874,Noelia Campos,Químicos Pacífico
+EMP002875,Andrés Palacios,Moda Eclipse
+EMP002876,Bruno Díaz,Telecom Ícaro
+EMP002877,Fernando Chávez,Aeronáutica Boreas
+EMP002878,Sofía Pacheco,Vinos El Encanto
+EMP002879,Luis Gómez,Artes Gráficas Trébol
+EMP002880,Sofía Escobar,Automotriz Solaris
+EMP002881,Iván Sánchez,Aceros Nova
+EMP002882,Raúl Martínez,Hotel Aurora
+EMP002883,Claudia Ruiz,Logística Delta
+EMP002884,Alejandra Torres,Tech Andina
+EMP002885,Miguel Flores,Textiles Orion
+EMP002886,Jimena Torres,Café Bonanza
+EMP002887,Juan Jiménez,Construcciones Riviera
+EMP002888,Daniela Miranda,Farmacéutica Solaris
+EMP002889,Laura Martínez,Grupo Horizonte
+EMP002890,Laura Mendoza,Plásticos Andrómeda
+EMP002891,Ramiro López,Agro Campo Vivo
+EMP002892,Karina Soto,Energía Boreal
+EMP002893,Verónica Fuentes,Servicios Altamira
+EMP002894,Isabel Cortés,Industrias Prisma
+EMP002895,Pablo Vega,Transportes Colibrí
+EMP002896,Héctor González,Banca Fénix
+EMP002897,Beatriz Mendoza,Editorial Constelación
+EMP002898,Gabriela Vargas,Alimentos La Hacienda
+EMP002899,Sofía Molina,Cerámicas Nacar
+EMP002900,Luis Salazar,Red Médica Vital
+EMP002901,Jorge Ramos,Ingeniería Atlántida
+EMP002902,Óscar Suárez,Abarrotes El Roble
+EMP002903,Marta Pérez,Sistemas Olivo
+EMP002904,Héctor Vargas,Químicos Pacífico
+EMP002905,Elena Fuentes,Moda Eclipse
+EMP002906,Adriana Jiménez,Telecom Ícaro
+EMP002907,Rocío Castillo,Aeronáutica Boreas
+EMP002908,Elena Carrillo,Vinos El Encanto
+EMP002909,Verónica Molina,Artes Gráficas Trébol
+EMP002910,Alberto Vega,Automotriz Solaris
+EMP002911,Felipe Núñez,Aceros Nova
+EMP002912,Juan Sánchez,Hotel Aurora
+EMP002913,Eduardo Silva,Logística Delta
+EMP002914,Emilio Reyes,Tech Andina
+EMP002915,Lourdes Peña,Textiles Orion
+EMP002916,Verónica Reyes,Café Bonanza
+EMP002917,Carlos Pacheco,Construcciones Riviera
+EMP002918,Ricardo Ortiz,Farmacéutica Solaris
+EMP002919,Carmen Ortiz,Grupo Horizonte
+EMP002920,Diego Suárez,Plásticos Andrómeda
+EMP002921,Bruno Castillo,Agro Campo Vivo
+EMP002922,María Molina,Energía Boreal
+EMP002923,Karina Romero,Servicios Altamira
+EMP002924,Iván Salazar,Industrias Prisma
+EMP002925,Emilio Cortés,Transportes Colibrí
+EMP002926,Carlos Castillo,Banca Fénix
+EMP002927,Lourdes Díaz,Editorial Constelación
+EMP002928,Ricardo Salazar,Alimentos La Hacienda
+EMP002929,Lucía Rodríguez,Cerámicas Nacar
+EMP002930,Jorge Palacios,Red Médica Vital
+EMP002931,Óscar Suárez,Ingeniería Atlántida
+EMP002932,Juan Soto,Abarrotes El Roble
+EMP002933,Luis Morales,Sistemas Olivo
+EMP002934,Eduardo Soto,Químicos Pacífico
+EMP002935,Karina Morales,Moda Eclipse
+EMP002936,Natalia Guerrero,Telecom Ícaro
+EMP002937,José Morales,Aeronáutica Boreas
+EMP002938,Óscar Valdez,Vinos El Encanto
+EMP002939,Noelia Palacios,Artes Gráficas Trébol
+EMP002940,Claudia Núñez,Automotriz Solaris
+EMP002941,Luis Escobar,Aceros Nova
+EMP002942,Natalia Cruz,Hotel Aurora
+EMP002943,María Ibarra,Logística Delta
+EMP002944,Beatriz Jiménez,Tech Andina
+EMP002945,Carlos Pérez,Textiles Orion
+EMP002946,Luis López,Café Bonanza
+EMP002947,Sofía Torres,Construcciones Riviera
+EMP002948,Alejandra González,Farmacéutica Solaris
+EMP002949,Pablo Vargas,Grupo Horizonte
+EMP002950,Diego Ramos,Plásticos Andrómeda
+EMP002951,Raúl Chávez,Agro Campo Vivo
+EMP002952,Gonzalo Delgado,Energía Boreal
+EMP002953,Claudia Mendoza,Servicios Altamira
+EMP002954,María Ortiz,Industrias Prisma
+EMP002955,Natalia Sánchez,Transportes Colibrí
+EMP002956,Óscar García,Banca Fénix
+EMP002957,Lourdes Rojas,Editorial Constelación
+EMP002958,Verónica González,Alimentos La Hacienda
+EMP002959,Felipe Escobar,Cerámicas Nacar
+EMP002960,Jimena Martínez,Red Médica Vital
+EMP002961,Rubén González,Ingeniería Atlántida
+EMP002962,Héctor Salazar,Abarrotes El Roble
+EMP002963,José Castillo,Sistemas Olivo
+EMP002964,Natalia Álvarez,Químicos Pacífico
+EMP002965,Ramiro Pérez,Moda Eclipse
+EMP002966,Fernando Carrillo,Telecom Ícaro
+EMP002967,Emilio Ortiz,Aeronáutica Boreas
+EMP002968,Marta Fuentes,Vinos El Encanto
+EMP002969,María Navarro,Artes Gráficas Trébol
+EMP002970,Jorge Suárez,Automotriz Solaris
+EMP002971,Pedro Ramírez,Aceros Nova
+EMP002972,Noelia Delgado,Hotel Aurora
+EMP002973,Óscar Castillo,Logística Delta
+EMP002974,Gonzalo Cruz,Tech Andina
+EMP002975,Isabel Pacheco,Textiles Orion
+EMP002976,Bruno Núñez,Café Bonanza
+EMP002977,Rocío García,Construcciones Riviera
+EMP002978,Alejandra Vega,Farmacéutica Solaris
+EMP002979,Laura Sánchez,Grupo Horizonte
+EMP002980,Carlos García,Plásticos Andrómeda
+EMP002981,Pablo Campos,Agro Campo Vivo
+EMP002982,Marta Suárez,Energía Boreal
+EMP002983,Alejandra Pérez,Servicios Altamira
+EMP002984,Isabel Morales,Industrias Prisma
+EMP002985,Noelia Escobar,Transportes Colibrí
+EMP002986,Bruno Silva,Banca Fénix
+EMP002987,Elena Ramos,Editorial Constelación
+EMP002988,Lourdes Salazar,Alimentos La Hacienda
+EMP002989,Laura Flores,Cerámicas Nacar
+EMP002990,Sofía Vargas,Red Médica Vital
+EMP002991,Verónica Torres,Ingeniería Atlántida
+EMP002992,Andrés Sánchez,Abarrotes El Roble
+EMP002993,Sofía Fuentes,Sistemas Olivo
+EMP002994,Pablo López,Químicos Pacífico
+EMP002995,Felipe Vega,Moda Eclipse
+EMP002996,Daniela Núñez,Telecom Ícaro
+EMP002997,Alejandra González,Aeronáutica Boreas
+EMP002998,Fernando Fuentes,Vinos El Encanto
+EMP002999,Luis Torres,Artes Gráficas Trébol
+EMP003000,José Díaz,Automotriz Solaris

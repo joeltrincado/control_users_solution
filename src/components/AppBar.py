@@ -33,6 +33,7 @@ class AppBar():
         actions=[
             ft.PopupMenuButton(
                 icon=ft.Icons.MENU,
+                tooltip="Menú",
                 items=i
             ),
         ],

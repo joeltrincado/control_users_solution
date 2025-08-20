@@ -2,7 +2,6 @@ import flet as ft
 
 class Container():
     def __init__(self, business_name, height=None, content = None, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.bisnness_name = business_name
         self.height = height
         self.content = content

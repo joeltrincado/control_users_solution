@@ -1,131 +1,151 @@
-import qrcode
-from PIL import Image
-import io
-import base64
 import flet as ft
-import socket
-
-def generate_qr_base64(data=None):
-    # Generar el QR
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-    qr.add_data(data)
-    qr.make(fit=True)
-    qr_img = qr.make_image(fill_color="black", back_color="white").convert("RGB")
-
-    # Si quieres un margen extra:
-    background = Image.new("RGB", (qr_img.width + 20, qr_img.height + 20), (255, 255, 255))
-    background.paste(qr_img, (10, 10))
-
-    # Convertir a buffer
-    buffered = io.BytesIO()
-    background.save(buffered, format="PNG")
-    img_bytes = buffered.getvalue()
-
-    # Codificar a base64
-    img_base64 = base64.b64encode(img_bytes).decode()
-
-    # Retornar el Data URI
-    return img_base64
 
 def getDatacell(data=None):
-    users = []
-    for user in data:
-        users.append(
-            ft.DataRow(cells=[
-                ft.DataCell(ft.Text(str(user[0]))),  # id
-                ft.DataCell(ft.Text(user[1])),       # nombre
-                ft.DataCell(ft.Text(user[5])),       # empresa
-                ft.DataCell(ft.Text(user[3])),       # fecha
-                ft.DataCell(ft.Text(user[4])),       # hora
-            ])
-        )
-    return users
+    """
+    data rows (entradas):
+    [id, codigo, hora_entrada, fecha_entrada, hora_salida, fecha_salida, type_entry, precio, status]
+    """
+    if not data:
+        return []
+    return [
+        ft.DataRow(cells=[
+            ft.DataCell(ft.Text(value=str(row[0]), selectable=True)),
+            ft.DataCell(ft.Text(value=row[1], selectable=True)),
+            ft.DataCell(ft.Text(value=row[3], selectable=True)),  # Fecha
+            ft.DataCell(ft.Text(value=row[2], selectable=True)),  # Hora
+            ft.DataCell(ft.Text(value=row[6], selectable=True)),  # Tipo usuario
+        ])
+        for row in data
+    ]
+
 
 def getDataColumns(data=None):
-    columns = []
-    for d in data:
-        columns.append(ft.DataColumn(label=ft.Text(d,)))
-    return columns
+    if not data:
+        return []
+    return [ft.DataColumn(label=ft.Text(col)) for col in data]
 
-# def print_ticket_usb(printer_name=None, error=None, err_printer=None):
-#     zpl_code = f"""
-#             ^XA
-#             ^MMT
-#             ^PW609
-#             ^LL609
-#             ^LS0
-#             ^CI27
-#             ^PR4
-#             ~SD20
-#             ^MD0
-#             ^FT20,339^A0N,18,18^FH\\^CI28^FDUPC^FS^CI27
-#             ^FT200,339^A0N,18,18^FH\\^CI28^FDGen^FS^CI27
-#             ^FT260,339^A0N,18,18^FH\\^CI28^FDTalla^FS^CI27
-#             ^FT330,339^A0N,18,18^FH\\^CI28^FDColor^FS^CI27
-#             ^FT420,339^A0N,18,18^FH\\^CI28^FDModelo^FS^CI27
-#             ^FT520,339^A0N,18,18^FH\\^CI28^FDPzas^FS^CI27
 
-#             ^FO11,349^GFA,49,304,76,:Z64:eJzj4KAWYGCQoRaQYGCwoRawYGAQoBpgYAAAAPcgWQ==:C91B
-#             ^PQ1,0,1,Y
-#             ^XZ
-#             """
-#     if printer_name:
-#         try:
-#             printer_handle = win32print.OpenPrinter(printer_name)
-#             job = win32print.StartDocPrinter(printer_handle, 1, ("Ticket Lote", None, "RAW"))
-#             win32print.StartPagePrinter(printer_handle)
-#             win32print.WritePrinter(printer_handle, zpl_code.encode("utf-8"))
-#             win32print.EndPagePrinter(printer_handle)
-#             win32print.EndDocPrinter(printer_handle)
-#             win32print.ClosePrinter(printer_handle)
-#         except Exception as e:
-#             return error if error else print("Error al imprimir:", e)
-#     else:
-#         return err_printer if err_printer else print("No se ha seleccionado una impresora")
+def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None, entrada=True):
+    """
+    Impresión ESC/POS (USB) para boleto de COMEDOR.
+    - Solo se usa 'entrada=True' (no hay salidas en comedor).
+    Campos esperados en data:
+      - titulo (str), codigo (str), fecha_entrada (str), hora_entrada (str),
+        tipo (str), precio (str)  -> p.ej. "25.00 MXN"
+    """
+    import win32print
+    import struct
 
-def print_ticket_ethernet(ip=None, port=9100, error=None, err_printer=None, user=None, date=None, time=None):
-    print(user)
-    zpl_code = f"""
-            ^XA
-            ~TA000
-            ~JSN
-            ^LT0
-            ^MNW
-            ^MTT
-            ^PON
-            ^PMN
-            ^LH0,0
-            ^JMA
-            ^PR8,8
-            ~SD15
-            ^JUS
-            ^LRN
-            ^CI27
-            ^PA0,1,1,0
-            ^MMT
-            ^PW607
-            ^LL408
-            ^LS0
-            ^FT33,77^A0N,28,28^FH\^CI28^FDNombre: {user[1]} ^FS^CI27
-            ^FT33,149^A0N,28,28^FH\^CI28^FDFecha: {date}^FS^CI27
-            ^FT33,188^A0N,28,28^FH\^CI28^FDHora: {time}^FS^CI27
-            ^FT33,225^A0N,28,28^FH\^CI28^FDCódigo: {user[0]}^FS^CI27
-            ^FT33,112^A0N,28,28^FH\^CI28^FDEmpresa: {user[2]}^FS^CI27
-            ^FT366,375^BQN,2,8
-            ^FH\^FDLA,12345^FS
-            ^XZ
-            """
-    if ip:
+    if data is None:
+        data = {}
+
+    ESC = b"\x1b"
+    GS  = b"\x1d"
+
+    def init():
+        return bytearray(ESC + b"@" + ESC + b"t" + bytes([16]))  # CP1252
+
+    def align(n: int):
+        return ESC + b"a" + bytes([n])  # 0=left,1=center,2=right
+
+    def font(n: int):
+        return ESC + b"M" + bytes([n])  # 0=A, 1=B
+
+    def bold(on: bool):
+        return ESC + b"E" + (b"\x01" if on else b"\x00")
+
+    def size(w=1, h=1):
+        n = (max(1, min(8, h)) - 1) * 16 + (max(1, min(8, w)) - 1)
+        return GS + b"!" + bytes([n])
+
+    def feed(n: int = 1):
+        return b"\n" * max(0, n)
+
+    def cut(partial: bool = True):
+        return GS + b"V" + (b"\x42" if partial else b"\x41") + b"\x00"
+
+    def txt(s: str):
+        return s.encode("cp1252", errors="replace")
+
+    def rule(cols: int = 42, ch: str = "-"):
+        return txt(ch * cols) + b"\n"
+
+    def kv_line(left: str, right: str, cols: int = 42):
+        left = left.strip()
+        right = right.strip()
+        space = max(1, cols - len(left) - len(right))
+        return txt(left + (" " * space) + right) + b"\n"
+
+    def qr_bytes(payload: str, size_mod: int = 6, ec: str = "M"):
+        ec_map = {"L": 48, "M": 49, "Q": 50, "H": 51}
+        ec_v = ec_map.get(ec.upper(), 49)
+        data_b = payload.encode("utf-8")
+
+        b = bytearray()
+        # Model 2
+        b += GS + b"(k" + struct.pack("<H", 4) + b"\x31\x41\x32\x00"
+        # Tamaño módulo
+        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x43" + bytes([max(1, min(16, size_mod))])
+        # ECC
+        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x45" + bytes([ec_v])
+        # Store data
+        b += GS + b"(k" + struct.pack("<H", len(data_b) + 3) + b"\x31\x50\x30" + data_b
+        # Print
+        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x51\x30"
+        return b
+
+    # --- Construcción del ticket ---
+    buf = init()
+
+    title = str(data.get("titulo", "Boleto de Comedor"))
+    buf += align(1) + bold(True) + size(2, 2) + txt(title) + feed(1)
+    buf += bold(False) + size(1, 1)
+
+    # Datos
+    fecha_legible = str(data.get("fecha_entrada", ""))
+    hora = str(data.get("hora_entrada", ""))
+    tipo = str(data.get("tipo", ""))
+    precio = str(data.get("precio", ""))  # "XX.XX MXN"
+    codigo = str(data.get("codigo", "")).strip()
+
+    # Cabecera
+    buf += align(1) + txt(fecha_legible) + feed(1)
+    buf += align(0) + kv_line("Hora:", hora)
+    if tipo:
+        buf += kv_line("Tipo de usuario:", tipo)
+    if precio:
+        buf += kv_line("Tarifa aplicada:", precio)
+    buf += rule()
+
+    # QR (payload: código)
+    if codigo:
+        buf += align(1) + qr_bytes(f"{codigo}", size_mod=6, ec="M") + feed(1)
+        buf += align(1) + txt(f"Código: {codigo}") + feed(1)
+
+    # Leyenda breve (comedor)
+    buf += font(1)
+    for line in [
+        "Válido únicamente para el día y horario indicado.",
+        "Personal no transferible. Conserve su ticket.",
+    ]:
+        buf += txt(line) + b"\n"
+    buf += font(0) + rule()
+
+    # Cierre
+    buf += align(1) + txt("¡Buen provecho!") + feed(3)
+    buf += cut(partial=True)
+
+    if printer_name:
         try:
-            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            sock.connect((ip, int(port)))
-            sock.send(zpl_code.encode("utf-8"))
-            sock.close()
+            h = win32print.OpenPrinter(printer_name)
+            try:
+                job = win32print.StartDocPrinter(h, 1, ("Ticket Comedor ESC/POS", None, "RAW"))
+                win32print.StartPagePrinter(h)
+                win32print.WritePrinter(h, bytes(buf))
+                win32print.EndPagePrinter(h)
+                win32print.EndDocPrinter(h)
+            finally:
+                win32print.ClosePrinter(h)
         except Exception as e:
             return error if error else print("Error al imprimir:", e)
     else:
