@@ -64,6 +64,33 @@ def main(page: ft.Page):
     # =========================
     # FUNCIONES AUXILIARES
     # =========================
+
+    def obtener_ultimo_registro():
+        if state["entries"]:
+            # Suponiendo que las entradas están ordenadas por fecha (descendente)
+            ultimo_registro = state["entries"][0]
+            nombre = ultimo_registro[1]  # Asumiendo que el nombre está en el índice 1
+            codigo = ultimo_registro[0]  # Código del empleado
+            empresa = ultimo_registro[2]  # Empresa
+            fecha_entrada = ultimo_registro[3]  # Fecha de entrada
+            hora_entrada = ultimo_registro[4]  # Hora de entrada
+            
+            # Contar las entradas del día
+            hoy_iso = datetime.now().strftime("%Y-%m-%d")
+            entradas_hoy = [e for e in state["entries"] if e[3] == hoy_iso]
+            veces_entrado = len(entradas_hoy)
+
+            return {
+                "nombre": nombre,
+                "codigo": codigo,
+                "empresa": empresa,  # Aseguramos que la empresa se extrae correctamente
+                "fecha_entrada": fecha_entrada,
+                "hora_entrada": hora_entrada,  # Aseguramos que la hora se extrae correctamente
+                "veces_entrado": veces_entrado
+            }
+        return None
+
+    
     def formatear_fecha(fecha_iso: str):
         meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
@@ -118,9 +145,9 @@ def main(page: ft.Page):
             return False
 
         # Asumiendo que get_user_by_code devuelve (codigo, nombre, empresa)
-        codigo_emp = str(u[0])
-        nombre = str(u[1])
-        empresa = str(u[2])
+        codigo_emp = str(u[0])  # Código de empleado
+        nombre = str(u[1])  # Nombre del empleado
+        empresa = str(u[2])  # Empresa del empleado
 
         if not state["printer"]:
             message("No hay impresora configurada. No se registró la entrada.")
@@ -131,27 +158,19 @@ def main(page: ft.Page):
             message("La impresora configurada no está conectada.")
             return False
 
+        # Fecha y hora de entrada
         now = datetime.now()
         hora = now.strftime("%H:%M:%S")
         fecha_iso = now.strftime("%Y-%m-%d")
         fecha_legible = formatear_fecha(fecha_iso)
 
-        precio_val = 0.0
-        try:
-            _, p_emp = get_price_by_type("empleado")
-            precio_val = float(p_emp or 0.0)
-        except Exception:
-            pass
-
+        # Datos a imprimir en el ticket
         data = {
             "placa": codigo_emp,  # QR con el código del empleado
             "titulo": "Boleto de Comedor",
             "fecha_entrada": fecha_legible,
             "hora_entrada": hora,
-            "tipo": "Empleado",
-            "precio": f"{precio_val:.2f} MXN",
-            "nombre": nombre,
-            "empresa": empresa,
+            "empresa": empresa,  # Mostramos la empresa
         }
 
         try:
@@ -160,22 +179,50 @@ def main(page: ft.Page):
             message(f"Error al imprimir: {ex}")
             return False
 
+        # Guardar en la base de datos
         try:
             insert_entry(
                 codigo=codigo_emp,
+                nombre=nombre,
+                empresa=empresa,
                 hora_entrada=hora,
-                fecha_entrada=fecha_iso,
-                type_entry="Empleado",
-                precio=precio_val,
-                status="Entrada"
+                fecha_entrada=fecha_iso
             )
         except Exception as e:
             page.open(ft.SnackBar(ft.Text(f"Error al guardar entrada: {e}")))
             return False
 
+        # Actualiza la sección control_usuario con el último registro de entrada
+        ultimo_registro = obtener_ultimo_registro()
+        if ultimo_registro:
+            control_usuario.content = ft.Row(
+                [
+                    ft.Column(
+                        [
+                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=18, weight=ft.FontWeight.BOLD),
+                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=18),  # Mostramos la empresa
+                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=18),
+                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=18),  # Mostramos la hora de entrada
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        spacing=4,  # Reduce la separación entre los elementos
+                        expand=True,
+                    )
+                ],
+                expand=True
+            )
+
         refresh_entries()
         page.open(ft.SnackBar(ft.Text(f"Entrada registrada para {nombre} ({empresa})")))
+        page.update()
         return True
+
+
+
+
+
+
 
     # -------- Reporte CSV (Entradas) --------
     progress_ring = ft.ProgressRing()
@@ -665,9 +712,11 @@ def main(page: ft.Page):
     # FilePicker global (para Agregar Lista)
     file_picker = ft.FilePicker(on_result=on_files_picked)
     page.overlay.append(file_picker)
+    
 
     # --- INICIO ---
     def square_button(texto, icono, color, on_click):
+        
         return ft.Container(
             width=180, height=150, bgcolor=color, border_radius=12,
             ink=True, on_click=on_click,
@@ -718,13 +767,31 @@ def main(page: ft.Page):
         spacing=24,
     )
 
+    control_usuario = ft.Container(
+        content=ft.Row(
+            [
+                ft.Column(
+            [
+                ft.Text("ÚLTIMA ENTRADA", size=18, weight=ft.FontWeight.BOLD, expand=True),
+                ft.Text("", size=18, expand=True),
+            ],
+            alignment=ft.MainAxisAlignment.CENTER,
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+            spacing=8,
+            expand=True,
+            
+        )
+            ], expand=True
+        ), bgcolor=ft.colors.TRANSPARENT,expand=True
+    )
+
     inicio_content = ft.Column(
         [
             ft.Row([read_qr_inicio], alignment=ft.MainAxisAlignment.CENTER),
-            ft.Container(height=8),
+            control_usuario,
             inicio_grid,
         ],
-        alignment=ft.MainAxisAlignment.START,
+        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
     )
 
@@ -781,15 +848,19 @@ def main(page: ft.Page):
         page.open(ft.SnackBar(ft.Text("Entradas del comedor borradas.")))
         page.update()
 
+    # Contenido de la vista principal
     content_data = ft.Column(
         [
-            ft.Row([read_qr], height=50),
-            download_report_btn,
-            delete_registers_button,
-            alert_delete_entries
+            ft.Row([read_qr], height=50),  # TextField
+            download_report_btn,           # Botón para descargar reporte
+            delete_registers_button,       # Botón para borrar registros
+            alert_delete_entries           # Alerta de eliminación
         ],
-        alignment=ft.MainAxisAlignment.START
+        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+        spacing=10,  # Espaciado entre elementos
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
     )
+
 
     registers_database = ft.DataTable(columns=columns, rows=datacells, expand=True)
 

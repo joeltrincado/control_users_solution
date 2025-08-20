@@ -8,42 +8,30 @@ def init_db():
     with create_connection() as conn:
         c = conn.cursor()
 
-        # ENTRADAS (ya la usas en comedor)
+        # Eliminar la tabla de entradas (opcional: solo si puedes perder los datos)
+        c.execute("DROP TABLE IF EXISTS entradas")
+
+        # Crear la nueva tabla con solo las columnas necesarias
         c.execute("""
             CREATE TABLE IF NOT EXISTS entradas (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 codigo TEXT NOT NULL,
+                nombre TEXT NOT NULL,
+                empresa TEXT NOT NULL,
                 hora_entrada TEXT NOT NULL,
-                fecha_entrada TEXT NOT NULL,
-                hora_salida TEXT,
-                fecha_salida TEXT,
-                type_entry TEXT NOT NULL,
-                precio REAL NOT NULL,
-                status TEXT NOT NULL
+                fecha_entrada TEXT NOT NULL
             )
         """)
         c.execute("CREATE INDEX IF NOT EXISTS idx_codigo_entrada ON entradas(codigo)")
-        c.execute("CREATE INDEX IF NOT EXISTS idx_type_entry ON entradas(type_entry)")
 
-        # CONFIG
-        c.execute("""
+        # Crear el resto de las tablas necesarias
+        c.execute(""" 
             CREATE TABLE IF NOT EXISTS configuraciones (
                 clave TEXT PRIMARY KEY,
                 valor TEXT
             )
         """)
 
-        # PRICES (usa los tipos que manejes: empleado/estudiante/visitante)
-        c.execute("""
-            CREATE TABLE IF NOT EXISTS prices (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre TEXT NOT NULL,
-                precio REAL NOT NULL,
-                tipo TEXT NOT NULL
-            )
-        """)
-
-        # === NUEVO: USERS para empleados ===
         c.execute("""
             CREATE TABLE IF NOT EXISTS users (
                 codigo TEXT PRIMARY KEY,
@@ -53,7 +41,7 @@ def init_db():
         """)
         c.execute("CREATE INDEX IF NOT EXISTS idx_users_empresa ON users(empresa)")
 
-        # === NUEVO: REGISTROS (histórico de accesos) ===
+        # Nuevos registros para el histórico de accesos
         c.execute("""
             CREATE TABLE IF NOT EXISTS registros (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -66,38 +54,29 @@ def init_db():
 
         # Valores por defecto (opcional)
         c.execute("INSERT OR IGNORE INTO configuraciones (clave, valor) VALUES ('cajones_normales','19')")
-
-    # (Opcional) si usas precios por tipo 'empleado/estudiante/visitante', asegúrate de sembrarlos:
-    with create_connection() as conn:
-        c = conn.cursor()
-        defaults = [
-            ("Tarifa empleado", 0.0, "empleado"),
-            ("Tarifa estudiante", 0.0, "estudiante"),
-            ("Tarifa visitante", 0.0, "visitante"),
-        ]
-        for nombre, precio, tipo in defaults:
-            c.execute("""
-                INSERT OR IGNORE INTO prices (nombre, precio, tipo)
-                VALUES (?, ?, ?)
-            """, (nombre, precio, tipo))
         conn.commit()
+
+
 
 # --------- ENTRADAS (helpers que usas en main) ---------
 def get_all_entries():
     with create_connection() as conn:
         c = conn.cursor()
-        c.execute("SELECT * FROM entradas")
+        c.execute("SELECT codigo, nombre, empresa, hora_entrada, fecha_entrada FROM entradas")
         return c.fetchall()
 
-def insert_entry(codigo, hora_entrada, fecha_entrada, type_entry, precio=0, status="Entrada",
-                 hora_salida=None, fecha_salida=None):
+
+
+def insert_entry(codigo, nombre, empresa, hora_entrada, fecha_entrada):
     with create_connection() as conn:
         c = conn.cursor()
         c.execute("""
-            INSERT INTO entradas (codigo, hora_entrada, fecha_entrada, hora_salida, fecha_salida, type_entry, precio, status)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-        """, (codigo, hora_entrada, fecha_entrada, hora_salida, fecha_salida, type_entry, precio, status))
+            INSERT INTO entradas (codigo, nombre, empresa, hora_entrada, fecha_entrada)
+            VALUES (?, ?, ?, ?, ?)
+        """, (codigo, nombre, empresa, hora_entrada, fecha_entrada))
         conn.commit()
+
+
 
 def delete_all_entries():
     with create_connection() as conn:

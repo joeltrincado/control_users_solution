@@ -9,12 +9,12 @@ def getDatacell(data=None):
         return []
     return [
         ft.DataRow(cells=[
-            ft.DataCell(ft.Text(value=str(row[0]), selectable=True)),
-            ft.DataCell(ft.Text(value=row[1], selectable=True)),
-            ft.DataCell(ft.Text(value=row[3], selectable=True)),  # Fecha
-            ft.DataCell(ft.Text(value=row[2], selectable=True)),  # Hora
-            ft.DataCell(ft.Text(value=row[6], selectable=True)),  # Tipo usuario
-        ])
+                ft.DataCell(ft.Text(value=row[0], selectable=True)),  # Código
+                ft.DataCell(ft.Text(value=row[1], selectable=True)),  # Nombre
+                ft.DataCell(ft.Text(value=row[2], selectable=True)),  # Empresa
+                ft.DataCell(ft.Text(value=row[3], selectable=True)),  # Hora de entrada
+                ft.DataCell(ft.Text(value=row[4], selectable=True)),  # Fecha de entrada
+            ])
         for row in data
     ]
 
