@@ -18,10 +18,11 @@ class AppBar():
                 )
         else:
             i = [
-                    ft.PopupMenuItem(text="Inicio", on_click=lambda e: self.onChange(0)),
-                    ft.PopupMenuItem(text="Registros", on_click=lambda e: self.onChange(1)),
+                    ft.PopupMenuItem(text="Entradas", on_click=lambda e: self.onChange(0)),
+                    ft.PopupMenuItem(text="Control", on_click=lambda e: self.onChange(1)),
+                    ft.PopupMenuItem(text="Registros", on_click=lambda e: self.onChange(2)),
                     ft.PopupMenuItem(text="Usuarios", on_click=lambda e: self.onChange(3)),
-                    ft.PopupMenuItem(text="Configuraciones", on_click=lambda e: self.onChange(2)),
+                    ft.PopupMenuItem(text="Configuraciones", on_click=lambda e: self.onChange(4)),
                 ]
             
         return ft.AppBar(

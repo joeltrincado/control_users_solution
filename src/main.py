@@ -132,6 +132,11 @@ def main(page: ft.Page):
         # Actualiza la información de la última entrada
         ultimo_registro = obtener_ultimo_registro()
         if ultimo_registro:
+            # Contar cuántas veces ha entrado el usuario hoy
+            usuario_hoy = [r for r in state["entries"] if r[1] == ultimo_registro["codigo"] and r[5] == datetime.now().strftime("%Y-%m-%d")]
+            entradas_hoy = len(usuario_hoy)
+
+            # Mostrar la última entrada y las entradas del día
             control_usuario.content = ft.Row(
                 [
                     ft.Column(
@@ -141,6 +146,7 @@ def main(page: ft.Page):
                             ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=18),
                             ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=18),
                             ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=18),
+                            ft.Text(f"Entradas hoy: {entradas_hoy}", size=18),  # Aquí agregamos el número de entradas
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -152,6 +158,7 @@ def main(page: ft.Page):
                 expand=True
             )
         page.update()
+
 
     def actualizar_totales_hoy():
         hoy_iso = datetime.now().strftime("%Y-%m-%d")
@@ -171,7 +178,7 @@ def main(page: ft.Page):
             return False
 
         if not u:
-            page.open(ft.SnackBar(ft.Text("Código inválido — empleado no encontrado")))
+            page.open(ft.SnackBar(ft.Text("Código inválido — empleado no encontrado", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return False
 
         # u = (codigo, nombre, empresa)
@@ -1183,11 +1190,15 @@ def main(page: ft.Page):
     # Loading
     loading_indicator = ft.ProgressRing(width=60, height=60)
     loading_text = ft.Text("Cargando sistema, por favor espera...", size=16)
-    loading_screen = ft.Column(
+    loading_screen = ft.Row(
+        [
+            ft.Column(
         [loading_indicator, loading_text],
         alignment=ft.MainAxisAlignment.CENTER,
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         expand=True
+    )
+        ], expand=True, alignment=ft.MainAxisAlignment.CENTER, vertical_alignment=ft.CrossAxisAlignment.CENTER
     )
     page.add(loading_screen)
     page.update()
