@@ -23,7 +23,7 @@ class TextField():
             on_submit=self.onSubmit if self.onSubmit is not None else None,
             expand=True if self.width is None else False,
             height=self.height if self.height is not None else None,
-            border_radius=10,
+            border_radius=50,
             color=ft.Colors.WHITE,
             border_color=ft.Colors.WHITE,
 

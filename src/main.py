@@ -810,11 +810,12 @@ def main(page: ft.Page):
 
     # TextField de INICIO
     read_qr_inicio = TextField(
-        label="Leer código de empleado",
+        label="Leer código de empleado --> QR",
         keyboard_type=ft.KeyboardType.TEXT,
         onSubmit=lambda e: onSubmitReadQr(e),
         height=60,
         width=300,
+        
     ).build()
     read_qr_inicio.autofocus = True
 
