@@ -1,13 +1,14 @@
 import flet as ft
 
 class TextField():
-    def __init__(self,label = None, onChange = None, onSubmit = None, value = None, width = None, keyboard_type = None, *args, **kwargs):
+    def __init__(self,label = None, onChange = None, onSubmit = None, value = None, width = None, keyboard_type = None, height = None, *args, **kwargs):
         self.label = label
         self.onChange = onChange
         self.onSubmit = onSubmit
         self.value = value
         self.width = width
         self.keyboard_type = keyboard_type
+        self.height = height
 
     def focus(self):
         self.build().focus()
@@ -20,7 +21,8 @@ class TextField():
             value=self.value if self.value is not None else None,
             on_change=self.onChange if self.onChange is not None else None,
             on_submit=self.onSubmit if self.onSubmit is not None else None,
-            expand=True,
+            expand=True if self.width is None else False,
+            height=self.height if self.height is not None else None,
             border_radius=10,
             color=ft.Colors.WHITE,
             border_color=ft.Colors.WHITE,

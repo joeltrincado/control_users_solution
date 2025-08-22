@@ -1,19 +1,17 @@
 import flet as ft
-from datetime import datetime
-import json
+from datetime import datetime, timedelta
 import math
+import json
 
 from database import (
     init_db,
-    get_all_entries, insert_entry, delete_all_entries,
-    get_config, set_config, get_price_by_type, set_all_prices,
-    get_all_registros, delete_all_registros,
-    get_user_by_code, insert_user,
-    get_all_users,  # <-- NUEVO
+    get_all_registros, insert_registro, delete_all_registros,
+    get_user_by_code, insert_user, set_config, get_config,
+    get_all_users, delete_empleado
 )
 
 from helpers.helpers import (
-    getDatacell, getDataColumns, print_ticket_usb
+    print_ticket_usb  # getDatacell/getDataColumns no se usan con este schema
 )
 
 
@@ -25,13 +23,12 @@ def main(page: ft.Page):
     from components.Alert import Alert
     from components.AppBar import AppBar
 
-    # Índices de páginas (evita números mágicos)
+    # Índices de páginas
     PAGE_INICIO    = 0
     PAGE_ENTRADAS  = 1
-    PAGE_IMPRESORA = 2
-    PAGE_TARIFAS   = 3
-    PAGE_USUARIOS  = 4
-    PAGE_REGISTROS = 5
+    PAGE_IMPRESORA = 2  # Persistencia eliminada; se usa en memoria
+    PAGE_USUARIOS  = 3
+    PAGE_REGISTROS = 4
 
     init_db()
 
@@ -40,9 +37,8 @@ def main(page: ft.Page):
     # =========================
     state = {
         "business_name": "Comedor",
-        "entries": [],
-        "config": None,
-        "printer": None,
+        "entries": [],      # registros (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
+        "printer": None,    # solo memoria
     }
 
     # Paginación
@@ -54,44 +50,39 @@ def main(page: ft.Page):
     users_current_page = 0
     USERS_PAGE_SIZE = 100
 
-    datacells = getDatacell(state["entries"])
-    columns = getDataColumns(["FOLIO", "CÓDIGO", "FECHA", "HORA", "TIPO USUARIO"])
-
     # PROPIEDADES DE PÁGINA
     page.title = "Control " + state["business_name"]
     page.theme_mode = ft.ThemeMode.DARK
 
+    impresora_config = get_config("impresora")
+    if impresora_config:
+        try:
+            config = json.loads(impresora_config)
+            state["config"] = config
+            state["printer"] = config.get("valor", None)
+        except:
+            message("Error al cargar la configuración de la impresora")
+
+
     # =========================
     # FUNCIONES AUXILIARES
     # =========================
-
     def obtener_ultimo_registro():
         if state["entries"]:
-            # Suponiendo que las entradas están ordenadas por fecha (descendente)
-            ultimo_registro = state["entries"][0]
-            nombre = ultimo_registro[1]  # Asumiendo que el nombre está en el índice 1
-            codigo = ultimo_registro[0]  # Código del empleado
-            empresa = ultimo_registro[2]  # Empresa
-            fecha_entrada = ultimo_registro[3]  # Fecha de entrada
-            hora_entrada = ultimo_registro[4]  # Hora de entrada
-            
-            # Contar las entradas del día
-            hoy_iso = datetime.now().strftime("%Y-%m-%d")
-            entradas_hoy = [e for e in state["entries"] if e[3] == hoy_iso]
-            veces_entrado = len(entradas_hoy)
-
+            # Traemos de DB ordenados DESC; el 0 es el más reciente
+            r = state["entries"][0]
+            # r = (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
             return {
-                "nombre": nombre,
-                "codigo": codigo,
-                "empresa": empresa,  # Aseguramos que la empresa se extrae correctamente
-                "fecha_entrada": fecha_entrada,
-                "hora_entrada": hora_entrada,  # Aseguramos que la hora se extrae correctamente
-                "veces_entrado": veces_entrado
+                "id": r[0],
+                "codigo": r[1],
+                "nombre": r[2],
+                "empresa": r[3],
+                "hora_entrada": r[4],
+                "fecha_entrada": r[5],
             }
         return None
 
-    
-    def formatear_fecha(fecha_iso: str):
+    def formatear_fecha_legible(fecha_iso: str):
         meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
         fecha = datetime.strptime(fecha_iso, "%Y-%m-%d")
@@ -114,24 +105,63 @@ def main(page: ft.Page):
         page.open(snack_bar)
         page.update()
 
-    # --------- ENTRADAS (Comedor) ----------
+    # --------- ENTRADAS (Registros) ----------
+    def make_entries_rows(items):
+        rows = []
+        for r in items:
+            # r = (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
+            cells = [
+                ft.DataCell(ft.Text(str(r[0]))),  # ID
+                ft.DataCell(ft.Text(str(r[1]))),  # Código
+                ft.DataCell(ft.Text(str(r[2]))),  # Nombre
+                ft.DataCell(ft.Text(str(r[3]))),  # Empresa
+                ft.DataCell(ft.Text(str(r[5]))),  # Fecha
+                ft.DataCell(ft.Text(str(r[4]))),  # Hora
+            ]
+            rows.append(ft.DataRow(cells=cells))
+        return rows
+
     def refresh_entries():
-        entradas = get_all_entries()
-        state["entries"] = entradas
-        rows = getDatacell(state["entries"])
-        registers_database.rows.clear()
-        registers_database.rows = rows
+        # Cargar los registros desde la base de datos
+        state["entries"] = get_all_registros() or []  # Recargar registros de la DB
+        registers_database.rows = make_entries_rows(state["entries"])  # Actualiza la tabla con los registros
+
+        # Actualiza el total de registros para hoy
         actualizar_totales_hoy()
+
+        # Actualiza la información de la última entrada
+        ultimo_registro = obtener_ultimo_registro()
+        if ultimo_registro:
+            control_usuario.content = ft.Row(
+                [
+                    ft.Column(
+                        [
+                            ft.Text("ÚLTIMA ENTRADA", size=18, weight=ft.FontWeight.BOLD),
+                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=18),
+                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=18),
+                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=18),
+                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=18),
+                        ],
+                        alignment=ft.MainAxisAlignment.CENTER,
+                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+                        spacing=4,
+                        expand=True,
+                    ),
+                    totales_card,  # Mantener el totales_card
+                ],
+                expand=True
+            )
         page.update()
 
     def actualizar_totales_hoy():
         hoy_iso = datetime.now().strftime("%Y-%m-%d")
-        hoy = [e for e in state["entries"] if e[3] == hoy_iso]
-        total_hoy.value = str(len(hoy))
+        hoy = [e for e in state["entries"] if e[5] == hoy_iso]  # fecha_entrada = índice 5
+        total_hoy.value = str(len(hoy))  # Actualiza el total de registros para hoy
+        page.update()  # Asegúrate de actualizar la interfaz después de cambiar el valor
 
     def registrar_entrada_por_codigo(codigo_scan: str) -> bool:
         """
-        Busca el empleado por código; si existe, imprime ticket e inserta la entrada.
+        Busca el empleado por código; si existe, opcionalmente imprime ticket e inserta la entrada.
         Devuelve True si registró; False si el código es inválido.
         """
         try:
@@ -144,44 +174,33 @@ def main(page: ft.Page):
             page.open(ft.SnackBar(ft.Text("Código inválido — empleado no encontrado")))
             return False
 
-        # Asumiendo que get_user_by_code devuelve (codigo, nombre, empresa)
-        codigo_emp = str(u[0])  # Código de empleado
-        nombre = str(u[1])  # Nombre del empleado
-        empresa = str(u[2])  # Empresa del empleado
-
-        if not state["printer"]:
-            message("No hay impresora configurada. No se registró la entrada.")
-            return False
-
-        # Verifica conexión de impresora
-        if not is_printer_connected(state["printer"]):
-            message("La impresora configurada no está conectada.")
-            return False
+        # u = (codigo, nombre, empresa)
+        codigo_emp, nombre, empresa = str(u[0]), str(u[1]), str(u[2])
 
         # Fecha y hora de entrada
         now = datetime.now()
         hora = now.strftime("%H:%M:%S")
         fecha_iso = now.strftime("%Y-%m-%d")
-        fecha_legible = formatear_fecha(fecha_iso)
+        fecha_legible = formatear_fecha_legible(fecha_iso)
 
-        # Datos a imprimir en el ticket
-        data = {
-            "placa": codigo_emp,  # QR con el código del empleado
-            "titulo": "Boleto de Comedor",
-            "fecha_entrada": fecha_legible,
-            "hora_entrada": hora,
-            "empresa": empresa,  # Mostramos la empresa
-        }
+        # Intento de impresión si hay impresora seleccionada en memoria
+        if state["printer"]:
+            try:
+                data = {
+                    "placa": codigo_emp,           # contenido para QR/Texto en tu helper
+                    "titulo": "Boleto de Comedor",
+                    "fecha_entrada": fecha_legible,
+                    "hora_entrada": hora,
+                    "empresa": empresa,
+                }
+                print_ticket_usb(printer_name=state["printer"], data=data, entrada=True)
+            except Exception as ex:
+                # No bloquea el registro si falla la impresión
+                message(f"No se pudo imprimir el ticket: {ex}")
 
+        # Guardar en la base de datos (tabla registros)
         try:
-            print_ticket_usb(printer_name=state["printer"], data=data, entrada=True)
-        except Exception as ex:
-            message(f"Error al imprimir: {ex}")
-            return False
-
-        # Guardar en la base de datos
-        try:
-            insert_entry(
+            insert_registro(
                 codigo=codigo_emp,
                 nombre=nombre,
                 empresa=empresa,
@@ -192,39 +211,11 @@ def main(page: ft.Page):
             page.open(ft.SnackBar(ft.Text(f"Error al guardar entrada: {e}")))
             return False
 
-        # Actualiza la sección control_usuario con el último registro de entrada
-        ultimo_registro = obtener_ultimo_registro()
-        if ultimo_registro:
-            control_usuario.content = ft.Row(
-                [
-                    ft.Column(
-                        [
-                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=18, weight=ft.FontWeight.BOLD),
-                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=18),  # Mostramos la empresa
-                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=18),
-                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=18),  # Mostramos la hora de entrada
-                        ],
-                        alignment=ft.MainAxisAlignment.CENTER,
-                        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-                        spacing=4,  # Reduce la separación entre los elementos
-                        expand=True,
-                    )
-                ],
-                expand=True
-            )
-
         refresh_entries()
         page.open(ft.SnackBar(ft.Text(f"Entrada registrada para {nombre} ({empresa})")))
-        page.update()
         return True
 
-
-
-
-
-
-
-    # -------- Reporte CSV (Entradas) --------
+    # -------- Reporte CSV (Registros actuales) --------
     progress_ring = ft.ProgressRing()
     alert_ring = ft.AlertDialog(
         modal=True,
@@ -253,26 +244,26 @@ def main(page: ft.Page):
         EMAIL_FROM = SMTP_USER
         EMAIL_REPLY_TO = "joeltrincadov@gmail.com"
         EMAIL_TO = ["joeltrincadov@gmail.com"]
-        SUBJECT_PREFIX = "Reporte de salidas"
-        BODY_TEXT = "Reporte de Usuarios"
+        SUBJECT_PREFIX = "Reporte de entradas"
+        BODY_TEXT = "Reporte de Registros"
 
         show_email_progress()
 
         # 1) Preparar mensaje + adjunto
         try:
             update_email_progress(0.10, "Preparando mensaje...")
-            message = MIMEMultipart()
-            message["From"] = EMAIL_FROM
-            message["To"] = ", ".join(EMAIL_TO)
-            message["Subject"] = f"{SUBJECT_PREFIX} {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-            message["Reply-To"] = EMAIL_REPLY_TO
-            message.attach(MIMEText(BODY_TEXT, "plain", "utf-8"))
+            message_m = MIMEMultipart()
+            message_m["From"] = EMAIL_FROM
+            message_m["To"] = ", ".join(EMAIL_TO)
+            message_m["Subject"] = f"{SUBJECT_PREFIX} {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+            message_m["Reply-To"] = EMAIL_REPLY_TO
+            message_m.attach(MIMEText(BODY_TEXT, "plain", "utf-8"))
 
             update_email_progress(0.20, "Adjuntando archivo...")
             with open(file, "rb") as f:
                 attachment = MIMEApplication(f.read(), _subtype="octet-stream")
             attachment.add_header("Content-Disposition", "attachment", filename=Path(file).name)
-            message.attach(attachment)
+            message_m.attach(attachment)
         except Exception as e:
             hide_email_progress()
             page.open(ft.SnackBar(ft.Text(f"No se pudo adjuntar el archivo: {e}")))
@@ -287,7 +278,7 @@ def main(page: ft.Page):
                     update_email_progress(0.60, "Autenticando...")
                     server.login(SMTP_USER, SMTP_PASS)
                     update_email_progress(0.85, "Enviando correo...")
-                    server.sendmail(EMAIL_FROM, EMAIL_TO, message.as_string())
+                    server.sendmail(EMAIL_FROM, EMAIL_TO, message_m.as_string())
             else:
                 update_email_progress(0.35, "Conectando...")
                 with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
@@ -297,7 +288,7 @@ def main(page: ft.Page):
                     update_email_progress(0.65, "Autenticando...")
                     server.login(SMTP_USER, SMTP_PASS)
                     update_email_progress(0.90, "Enviando correo...")
-                    server.sendmail(EMAIL_FROM, EMAIL_TO, message.as_string())
+                    server.sendmail(EMAIL_FROM, EMAIL_TO, message_m.as_string())
 
             update_email_progress(1.00, "¡Correo enviado!")
             hide_email_progress()
@@ -308,20 +299,17 @@ def main(page: ft.Page):
         finally:
             page.update()
 
-
     def download_report_csv(e):
         import pandas as pd
         import threading
 
-        # Usa exactamente lo que está en la lista (state["entries"])
         entradas = state["entries"] or []
-
-        # r = [id, codigo, hora_entrada, fecha_entrada, hora_salida, fecha_salida, type_entry, precio, status]
+        # r = (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
         filas = [
-            [r[0], r[1], r[3], r[2], r[6], float(r[7] or 0.0), r[8]]
+            [r[0], r[1], r[2], r[3], r[5], r[4]]
             for r in entradas
         ]
-        columnas = ["ID", "Código", "Fecha entrada", "Hora entrada", "Tipo usuario", "Precio (MXN)", "Estado"]
+        columnas = ["ID", "Código", "Nombre", "Empresa", "Fecha entrada", "Hora entrada"]
 
         alert_ring.open = True
         page.update()
@@ -338,20 +326,10 @@ def main(page: ft.Page):
             alert_ring.open = False
             page.update()
 
-        # Si se creó bien, envíalo por correo con barra de progreso
         if filename:
             threading.Thread(target=lambda: send_email(filename), daemon=True).start()
 
-    # -------- Impresoras --------
-    def is_printer_connected(printer_name):
-        try:
-            import win32print
-            hprinter = win32print.OpenPrinter(printer_name)
-            win32print.ClosePrinter(hprinter)
-            return True
-        except Exception:
-            return False
-
+    # -------- Impresoras (en memoria, sin DB) --------
     def get_usb_printers():
         try:
             import win32print
@@ -359,63 +337,40 @@ def main(page: ft.Page):
         except Exception:
             return []
 
+    def is_printer_connected(printer_name):
+        try:
+            import win32print
+            hprinter = win32print.OpenPrinter(printer_name)
+            win32print.ClosePrinter(hprinter)
+            return True
+        except:
+            return False
+    
     def save_config(e):
+        """Guardar la impresora seleccionada en la base de datos."""
         selected_printer = usb_selector.value
         available_printers = get_usb_printers()
 
         if not available_printers:
-            page.open(ft.SnackBar(ft.Text("No hay impresoras disponibles")))
+            page.open(ft.SnackBar(ft.Text("No hay impresoras disponibles", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return
 
         if selected_printer not in available_printers:
-            page.open(ft.SnackBar(ft.Text("Selecciona una impresora válida")))
+            page.open(ft.SnackBar(ft.Text("Selecciona una impresora válida", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return
 
-        if not is_printer_connected(selected_printer):
-            page.open(ft.SnackBar(ft.Text("La impresora seleccionada no está conectada")))
-            return
+        # Guardamos la impresora seleccionada en la base de datos
+        set_config("printer_name", selected_printer)
 
-        state["config"] = {"valor": selected_printer}
+        # Actualizamos el estado de la impresora en memoria
         state["printer"] = selected_printer
-        try:
-            set_config("impresora", json.dumps(state["config"]))
-        except Exception as e:
-            page.open(ft.SnackBar(ft.Text(f"Error al guardar configuración: {e}")))
-            return
-
+        page.open(ft.SnackBar(ft.Text("Impresora configurada correctamente", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
         show_page(PAGE_INICIO)
-        page.open(ft.SnackBar(ft.Text("Impresora configurada correctamente")))
 
-    # -------- Tarifas (solo Empleado) --------
-    def load_prices():
-        try:
-            _, p_emp = get_price_by_type("empleado")
-            price_emp.value = str(p_emp)
-            page.update()
-        except Exception as e:
-            page.open(ft.SnackBar(ft.Text(f"Error al cargar tarifas: {e}")))
 
-    def save_fee(e):
-        try:
-            set_all_prices(float(price_emp.value or 0), 0.0, 0.0)
-            page.open(ft.SnackBar(ft.Text("Tarifa de Empleado guardada")))
-            show_page(PAGE_INICIO)
-        except Exception as ex:
-            page.open(ft.SnackBar(ft.Text(f"Error al guardar tarifas: {ex}")))
 
-    def load_config_impresora():
-        # Rellena el dropdown con impresoras disponibles
-        usb_selector.options = [ft.dropdown.Option(p) for p in get_usb_printers()]
-        try:
-            config_json = get_config("impresora")
-            if config_json:
-                config = json.loads(config_json)
-                usb_selector.value = config.get("valor", None)
-                state["config"] = config
-                state["printer"] = config.get("valor", None)
-        except Exception as e:
-            page.open(ft.SnackBar(ft.Text(f"Error al cargar la configuración: {e}")))
-        page.update()
+
+
 
     # =========================
     # USUARIOS (Tabla paginada y altas)
@@ -429,24 +384,27 @@ def main(page: ft.Page):
     def make_users_rows(items):
         rows = []
         for u in items:
-            # Soporta (codigo, nombre, empresa) o (id, codigo, nombre, empresa)
-            if len(u) >= 3:
-                if len(u) == 3:
-                    codigo, nombre, empresa = u[0], u[1], u[2]
-                else:
-                    codigo = u[1]
-                    nombre = u[2] if len(u) > 2 else ""
-                    empresa = u[3] if len(u) > 3 else ""
-                rows.append(
-                    ft.DataRow(
-                        cells=[
-                            ft.DataCell(ft.Text(str(codigo))),
-                            ft.DataCell(ft.Text(str(nombre))),
-                            ft.DataCell(ft.Text(str(empresa))),
-                        ]
-                    )
+            # u = (codigo, nombre, empresa)
+            codigo, nombre, empresa = u[0], u[1], u[2]
+            
+            # Botón de eliminación
+            delete_button = ft.IconButton(
+                icon=ft.Icons.DELETE,
+                on_click=lambda e, codigo=codigo: open_delete_user_alert(codigo)
+            )
+            
+            rows.append(
+                ft.DataRow(
+                    cells=[
+                        ft.DataCell(ft.Text(str(codigo))),
+                        ft.DataCell(ft.Text(str(nombre))),
+                        ft.DataCell(ft.Text(str(empresa))),
+                        ft.DataCell(delete_button),  # Columna de acción
+                    ]
                 )
+            )
         return rows
+
 
     def update_users_table():
         start = users_current_page * USERS_PAGE_SIZE
@@ -574,16 +532,13 @@ def main(page: ft.Page):
                         errored += 1
                     finally:
                         done += 1
-                        # Actualiza barra y texto (muestra el código actual)
                         update_users_progress(done, total, extra=f"Código: {codigo if 'codigo' in locals() else ''}")
 
-                # Cierra diálogo y muestra resumen
                 hide_users_progress()
                 page.open(ft.SnackBar(ft.Text(
                     f"Lista procesada. Agregados: {added}, Duplicados/omitidos: {skipped}, Errores: {errored}"
                 )))
 
-                # Refresca tabla si la vista Usuarios está visible
                 if page_usuarios.visible:
                     load_usuarios()
 
@@ -593,27 +548,29 @@ def main(page: ft.Page):
             finally:
                 page.update()
 
-        # Lanza el proceso en background
         threading.Thread(target=worker, daemon=True).start()
 
     # =========================
-    # REGISTROS (vista con paginación)
+    # REGISTROS (vista con paginación) — ya usamos la misma tabla de registros
     # =========================
     def load_registros():
-        nonlocal registros, registros_current_page
         registros = get_all_registros() or []
-        registros_current_page = 0
-        update_registros_table()
+        state["entries"] = registros  # Asegúrate de tener todos los registros cargados
+        registers_database.rows = make_entries_rows(registros)  # Actualiza la tabla con todos los registros
+        reg_page_text.value = f"Página 1 de {max(1, math.ceil(len(registros)/REG_PAGE_SIZE))}"
+        page.update()
+
 
     def make_registros_rows(items):
         rows = []
         for r in items:
+            # r = (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
             cells = [
-                ft.DataCell(ft.Text(str(r[0]))),
-                ft.DataCell(ft.Text(str(r[1]))),
-                ft.DataCell(ft.Text(str(r[2]))),
-                ft.DataCell(ft.Text(str(r[3]))),
-                ft.DataCell(ft.Text(str(r[4]))),
+                ft.DataCell(ft.Text(str(r[0]))),  # ID
+                ft.DataCell(ft.Text(str(r[2]))),  # Nombre
+                ft.DataCell(ft.Text(str(r[3]))),  # Empresa
+                ft.DataCell(ft.Text(str(r[5]))),  # Fecha
+                ft.DataCell(ft.Text(str(r[4]))),  # Hora
             ]
             rows.append(ft.DataRow(cells=cells))
         return rows
@@ -647,12 +604,32 @@ def main(page: ft.Page):
         import pandas as pd
         data = get_all_registros() or []
         try:
-            df = pd.DataFrame(data, columns=["ID", "Nombre", "Empresa", "Fecha", "Hora"])
+            df = pd.DataFrame(
+                [[r[0], r[1], r[2], r[3], r[5], r[4]] for r in data],
+                columns=["ID", "Código", "Nombre", "Empresa", "Fecha", "Hora"]
+            )
             df.to_csv("reporte_registros.csv", index=False, encoding="utf-8-sig")
             page.open(ft.SnackBar(ft.Text("Reporte de registros guardado.")))
         except Exception as ex:
             page.open(ft.SnackBar(ft.Text(f"Error al guardar reporte: {ex}")))
         page.update()
+
+    def load_config_impresora():
+        """Cargar la impresora configurada desde la base de datos y actualizar el dropdown."""
+        printer_name = get_config("printer_name")
+        print(printer_name, "printer_name")
+        
+        if printer_name:
+            state["printer"] = printer_name  # Guardamos la impresora seleccionada en memoria
+            usb_selector.value = printer_name  # Preseleccionamos la impresora en el selector
+        else:
+            state["printer"] = None  # Si no hay impresora configurada, dejamos el valor en None
+            usb_selector.value = None  # Dejamos vacío el valor del dropdown
+
+        # Cargar impresoras disponibles
+        usb_selector.options = [ft.dropdown.Option(p) for p in get_usb_printers()]
+        
+        page.update()  # Actualiza la UI para reflejar la impresora seleccionada
 
     # =========================
     # NAVEGACIÓN
@@ -661,17 +638,13 @@ def main(page: ft.Page):
         if e == PAGE_INICIO:
             filters_row_host.controls = []
             show_page(PAGE_INICIO)
-            read_qr_inicio.focus()
         elif e == PAGE_ENTRADAS:
+            print("onChangePage", e)
             filters_row_host.controls = []
-            show_page(PAGE_ENTRADAS)
-            read_qr.focus()
+            show_page(PAGE_REGISTROS, callback=load_registros)
         elif e == PAGE_IMPRESORA:
             filters_row_host.controls = []
             show_page(PAGE_IMPRESORA, callback=load_config_impresora)
-        elif e == PAGE_TARIFAS:
-            filters_row_host.controls = []
-            show_page(PAGE_TARIFAS, callback=load_prices)
         elif e == PAGE_USUARIOS:
             filters_row_host.controls = []
             show_page(PAGE_USUARIOS, callback=load_usuarios)
@@ -681,18 +654,12 @@ def main(page: ft.Page):
         page.update()
 
     def show_page(index, callback=None):
-        for i, p in enumerate([page_inicio, page_entradas, page_impresora, page_tarifas, page_usuarios, page_registros]):
+        for i, p in enumerate([page_inicio, page_entradas, page_impresora, page_usuarios, page_registros]):
             p.visible = (i == index)
         if callback:
             callback()
-        # Foco
-        if index == PAGE_INICIO:
-            try: read_qr_inicio.focus()
-            except Exception: pass
-        elif index == PAGE_ENTRADAS:
-            try: read_qr.focus()
-            except Exception: pass
         page.update()
+
 
     # -------- Entrada por comando / QR (comedor) --------
     def onSubmitReadQr(e):
@@ -706,17 +673,80 @@ def main(page: ft.Page):
         input_field.focus()
         page.update()
 
+    def filter_by_date_range(range_type: str):
+        # Obtén la fecha actual
+        today = datetime.today()
+
+        if range_type == "today":
+            # Filtrar solo registros del día de hoy
+            filtered_entries = [e for e in state["entries"] if e[5] == today.strftime("%Y-%m-%d")]
+        elif range_type == "7_days":
+            # Filtrar registros de los últimos 7 días
+            start_date = today - timedelta(days=7)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        elif range_type == "month":
+            # Filtrar registros del mes actual
+            start_date = today.replace(day=1)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        elif range_type == "year":
+            # Filtrar registros del año actual
+            start_date = today.replace(month=1, day=1)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        else:
+            filtered_entries = state["entries"]
+
+        # Actualizar la tabla de registros
+        registers_database.rows = make_entries_rows(filtered_entries)
+        page.update()
+
+    def apply_date_filter(selected_filter: str):
+        # Obtén la fecha actual
+        today = datetime.today()
+
+        if selected_filter == "Hoy":
+            # Filtrar solo registros del día de hoy
+            filtered_entries = [e for e in state["entries"] if e[5] == today.strftime("%Y-%m-%d")]
+        elif selected_filter == "Últimos 7 días":
+            # Filtrar registros de los últimos 7 días
+            start_date = today - timedelta(days=7)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        elif selected_filter == "Este mes":
+            # Filtrar registros del mes actual
+            start_date = today.replace(day=1)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        elif selected_filter == "Este año":
+            # Filtrar registros del año actual
+            start_date = today.replace(month=1, day=1)
+            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
+        else:
+            # Si no hay filtro, mostrar todos los registros
+            filtered_entries = state["entries"]
+
+        # Actualiza la tabla con los registros filtrados
+        registers_database.rows = make_entries_rows(filtered_entries)
+        page.update()
+
+    def update_printer_dropdown():
+        """Actualizar el dropdown de impresoras disponibles."""
+        available_printers = get_usb_printers()
+        usb_selector.options = [ft.dropdown.Option(p) for p in available_printers]
+        
+        # Si hay una impresora configurada, preseleccionarla
+        if state["printer"]:
+            usb_selector.value = state["printer"]
+        page.update()
+
+
+
     # =========================
     # UI
     # =========================
     # FilePicker global (para Agregar Lista)
     file_picker = ft.FilePicker(on_result=on_files_picked)
     page.overlay.append(file_picker)
-    
 
     # --- INICIO ---
     def square_button(texto, icono, color, on_click):
-        
         return ft.Container(
             width=180, height=150, bgcolor=color, border_radius=12,
             ink=True, on_click=on_click,
@@ -728,12 +758,63 @@ def main(page: ft.Page):
                 spacing=8
             )
         )
+    
+    def refresh_users():
+        """Recarga la lista de usuarios y actualiza la tabla"""
+        users = get_all_users() or []
+        users_table.rows = make_users_rows(users)
+        page.update()
+
+    def open_delete_user_alert(codigo: str):
+        """Abre el alert para confirmar la eliminación del usuario"""
+        global user_to_delete
+        user_to_delete = codigo  # Guardamos el código del usuario a eliminar
+        alert_delete_user.open = True
+        page.update()
+
+    def close_delete_user_alert():
+        """Cierra el alert sin realizar la eliminación"""
+        alert_delete_user.open = False
+        page.update()
+
+    def do_delete_user(e):
+        """Elimina el usuario de la base de datos"""
+        try:
+            delete_empleado(user_to_delete)  # Llamamos a la función para eliminar el usuario
+            refresh_users()  # Actualizamos la tabla de usuarios
+            page.open(ft.SnackBar(ft.Text("Usuario eliminado.")))
+        except Exception as ex:
+            page.open(ft.SnackBar(ft.Text(f"Error al eliminar usuario: {ex}")))
+        finally:
+            close_delete_user_alert()
+
+
+    
+
+        # Alerta de confirmación de eliminación
+    alert_delete_user = ft.AlertDialog(
+    title=ft.Text("Eliminar usuario"),
+    content=ft.Text("¿Seguro que deseas eliminar a este usuario?"),
+        actions=[
+            ft.TextButton(
+                text="Cancelar", 
+                on_click=close_delete_user_alert
+            ),
+            ft.TextButton(
+                text="Eliminar", 
+                on_click=do_delete_user
+            ),
+        ],
+    )
+    alert_delete_user.open = False
 
     # TextField de INICIO
     read_qr_inicio = TextField(
         label="Leer código de empleado",
         keyboard_type=ft.KeyboardType.TEXT,
         onSubmit=lambda e: onSubmitReadQr(e),
+        height=60,
+        width=300,
     ).build()
     read_qr_inicio.autofocus = True
 
@@ -746,12 +827,12 @@ def main(page: ft.Page):
         "Agregar empleado", ft.Icons.PERSON_ADD, ft.Colors.GREEN_400, open_add_user_alert
     )
     btn_usuarios = square_button(
-        "Usuarios", ft.Icons.PEOPLE, ft.Colors.TEAL_400,
+        "Empleados", ft.Icons.PEOPLE, ft.Colors.TEAL_400,
         lambda e: show_page(PAGE_USUARIOS, callback=load_usuarios)
     )
     btn_registros = square_button(
         "Registros", ft.Icons.HISTORY, ft.Colors.CYAN_400,
-        lambda e: show_page(PAGE_REGISTROS, callback=load_registros)  # <-- corregido a PAGE_REGISTROS
+        lambda e: show_page(PAGE_REGISTROS, callback=load_registros)
     )
     btn_reporte = square_button(
         "Descargar\nReporte", ft.Icons.DOWNLOAD, ft.Colors.PURPLE_400, download_report_csv
@@ -766,28 +847,45 @@ def main(page: ft.Page):
         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
         spacing=24,
     )
+    total_hoy = ft.Text("0", size=112, text_align=ft.TextAlign.CENTER, expand=True)
+    totales_card = Container(
+        business_name=state["business_name"],
+        content=ft.Column(
+            [
+                ft.Row([ft.Text("SERVIDOS HOY", size=24, weight=ft.FontWeight.BOLD, expand=True)]),
+                ft.Row([total_hoy], expand=True, alignment=ft.MainAxisAlignment.CENTER)
+            ], expand=True
+        ),
+    ).build()
 
     control_usuario = ft.Container(
         content=ft.Row(
             [
-                ft.Column(
-            [
-                ft.Text("ÚLTIMA ENTRADA", size=18, weight=ft.FontWeight.BOLD, expand=True),
-                ft.Text("", size=18, expand=True),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
-            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-            spacing=8,
-            expand=True,
-            
-        )
+                ft.Container(
+                    content= ft.Column(
+                    [
+                        ft.Text("ÚLTIMA ENTRADA", size=24, weight=ft.FontWeight.BOLD, expand=True),
+                        ft.Text("", size=24, expand=True),
+                    ],
+                    alignment=ft.MainAxisAlignment.CENTER,
+                    horizontal_alignment=ft.CrossAxisAlignment.START,
+                    spacing=8,
+                    expand=True,
+                ),
+                gradient=ft.LinearGradient(colors=[ft.Colors.BLACK54, ft.Colors.GREY_900]),
+                border_radius=10,
+                padding=10, expand=True
+                ),
+                totales_card,  # Mantener el total_hoy actualizado
             ], expand=True
-        ), bgcolor=ft.colors.TRANSPARENT,expand=True
+        ),
+        expand=True
     )
+
 
     inicio_content = ft.Column(
         [
-            ft.Row([read_qr_inicio], alignment=ft.MainAxisAlignment.CENTER),
+            ft.Row([read_qr_inicio], alignment=ft.MainAxisAlignment.CENTER, height=60),
             control_usuario,
             inicio_grid,
         ],
@@ -799,34 +897,13 @@ def main(page: ft.Page):
         [ft.Container(content=inicio_content, expand=True)],
         expand=True, vertical_alignment=ft.CrossAxisAlignment.START,
     )
-
-    total_hoy = ft.Text("0", size=44, text_align=ft.TextAlign.CENTER, expand=True)
-    totales_card = Container(
-        business_name=state["business_name"],
-        content=ft.Column(
-            [
-                ft.Row([ft.Text("SERVIDOS HOY", size=16, weight=ft.FontWeight.BOLD, expand=True)]),
-                ft.Row([total_hoy], expand=True, alignment=ft.MainAxisAlignment.CENTER)
-            ]
-        ),
-        height=130
-    ).build()
-
-    # --- ENTRADAS (comedor) ---
-    read_qr = TextField(
-        label="Leer código de empleado",
-        keyboard_type=ft.KeyboardType.TEXT,
-        onSubmit=onSubmitReadQr
-    ).build()
-
-    download_report_btn = Button(text="DESCARGAR REPORTE", on_click=download_report_csv).build()
     delete_registers_button = Button(
-        text="BORRAR REGISTROS ENTRADAS", bgcolor=ft.Colors.RED_400,
+        text="BORRAR REGISTROS", bgcolor=ft.Colors.RED_400,
         icon=ft.Icons.DELETE, on_click=lambda e: open_delete_entries_alert()
     ).build()
 
     alert_delete_entries = Alert(
-        content=ft.Text("¿Seguro que desea borrar TODOS los registros de 'Entradas' del comedor?"),
+        content=ft.Text("¿Seguro que desea borrar TODOS los registros?"),
         action="Borrar",
         onAdd=lambda e: do_delete_entries(),
         onCancel=lambda e: close_delete_entries_alert()
@@ -842,37 +919,29 @@ def main(page: ft.Page):
         page.update()
 
     def do_delete_entries():
-        delete_all_entries()
-        alert_delete_entries.open = False
+        delete_all_registros()
         refresh_entries()
-        page.open(ft.SnackBar(ft.Text("Entradas del comedor borradas.")))
+        actualizar_totales_hoy() 
+        page.open(ft.SnackBar(ft.Text("Registros eliminados.")))  # Muestra un mensaje de confirmación
         page.update()
 
-    # Contenido de la vista principal
-    content_data = ft.Column(
+    entries_columns = [
+        ft.DataColumn(ft.Text("ID")),
+        ft.DataColumn(ft.Text("Código")),
+        ft.DataColumn(ft.Text("Nombre")),
+        ft.DataColumn(ft.Text("Empresa")),
+        ft.DataColumn(ft.Text("Fecha")),
+        ft.DataColumn(ft.Text("Hora")),
+    ]
+    registers_database = ft.DataTable(columns=entries_columns, rows=[], expand=True)
+
+    page_entradas = ft.Column(
         [
-            ft.Row([read_qr], height=50),  # TextField
-            download_report_btn,           # Botón para descargar reporte
-            delete_registers_button,       # Botón para borrar registros
-            alert_delete_entries           # Alerta de eliminación
-        ],
-        alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-        spacing=10,  # Espaciado entre elementos
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
-    )
-
-
-    registers_database = ft.DataTable(columns=columns, rows=datacells, expand=True)
-
-    page_entradas = ft.Row(
-        [
-            ft.Column(
+            ft.Row(
                 [
-                    Container(height=200, business_name=state["business_name"], content=content_data).build(),
-                    totales_card,
-                ],
-                width=350,
-                scroll=ft.ScrollMode.AUTO
+                    delete_registers_button,
+                    alert_delete_entries
+                ], expand=True, alignment=ft.MainAxisAlignment.END
             ),
             ft.Column(
                 [
@@ -887,11 +956,11 @@ def main(page: ft.Page):
                 alignment=ft.MainAxisAlignment.START,
             ),
         ],
-        expand=True, vertical_alignment=ft.CrossAxisAlignment.START,
+        horizontal_alignment=ft.CrossAxisAlignment.START,
     )
     page_entradas.visible = False
 
-    # --- IMPRESORA ---
+    # --- IMPRESORA (sin persistencia) ---
     usb_selector = ft.Dropdown(label="Impresoras USB", width=300, border_color=ft.Colors.WHITE)
 
     config_container = Container(
@@ -916,35 +985,12 @@ def main(page: ft.Page):
     )
     page_impresora.visible = False
 
-    # --- TARIFAS (solo Empleado) ---
-    price_emp = TextField(label="Tarifa Empleado (MXN)", keyboard_type=ft.KeyboardType.NUMBER, width=300).build()
-
-    fee_container = Container(
-        business_name=state["business_name"],
-        content=ft.Column(
-            [
-                ft.Text("CONFIGURACIÓN DE TARIFA (Empleado)", size=26, weight=ft.FontWeight.BOLD),
-                ft.Row([ft.Column([price_emp])], expand=True, alignment=ft.MainAxisAlignment.CENTER),
-                ft.Row([Button(text="GUARDAR", icon=ft.Icons.SAVE, width=300, on_click=save_fee).build()],
-                       expand=True, alignment=ft.MainAxisAlignment.CENTER),
-            ],
-            spacing=20, alignment=ft.MainAxisAlignment.CENTER, horizontal_alignment=ft.CrossAxisAlignment.CENTER
-        ),
-        height=300,
-    ).build()
-
-    page_tarifas = ft.Row(
-        [ft.Column([fee_container], expand=True, alignment=ft.MainAxisAlignment.START,
-                   horizontal_alignment=ft.CrossAxisAlignment.CENTER)],
-        expand=True
-    )
-    page_tarifas.visible = False
-
     # --- USUARIOS (tabla paginada) ---
     users_columns = [
         ft.DataColumn(ft.Text("Código")),
         ft.DataColumn(ft.Text("Nombre")),
         ft.DataColumn(ft.Text("Empresa")),
+        ft.DataColumn(ft.Text("Acciones")),
     ]
     users_table = ft.DataTable(columns=users_columns, rows=[], expand=True)
     users_page_text = ft.Text("", size=16)
@@ -1005,42 +1051,47 @@ def main(page: ft.Page):
         text="DESCARGAR REPORTE", icon=ft.Icons.DOWNLOAD, on_click=reg_download_csv
     ).build()
 
+    date_filter_dropdown = ft.Dropdown(
+        label="Filtrar por fechas",
+        options=[
+            ft.dropdown.Option("Hoy"),
+            ft.dropdown.Option("Últimos 7 días"),
+            ft.dropdown.Option("Este mes"),
+            ft.dropdown.Option("Este año"),
+        ],
+        on_change=lambda e: apply_date_filter(e.control.value), width=200
+    )
+
+    # Vista de Registros
     page_registros = ft.Row(
         [
             ft.Column(
                 [
-                    Container(
-                        business_name=state["business_name"],
+                    ft.Row([date_filter_dropdown, btn_reg_borrar], alignment=ft.MainAxisAlignment.END),  # Fila con el dropdown
+                    ft.Container(
                         content=ft.Column(
                             [
-                                ft.Row([btn_reg_csv, btn_reg_borrar], alignment=ft.MainAxisAlignment.START, spacing=10),
-                                ft.Container(
-                                    content=ft.Column(
-                                        [
-                                            ft.Row([registros_table], expand=True),
-                                            ft.Row(
-                                                [
-                                                    ft.IconButton(icon=ft.Icons.ARROW_BACK, on_click=reg_prev),
-                                                    reg_page_text,
-                                                    ft.IconButton(icon=ft.Icons.ARROW_FORWARD, on_click=reg_next),
-                                                ],
-                                                alignment=ft.MainAxisAlignment.CENTER
-                                            ),
-                                        ],
-                                        expand=True, scroll=ft.ScrollMode.AUTO
-                                    ),
-                                    expand=True
+                                ft.Row([registers_database], expand=True),
+                                ft.Row(
+                                    [
+                                        ft.IconButton(icon=ft.Icons.ARROW_BACK, on_click=reg_prev),
+                                        reg_page_text,
+                                        ft.IconButton(icon=ft.Icons.ARROW_FORWARD, on_click=reg_next),
+                                    ],
+                                    alignment=ft.MainAxisAlignment.CENTER
                                 ),
-                            ], expand=True
+                            ],
+                            expand=True, scroll=ft.ScrollMode.AUTO
                         ),
-                    ).build(),
-                ],
-                expand=True
+                        expand=True
+                    ),
+                ], expand=True
             )
         ],
         expand=True
     )
     page_registros.visible = False
+
 
     # --- ALERT: Agregar empleado ---
     codigo_field = TextField(label="Código", keyboard_type=ft.KeyboardType.TEXT).build()
@@ -1092,8 +1143,7 @@ def main(page: ft.Page):
         email_progress_dialog.open = False
         page.update()
 
-
-        # --- ALERT: Progreso de carga masiva de usuarios ---
+    # --- ALERT: Progreso de carga masiva de usuarios ---
     users_progress_bar = ft.ProgressBar(width=400, value=0)
     users_progress_text = ft.Text("Esperando archivo...", size=14)
 
@@ -1129,7 +1179,6 @@ def main(page: ft.Page):
         users_progress_dialog.open = False
         page.update()
 
-
     # Loading
     loading_indicator = ft.ProgressRing(width=60, height=60)
     loading_text = ft.Text("Cargando sistema, por favor espera...", size=16)
@@ -1147,25 +1196,14 @@ def main(page: ft.Page):
 
     # Carga inicial (daemon)
     import threading
+    # Carga inicial (daemon) - Asegúrate de que cargue los registros correctamente al inicio
     def load_background_data():
         init_db()
 
-        # Impresora
-        try:
-            impresora_config = get_config("impresora")
-            if impresora_config:
-                config = json.loads(impresora_config)
-                state["config"] = config
-                state["printer"] = config.get("valor", None)
-        except Exception:
-            pass
+        # Cargar configuración de la impresora
+        load_config_impresora()  # Esta función ahora cargará la impresora configurada
 
-        # Entradas
-        state["entries"] = get_all_entries()
-        rows = getDatacell(state["entries"])
-        registers_database.rows.clear()
-        registers_database.rows = rows
-
+        # El resto del código para cargar registros y usuarios
         page.controls.clear()
         page.appbar = AppBar(
             business_name=state["business_name"],
@@ -1176,34 +1214,41 @@ def main(page: ft.Page):
         filters_row_host.controls = []
 
         page.add(
-        ft.SafeArea(
-            ft.Column(
-                [
-                    page_inicio,
-                    page_entradas,
-                    page_impresora,
-                    page_tarifas,
-                    page_usuarios,
-                    page_registros,
-                    alert_ring,
-                    alert_user,
-                    users_progress_dialog,
-                    email_progress_dialog,  # <-- AÑADIDO
-                ],
+            ft.SafeArea(
+                ft.Column(
+                    [
+                        page_inicio,
+                        page_entradas,
+                        page_impresora,
+                        page_usuarios,
+                        alert_delete_user,
+                        page_registros,
+                        alert_ring,
+                        alert_user,
+                        users_progress_dialog,
+                        email_progress_dialog,
+                    ],
+                    expand=True
+                ),
                 expand=True
-            ),
-            expand=True
+            )
         )
-    )
 
-
+        # Inicializa las tablas con los registros
+        registers_database.rows = make_entries_rows(state["entries"])  # Asegúrate de cargar los registros
+        load_registros()  # Actualiza la vista de registros
+        load_usuarios()
 
         show_page(PAGE_INICIO)
-        try: read_qr_inicio.focus()
-        except Exception: pass
-        refresh_entries()
+        try:
+            read_qr_inicio.focus()
+        except Exception:
+            pass
+        refresh_entries()  # Llama a la función que actualiza la tabla de registros
         page.update()
 
+    # Llamamos al hilo de carga
     threading.Thread(target=load_background_data, daemon=True).start()
+
 
 ft.app(main)
