@@ -7,22 +7,28 @@ class AppBar():
         self.onChange = onChange
 
     def build(self):
+        # Índices de páginas
+        PAGE_INICIO    = 0
+        PAGE_ENTRADAS  = 1
+        PAGE_IMPRESORA = 2  # Persistencia eliminada; se usa en memoria
+        PAGE_USUARIOS  = 3
+        PAGE_REGISTROS = 4
         i = []
         if self.items is not None:
             for item in self.items:
                 i.append(
                     ft.PopupMenuItem(
                         text=item["text"],
-                        # on_click=item["on_click"]
+                        on_click=item.get("on_click")  # Asegúrate de usar on_click
                     )
                 )
         else:
             i = [
-                    ft.PopupMenuItem(text="Entradas", on_click=lambda e: self.onChange(0)),
-                    ft.PopupMenuItem(text="Control", on_click=lambda e: self.onChange(1)),
-                    ft.PopupMenuItem(text="Registros", on_click=lambda e: self.onChange(2)),
-                    ft.PopupMenuItem(text="Usuarios", on_click=lambda e: self.onChange(3)),
-                    ft.PopupMenuItem(text="Configuraciones", on_click=lambda e: self.onChange(4)),
+                    ft.PopupMenuItem(icon=ft.Icons.HOME,text="Inicio", on_click=lambda e: self.onChange(PAGE_ENTRADAS)),  # Cambiar a PAGE_ENTRADAS
+                    ft.PopupMenuItem(icon=ft.Icons.DASHBOARD,text="Control", on_click=lambda e: self.onChange(PAGE_INICIO)),  # Cambiar a PAGE_INICIO
+                    ft.PopupMenuItem(icon=ft.Icons.LIST,text="Registros", on_click=lambda e: self.onChange(PAGE_REGISTROS)),
+                    ft.PopupMenuItem(icon=ft.Icons.PERSON,text="Usuarios", on_click=lambda e: self.onChange(PAGE_USUARIOS)),
+                    ft.PopupMenuItem(icon=ft.Icons.SETTINGS,text="Configuraciones", on_click=lambda e: self.onChange(PAGE_IMPRESORA)),
                 ]
             
         return ft.AppBar(

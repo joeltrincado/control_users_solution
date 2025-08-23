@@ -1,46 +1,34 @@
 [project]
 name = "Control usuarios"
 version = "0.1.0"
-description = ""
+description = "Aplicacion para el control de entradas y registros de usuarios."
 readme = "README.md"
 requires-python = ">=3.9"
 authors = [
     { name = "Joel Trincado", email = "joeltrincadov@gmail.com" }
 ]
 dependencies = [
-    "flet==0.27.5",
-    "pandas",
-    "openpyxl",
-    "qrcode",
-    "pillow"
+    "flet==0.27.5",    # Flet para la interfaz de usuario
+    "pandas",           # Si usas pandas para la manipulación de datos
+    "qrcode",           # Si usas generación o escaneo de códigos QR (como para el registro de usuarios)
 ]
 
 [tool.flet]
-# org name in reverse domain name notation, e.g. "com.mycompany".
-# Combined with project.name to build bundle ID for iOS and Android apps
-org = "cherrydevs.com"
-
-
-# project display name that is used as an app title on Android and iOS home screens,
-# shown in window titles and about app dialogs on desktop.
-product = "Control usuarios"
-
-# company name to display in about app dialogs
-company = "Cherry Devs"
-
-# copyright text to display in about app dialogs
-copyright = "Copyright (C) 2025 by Cherry Devs"
+org = "cherrydevs.com"    # Nombre de la organización en notación de dominio invertido
+product = "Control usuarios"  # Nombre de la app para Android/iOS
+company = "Cherry Devs"      # Nombre de la empresa
+copyright = "Copyright (C) 2025 by Cherry Devs"  # Información de copyright
 
 [tool.flet.app]
-path = "src"
+path = "src"  # Ruta del directorio donde se encuentra el código fuente
 
 [tool.uv]
 dev-dependencies = [
-    "flet[all]==0.27.5",
+    "flet[all]==0.27.5",  # Dependencia de Flet para desarrollo con todos los extras
 ]
 
 [tool.poetry]
-package-mode = false
+package-mode = false  # Desactivar el modo de paquete
 
 [tool.poetry.group.dev.dependencies]
-flet = {extras = ["all"], version = "0.27.5"}
+flet = {extras = ["all"], version = "0.27.5"}  # Dependencia para desarrollo

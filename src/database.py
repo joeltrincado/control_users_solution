@@ -128,3 +128,4 @@ def delete_empleado(codigo: str):
         c = conn.cursor()
         c.execute("DELETE FROM users WHERE codigo=?", (codigo,))
         conn.commit()
+

@@ -1,29 +1,3 @@
-import flet as ft
-
-def getDatacell(data=None):
-    """
-    data rows (entradas):
-    [id, codigo, hora_entrada, fecha_entrada, hora_salida, fecha_salida, type_entry, precio, status]
-    """
-    if not data:
-        return []
-    return [
-        ft.DataRow(cells=[
-                ft.DataCell(ft.Text(value=row[0], selectable=True)),  # Código
-                ft.DataCell(ft.Text(value=row[1], selectable=True)),  # Nombre
-                ft.DataCell(ft.Text(value=row[2], selectable=True)),  # Empresa
-                ft.DataCell(ft.Text(value=row[3], selectable=True)),  # Hora de entrada
-                ft.DataCell(ft.Text(value=row[4], selectable=True)),  # Fecha de entrada
-            ])
-        for row in data
-    ]
-
-
-def getDataColumns(data=None):
-    if not data:
-        return []
-    return [ft.DataColumn(label=ft.Text(col)) for col in data]
-
 
 def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None, entrada=True):
     """
@@ -46,7 +20,7 @@ def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None,
         return bytearray(ESC + b"@" + ESC + b"t" + bytes([16]))  # CP1252
 
     def align(n: int):
-        return ESC + b"a" + bytes([n])  # 0=left,1=center,2=right
+        return ESC + b"a" + bytes([n])  # 0=left, 1=center, 2=right
 
     def font(n: int):
         return ESC + b"M" + bytes([n])  # 0=A, 1=B
@@ -110,7 +84,10 @@ def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None,
 
     # Cabecera
     buf += align(1) + txt(fecha_legible) + feed(1)
-    buf += align(0) + kv_line("Hora:", hora)
+
+    # Alinear "Hora" correctamente (centrado)
+    buf += align(1) + kv_line("Hora:", hora)  # Cambié `align(0)` por `align(1)` para centrar la hora
+
     if tipo:
         buf += kv_line("Tipo de usuario:", tipo)
     if precio:

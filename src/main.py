@@ -137,26 +137,34 @@ def main(page: ft.Page):
             entradas_hoy = len(usuario_hoy)
 
             # Mostrar la última entrada y las entradas del día
-            control_usuario.content = ft.Row(
+            control_usuario_.content = ft.Row(
                 [
-                    ft.Column(
+                    ft.Container(
+                        bgcolor=ft.Colors.TRANSPARENT,
+                        border_radius=10,
+                        height=300,
+                        padding=10, width=600,
+                        content= ft.Column(
                         [
-                            ft.Text("ÚLTIMA ENTRADA", size=18, weight=ft.FontWeight.BOLD),
-                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=18),
-                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=18),
-                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=18),
-                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=18),
-                            ft.Text(f"Entradas hoy: {entradas_hoy}", size=18),  # Aquí agregamos el número de entradas
+                            ft.Text("ÚLTIMA ENTRADA", size=24, weight=ft.FontWeight.BOLD),
+                            ft.Divider(),
+                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=20),
+                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=20),
+                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=20),
+                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=20),
+                            ft.Text(f"Entradas hoy: {entradas_hoy}", size=20),  # Aquí agregamos el número de entradas
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                         spacing=4,
                         expand=True,
                     ),
-                    totales_card,  # Mantener el totales_card
+                    ),
                 ],
                 expand=True
             )
+            control_usuario.content = totales_card
+
         page.update()
 
 
@@ -194,7 +202,7 @@ def main(page: ft.Page):
         if state["printer"]:
             try:
                 data = {
-                    "placa": codigo_emp,           # contenido para QR/Texto en tu helper
+                    "codigo": codigo_emp,           # contenido para QR/Texto en tu helper
                     "titulo": "Boleto de Comedor",
                     "fecha_entrada": fecha_legible,
                     "hora_entrada": hora,
@@ -343,15 +351,6 @@ def main(page: ft.Page):
             return [printer[2] for printer in win32print.EnumPrinters(2)]
         except Exception:
             return []
-
-    def is_printer_connected(printer_name):
-        try:
-            import win32print
-            hprinter = win32print.OpenPrinter(printer_name)
-            win32print.ClosePrinter(hprinter)
-            return True
-        except:
-            return False
     
     def save_config(e):
         """Guardar la impresora seleccionada en la base de datos."""
@@ -643,29 +642,48 @@ def main(page: ft.Page):
     # =========================
     def onChangePage(e):
         if e == PAGE_INICIO:
-            filters_row_host.controls = []
             show_page(PAGE_INICIO)
         elif e == PAGE_ENTRADAS:
-            print("onChangePage", e)
-            filters_row_host.controls = []
-            show_page(PAGE_REGISTROS, callback=load_registros)
+            show_page(PAGE_ENTRADAS)  # Cambia a la vista de Entradas
         elif e == PAGE_IMPRESORA:
-            filters_row_host.controls = []
-            show_page(PAGE_IMPRESORA, callback=load_config_impresora)
+            show_page(PAGE_IMPRESORA)
         elif e == PAGE_USUARIOS:
-            filters_row_host.controls = []
-            show_page(PAGE_USUARIOS, callback=load_usuarios)
+            show_page(PAGE_USUARIOS)
         elif e == PAGE_REGISTROS:
-            filters_row_host.controls = []
-            show_page(PAGE_REGISTROS, callback=load_registros)
+            show_page(PAGE_REGISTROS)
         page.update()
 
-    def show_page(index, callback=None):
-        for i, p in enumerate([page_inicio, page_entradas, page_impresora, page_usuarios, page_registros]):
-            p.visible = (i == index)
-        if callback:
-            callback()
+
+    def show_page(index):
+        # Ocultar todas las páginas
+        page_inicio.visible = False
+        page_entradas.visible = False
+        page_impresora.visible = False
+        page_usuarios.visible = False
+        page_registros.visible = False
+
+        if index == PAGE_ENTRADAS:
+            # Mostrar solo el campo para leer el código QR en la vista de Entradas
+            page_entradas.controls = [
+                ft.Row([ft.Column(
+                    [read_qr_inicio, ft.Row(
+                        [control_usuario_], alignment=ft.MainAxisAlignment.CENTER
+                    )], alignment=ft.MainAxisAlignment.CENTER
+                )], alignment=ft.MainAxisAlignment.CENTER, height=60)  # Solo el QR en la vista de Entradas
+            ]
+            page_entradas.visible = True
+        elif index == PAGE_INICIO:
+            # Vista de Control, mostrar los totales y última entrada
+            page_inicio.visible = True
+        elif index == PAGE_IMPRESORA:
+            page_impresora.visible = True
+        elif index == PAGE_USUARIOS:
+            page_usuarios.visible = True
+        elif index == PAGE_REGISTROS:
+            page_registros.visible = True
+
         page.update()
+
 
 
     # -------- Entrada por comando / QR (comedor) --------
@@ -677,8 +695,15 @@ def main(page: ft.Page):
             return
         registrar_entrada_por_codigo(codigo_scan)
         input_field.value = ""
-        input_field.focus()
+
+        # Espera a que el control esté en la página antes de ponerle el foco
+        try:
+            page.add(input_field)  # Asegúrate de que el control esté en la página
+            input_field.focus()  # Luego intenta ponerle el foco
+        except Exception as ex:
+            print(f"Error al poner foco: {ex}")
         page.update()
+
 
     def filter_by_date_range(range_type: str):
         # Obtén la fecha actual
@@ -821,7 +846,7 @@ def main(page: ft.Page):
         keyboard_type=ft.KeyboardType.TEXT,
         onSubmit=lambda e: onSubmitReadQr(e),
         height=60,
-        width=300,
+        width=600,
         
     ).build()
     read_qr_inicio.autofocus = True
@@ -860,7 +885,7 @@ def main(page: ft.Page):
         business_name=state["business_name"],
         content=ft.Column(
             [
-                ft.Row([ft.Text("SERVIDOS HOY", size=24, weight=ft.FontWeight.BOLD, expand=True)]),
+                ft.Row([ft.Text("ENTRADAS DEL DÍA", size=24, weight=ft.FontWeight.BOLD, expand=True, text_align=ft.TextAlign.CENTER)], expand=True, alignment=ft.MainAxisAlignment.CENTER),
                 ft.Row([total_hoy], expand=True, alignment=ft.MainAxisAlignment.CENTER)
             ], expand=True
         ),
@@ -869,22 +894,30 @@ def main(page: ft.Page):
     control_usuario = ft.Container(
         content=ft.Row(
             [
+                totales_card,  # Mantener el total_hoy actualizado
+            ], expand=True
+        ),
+        expand=True
+    )
+    control_usuario_ = ft.Container(
+        content=ft.Row(
+            [
                 ft.Container(
                     content= ft.Column(
                     [
-                        ft.Text("ÚLTIMA ENTRADA", size=24, weight=ft.FontWeight.BOLD, expand=True),
-                        ft.Text("", size=24, expand=True),
+                        ft.Text("ÚLTIMA ENTRADA", size=24, weight=ft.FontWeight.BOLD, expand=True, text_align=ft.TextAlign.CENTER),
+                        ft.Text("", size=24, expand=True, text_align=ft.TextAlign.CENTER),
                     ],
                     alignment=ft.MainAxisAlignment.CENTER,
-                    horizontal_alignment=ft.CrossAxisAlignment.START,
+                    horizontal_alignment=ft.CrossAxisAlignment.CENTER,
                     spacing=8,
                     expand=True,
                 ),
-                gradient=ft.LinearGradient(colors=[ft.Colors.BLACK54, ft.Colors.GREY_900]),
+                bgcolor=ft.Colors.TRANSPARENT,
                 border_radius=10,
-                padding=10, expand=True
+                height=200,
+                padding=10, width=600
                 ),
-                totales_card,  # Mantener el total_hoy actualizado
             ], expand=True
         ),
         expand=True
@@ -893,22 +926,18 @@ def main(page: ft.Page):
 
     inicio_content = ft.Column(
         [
-            ft.Row([read_qr_inicio], alignment=ft.MainAxisAlignment.CENTER, height=60),
             control_usuario,
-            inicio_grid,
-        ],
+            ft.Divider(),
+            ft.Container( 
+                content=inicio_grid,
+                expand=True 
+            ),
+        ], spacing=24,
         alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-        horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        horizontal_alignment=ft.CrossAxisAlignment.CENTER, 
+        expand=True  
     )
 
-    page_inicio = ft.Row(
-        [ft.Container(content=inicio_content, expand=True)],
-        expand=True, vertical_alignment=ft.CrossAxisAlignment.START,
-    )
-    delete_registers_button = Button(
-        text="BORRAR REGISTROS", bgcolor=ft.Colors.RED_400,
-        icon=ft.Icons.DELETE, on_click=lambda e: open_delete_entries_alert()
-    ).build()
 
     alert_delete_entries = Alert(
         content=ft.Text("¿Seguro que desea borrar TODOS los registros?"),
@@ -917,10 +946,6 @@ def main(page: ft.Page):
         onCancel=lambda e: close_delete_entries_alert()
     ).build()
     alert_delete_entries.open = False
-
-    def open_delete_entries_alert():
-        alert_delete_entries.open = True
-        page.update()
 
     def close_delete_entries_alert():
         alert_delete_entries.open = False
@@ -943,30 +968,30 @@ def main(page: ft.Page):
     ]
     registers_database = ft.DataTable(columns=entries_columns, rows=[], expand=True)
 
-    page_entradas = ft.Column(
+    # Pantalla de Entradas
+    page_entradas = ft.Row(
         [
-            ft.Row(
-                [
-                    delete_registers_button,
-                    alert_delete_entries
-                ], expand=True, alignment=ft.MainAxisAlignment.END
-            ),
             ft.Column(
-                [
-                    Container(
-                        business_name=state["business_name"],
-                        content=ft.Row([registers_database], expand=True),
-                        height=None, expand=True
-                    ).build()
-                ],
+                [read_qr_inicio, ft.Row(
+                    [control_usuario_]
+                )],  # Solo el campo QR
                 expand=True,
-                scroll=ft.ScrollMode.AUTO,
                 alignment=ft.MainAxisAlignment.START,
-            ),
+                horizontal_alignment=ft.CrossAxisAlignment.CENTER
+            )
         ],
-        horizontal_alignment=ft.CrossAxisAlignment.START,
+        expand=True, vertical_alignment=ft.CrossAxisAlignment.START, alignment=ft.MainAxisAlignment.CENTER
     )
     page_entradas.visible = False
+
+    # Pantalla de Control
+    page_inicio = ft.Row(
+        [ft.Container(content=inicio_content, expand=True)],
+        expand=True, vertical_alignment=ft.CrossAxisAlignment.START,
+    )
+    page_inicio.visible = True  # Visible de inicio
+
+
 
     # --- IMPRESORA (sin persistencia) ---
     usb_selector = ft.Dropdown(label="Impresoras USB", width=300, border_color=ft.Colors.WHITE)
@@ -1227,7 +1252,9 @@ def main(page: ft.Page):
 
         page.add(
             ft.SafeArea(
-                ft.Column(
+                ft.Container(
+                    padding=10,
+                    content=ft.Column(
                     [
                         page_inicio,
                         page_entradas,
@@ -1242,7 +1269,8 @@ def main(page: ft.Page):
                     ],
                     expand=True
                 ),
-                expand=True
+                expand=True,
+                )
             )
         )
 
@@ -1251,7 +1279,7 @@ def main(page: ft.Page):
         load_registros()  # Actualiza la vista de registros
         load_usuarios()
 
-        show_page(PAGE_INICIO)
+        show_page(PAGE_ENTRADAS)
         try:
             read_qr_inicio.focus()
         except Exception:
