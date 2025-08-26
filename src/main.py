@@ -11,7 +11,7 @@ from database import (
 )
 
 from helpers.helpers import (
-    print_ticket_usb  # getDatacell/getDataColumns no se usan con este schema
+    print_ticket_usb, 
 )
 
 
@@ -148,11 +148,20 @@ def main(page: ft.Page):
                         [
                             ft.Text("ÚLTIMA ENTRADA", size=24, weight=ft.FontWeight.BOLD),
                             ft.Divider(),
-                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=20),
-                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=20),
-                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=20),
-                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=20),
-                            ft.Text(f"Entradas hoy: {entradas_hoy}", size=20),  # Aquí agregamos el número de entradas
+                            ft.Row(
+                                [
+                                    ft.Icon(name=ft.Icons.PERSON, size=200),
+                                    ft.Column(
+                                        [
+                                            ft.Text(f"Usuario: {ultimo_registro['nombre']}", size=20),
+                                            ft.Text(f"Empresa: {ultimo_registro['empresa']}", size=20),
+                                            ft.Text(f"Fecha de Entrada: {ultimo_registro['fecha_entrada']}", size=20),
+                                            ft.Text(f"Hora de Entrada: {ultimo_registro['hora_entrada']}", size=20),
+                                            ft.Text(f"Entradas hoy: {entradas_hoy}", size=20),  # Aquí agregamos el número de entradas
+                                        ], expand=True, horizontal_alignment=ft.CrossAxisAlignment.START, alignment=ft.MainAxisAlignment.CENTER
+                                    )
+                                ]
+                            ),
                         ],
                         alignment=ft.MainAxisAlignment.CENTER,
                         horizontal_alignment=ft.CrossAxisAlignment.CENTER,
@@ -654,7 +663,7 @@ def main(page: ft.Page):
         page.update()
 
 
-    def show_page(index):
+    def show_page(index, callback=None):
         # Ocultar todas las páginas
         page_inicio.visible = False
         page_entradas.visible = False
@@ -663,17 +672,14 @@ def main(page: ft.Page):
         page_registros.visible = False
 
         if index == PAGE_ENTRADAS:
-            # Mostrar solo el campo para leer el código QR en la vista de Entradas
             page_entradas.controls = [
                 ft.Row([ft.Column(
-                    [read_qr_inicio, ft.Row(
-                        [control_usuario_], alignment=ft.MainAxisAlignment.CENTER
-                    )], alignment=ft.MainAxisAlignment.CENTER
-                )], alignment=ft.MainAxisAlignment.CENTER, height=60)  # Solo el QR en la vista de Entradas
+                    [read_qr_inicio, ft.Row([control_usuario_], alignment=ft.MainAxisAlignment.CENTER)],
+                    alignment=ft.MainAxisAlignment.CENTER
+                )], alignment=ft.MainAxisAlignment.CENTER, height=60)
             ]
             page_entradas.visible = True
         elif index == PAGE_INICIO:
-            # Vista de Control, mostrar los totales y última entrada
             page_inicio.visible = True
         elif index == PAGE_IMPRESORA:
             page_impresora.visible = True
@@ -683,6 +689,11 @@ def main(page: ft.Page):
             page_registros.visible = True
 
         page.update()
+
+        # Ejecuta acción extra si fue proporcionada
+        if callable(callback):
+            callback()
+
 
 
 
@@ -1114,11 +1125,11 @@ def main(page: ft.Page):
                                     alignment=ft.MainAxisAlignment.CENTER
                                 ),
                             ],
-                            expand=True, scroll=ft.ScrollMode.AUTO
+                            scroll=ft.ScrollMode.ALWAYS, expand=True, alignment=ft.MainAxisAlignment.START, horizontal_alignment=ft.CrossAxisAlignment.START
                         ),
-                        expand=True
+                        expand=True,
                     ),
-                ], expand=True
+                ], expand=True, scroll=ft.ScrollMode.AUTO
             )
         ],
         expand=True
@@ -1267,10 +1278,10 @@ def main(page: ft.Page):
                         users_progress_dialog,
                         email_progress_dialog,
                     ],
-                    expand=True
+                    expand=True, scroll=ft.ScrollMode.AUTO
                 ),
                 expand=True,
-                )
+                ), expand=True
             )
         )
 

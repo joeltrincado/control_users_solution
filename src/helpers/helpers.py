@@ -127,3 +127,4 @@ def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None,
             return error if error else print("Error al imprimir:", e)
     else:
         return err_printer if err_printer else print("No se ha seleccionado una impresora")
+
