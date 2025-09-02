@@ -1,124 +1,58 @@
-
 def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None, entrada=True):
     """
-    Impresión ESC/POS (USB) para boleto de COMEDOR.
-    - Solo se usa 'entrada=True' (no hay salidas en comedor).
-    Campos esperados en data:
-      - titulo (str), codigo (str), fecha_entrada (str), hora_entrada (str),
-        tipo (str), precio (str)  -> p.ej. "25.00 MXN"
+    Ticket de COMEDOR en ZPL (impresoras Zebra o compatibles ZPL).
+    data:
+      - titulo, codigo, fecha_entrada, hora_entrada, empresa
     """
     import win32print
-    import struct
 
     if data is None:
         data = {}
 
-    ESC = b"\x1b"
-    GS  = b"\x1d"
-
-    def init():
-        return bytearray(ESC + b"@" + ESC + b"t" + bytes([16]))  # CP1252
-
-    def align(n: int):
-        return ESC + b"a" + bytes([n])  # 0=left, 1=center, 2=right
-
-    def font(n: int):
-        return ESC + b"M" + bytes([n])  # 0=A, 1=B
-
-    def bold(on: bool):
-        return ESC + b"E" + (b"\x01" if on else b"\x00")
-
-    def size(w=1, h=1):
-        n = (max(1, min(8, h)) - 1) * 16 + (max(1, min(8, w)) - 1)
-        return GS + b"!" + bytes([n])
-
-    def feed(n: int = 1):
-        return b"\n" * max(0, n)
-
-    def cut(partial: bool = True):
-        return GS + b"V" + (b"\x42" if partial else b"\x41") + b"\x00"
-
-    def txt(s: str):
-        return s.encode("cp1252", errors="replace")
-
-    def rule(cols: int = 42, ch: str = "-"):
-        return txt(ch * cols) + b"\n"
-
-    def kv_line(left: str, right: str, cols: int = 42):
-        left = left.strip()
-        right = right.strip()
-        space = max(1, cols - len(left) - len(right))
-        return txt(left + (" " * space) + right) + b"\n"
-
-    def qr_bytes(payload: str, size_mod: int = 6, ec: str = "M"):
-        ec_map = {"L": 48, "M": 49, "Q": 50, "H": 51}
-        ec_v = ec_map.get(ec.upper(), 49)
-        data_b = payload.encode("utf-8")
-
-        b = bytearray()
-        # Model 2
-        b += GS + b"(k" + struct.pack("<H", 4) + b"\x31\x41\x32\x00"
-        # Tamaño módulo
-        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x43" + bytes([max(1, min(16, size_mod))])
-        # ECC
-        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x45" + bytes([ec_v])
-        # Store data
-        b += GS + b"(k" + struct.pack("<H", len(data_b) + 3) + b"\x31\x50\x30" + data_b
-        # Print
-        b += GS + b"(k" + struct.pack("<H", 3) + b"\x31\x51\x30"
-        return b
-
-    # --- Construcción del ticket ---
-    buf = init()
-
-    title = str(data.get("titulo", "Boleto de Comedor"))
-    buf += align(1) + bold(True) + size(2, 2) + txt(title) + feed(1)
-    buf += bold(False) + size(1, 1)
-
-    # Datos
-    fecha_legible = str(data.get("fecha_entrada", ""))
-    hora = str(data.get("hora_entrada", ""))
-    tipo = str(data.get("tipo", ""))
-    precio = str(data.get("precio", ""))  # "XX.XX MXN"
-    codigo = str(data.get("codigo", "")).strip()
-
-    # Cabecera
-    buf += align(1) + txt(fecha_legible) + feed(1)
-
-    # Alinear "Hora" correctamente (centrado)
-    buf += align(1) + kv_line("Hora:", hora)  # Cambié `align(0)` por `align(1)` para centrar la hora
-
-    if tipo:
-        buf += kv_line("Tipo de usuario:", tipo)
-    if precio:
-        buf += kv_line("Tarifa aplicada:", precio)
-    buf += rule()
-
-    # QR (payload: código)
-    if codigo:
-        buf += align(1) + qr_bytes(f"{codigo}", size_mod=6, ec="M") + feed(1)
-        buf += align(1) + txt(f"Código: {codigo}") + feed(1)
-
-    # Leyenda breve (comedor)
-    buf += font(1)
-    for line in [
-        "Válido únicamente para el día y horario indicado.",
-        "Personal no transferible. Conserve su ticket.",
-    ]:
-        buf += txt(line) + b"\n"
-    buf += font(0) + rule()
-
-    # Cierre
-    buf += align(1) + txt("¡Buen provecho!") + feed(3)
-    buf += cut(partial=True)
+    titulo  = data.get("titulo", "Boleto de Comedor")
+    fecha   = data.get("fecha_entrada", "")
+    hora    = data.get("hora_entrada", "")
+    codigo  = data.get("codigo", "")
+    empresa = data.get("empresa", "")
+    zpl = f"""
+        ^XA
+        ~JSN
+        ^LT0
+        ^LH0,0
+        ^JMA
+        ^PR5,10
+        ~SD15
+        ^JUS
+        ^LRN
+        ^CI27
+        ^PA0,1,1,0
+        ^MMT
+        ^PW609
+        ^LL815
+        ^LS0
+        ^FPH,6^FT32,100^A0N,56,56^FH\^CI28^FD{titulo}^FS^CI27
+        ^FPH,1^FT167,141^A0N,27,28^FH\^CI28^FD{fecha}^FS^CI27
+        ^FPH,1^FT32,197^A0N,27,28^FH\^CI28^FDHora^FS^CI27
+        ^FPH,1^FT475,197^A0N,27,28^FH\^CI28^FD{hora}^FS^CI27
+        ^FO29,211^GB549,0,2^FS
+        ^FT230,402^BQN,2,7
+        ^FH\^FDLA,{codigo}^FS
+        ^FPH,1^FT217,427^A0N,27,28^FH\^CI28^FDCódigo: {codigo}^FS^CI27
+        ^FPH,1^FT1,455^A0N,18,18^FB606,1,5,C^FH\^CI28^FDVálido únicamente para el día y horario indicado. Conserve su\5C&^FS^CI27
+        ^FPH,1^FT1,478^A0N,18,18^FB606,1,5,C^FH\^CI28^FDticket\5C&^FS^CI27
+        ^FO29,506^GB549,0,2^FS
+        ^FPH,6^FT20,559^A0N,32,33^FH\^CI28^FDInnovación Culinaria Industrial^FS^CI27
+        ^XZ
+            """
 
     if printer_name:
         try:
             h = win32print.OpenPrinter(printer_name)
             try:
-                job = win32print.StartDocPrinter(h, 1, ("Ticket Comedor ESC/POS", None, "RAW"))
+                job = win32print.StartDocPrinter(h, 1, ("Ticket Comedor ZPL", None, "RAW"))
                 win32print.StartPagePrinter(h)
-                win32print.WritePrinter(h, bytes(buf))
+                # UTF-8 para ^CI28
+                win32print.WritePrinter(h, zpl.encode("utf-8", errors="replace"))
                 win32print.EndPagePrinter(h)
                 win32print.EndDocPrinter(h)
             finally:

@@ -23,6 +23,8 @@ def main(page: ft.Page):
     from components.Alert import Alert
     from components.AppBar import AppBar
 
+
+
     # Índices de páginas
     PAGE_INICIO    = 0
     PAGE_ENTRADAS  = 1
@@ -36,7 +38,7 @@ def main(page: ft.Page):
     # ESTADO / CONFIG
     # =========================
     state = {
-        "business_name": "Comedor",
+        "business_name": "Entrada de Usuarios",
         "entries": [],      # registros (id, codigo, nombre, empresa, hora_entrada, fecha_entrada)
         "printer": None,    # solo memoria
     }
@@ -62,6 +64,7 @@ def main(page: ft.Page):
             state["printer"] = config.get("valor", None)
         except:
             message("Error al cargar la configuración de la impresora")
+            
 
 
     # =========================
@@ -81,6 +84,24 @@ def main(page: ft.Page):
                 "fecha_entrada": r[5],
             }
         return None
+    
+    def open_delete_entries_alert(e=None):
+        alert_delete_entries.open = True
+        page.dialog = alert_delete_entries   # << asegúrate de que se muestre
+        page.update()
+
+
+    def do_delete_entries(e=None):
+        delete_all_registros()
+        refresh_entries()
+        actualizar_totales_hoy()
+        close_delete_entries_alert()
+        page.open(ft.SnackBar(
+            ft.Text("Registros eliminados con éxito.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE),
+            bgcolor=ft.Colors.GREEN_400
+        ))
+        page.update()
+
 
     def formatear_fecha_legible(fecha_iso: str):
         meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
@@ -97,7 +118,7 @@ def main(page: ft.Page):
                 color=ft.Colors.WHITE
             ),
             bgcolor=(ft.Colors.GREEN_400 if ok else ft.Colors.RED_400),
-            duration=ft.Duration(seconds=3)
+            duration=ft.Duration(seconds=5)
         )
         if target_input is not None:
             target_input.value = ""
@@ -191,11 +212,11 @@ def main(page: ft.Page):
         try:
             u = get_user_by_code(codigo_scan)
         except Exception as e:
-            page.open(ft.SnackBar(ft.Text(f"Error al buscar empleado: {e}")))
+            page.open(ft.SnackBar(content=ft.Text(f"Error al buscar empleado: {e}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return False
 
         if not u:
-            page.open(ft.SnackBar(ft.Text("Código inválido — empleado no encontrado", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
+            page.open(ft.SnackBar(ft.Text("Código inválido — Empleado no encontrado", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return False
 
         # u = (codigo, nombre, empresa)
@@ -232,11 +253,11 @@ def main(page: ft.Page):
                 fecha_entrada=fecha_iso
             )
         except Exception as e:
-            page.open(ft.SnackBar(ft.Text(f"Error al guardar entrada: {e}")))
+            page.open(ft.SnackBar(content=ft.Text(f"Error al guardar entrada: {e}"), size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400)
             return False
 
         refresh_entries()
-        page.open(ft.SnackBar(ft.Text(f"Entrada registrada para {nombre} ({empresa})")))
+        page.open(ft.SnackBar(ft.Text(f"Entrada registrada para {nombre} ({empresa})", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE),  bgcolor=ft.Colors.GREEN_400))
         return True
 
     # -------- Reporte CSV (Registros actuales) --------
@@ -266,8 +287,8 @@ def main(page: ft.Page):
         USE_STARTTLS = True
 
         EMAIL_FROM = SMTP_USER
-        EMAIL_REPLY_TO = "joeltrincadov@gmail.com"
-        EMAIL_TO = ["joeltrincadov@gmail.com"]
+        EMAIL_REPLY_TO = "facturacionconcheno@inovacionci.com"
+        EMAIL_TO = ["facturacionconcheno@inovacionci.com"]
         SUBJECT_PREFIX = "Reporte de entradas"
         BODY_TEXT = "Reporte de Registros"
 
@@ -290,7 +311,7 @@ def main(page: ft.Page):
             message_m.attach(attachment)
         except Exception as e:
             hide_email_progress()
-            page.open(ft.SnackBar(ft.Text(f"No se pudo adjuntar el archivo: {e}")))
+            page.open(ft.SnackBar(content=ft.Text(f"No se pudo adjuntar el archivo: {e}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             page.update()
             return
 
@@ -316,10 +337,10 @@ def main(page: ft.Page):
 
             update_email_progress(1.00, "¡Correo enviado!")
             hide_email_progress()
-            page.open(ft.SnackBar(ft.Text("Correo enviado correctamente")))
+            page.open(ft.SnackBar(content=ft.Text("Correo enviado correctamente", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
         except Exception as e:
             hide_email_progress()
-            page.open(ft.SnackBar(ft.Text(f"Error al enviar el correo: {e}")))
+            page.open(ft.SnackBar(content=ft.Text(f"Error al enviar el correo: {e}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
         finally:
             page.update()
 
@@ -343,9 +364,9 @@ def main(page: ft.Page):
             df = pd.DataFrame(filas, columns=columnas)
             filename = f"reporte_entradas_comedor_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
             df.to_csv(filename, index=False, encoding="utf-8-sig")
-            page.open(ft.SnackBar(ft.Text(f"Reporte guardado: {filename}")))
+            page.open(ft.SnackBar(content=ft.Text(f"Reporte guardado: {filename}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
         except Exception as ex:
-            page.open(ft.SnackBar(ft.Text(f"Error al guardar el reporte: {ex}")))
+            page.open(ft.SnackBar(content=ft.Text(f"Error al guardar el reporte: {ex}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
         finally:
             alert_ring.open = False
             page.update()
@@ -358,7 +379,8 @@ def main(page: ft.Page):
         try:
             import win32print
             return [printer[2] for printer in win32print.EnumPrinters(2)]
-        except Exception:
+        except Exception as e:
+            page.open(ft.SnackBar(content=ft.Text(f"Error al obtener impresoras: {e}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             return []
     
     def save_config(e):
@@ -429,6 +451,32 @@ def main(page: ft.Page):
         users_page_text.value = f"Página {users_current_page + 1} de {max(1, math.ceil(len(users)/USERS_PAGE_SIZE))}"
         page.update()
 
+    def on_user_search_change(e):
+        """
+        Filtra por código o nombre según el texto escrito.
+        No crea listas extras: vuelve a consultar DB si el query está vacío;
+        si no, filtra en memoria sobre la consulta completa.
+        """
+        nonlocal users, users_current_page
+        q = (e.control.value or "").strip().lower()
+
+        # Base siempre desde DB para evitar mantener dos listas
+        base = get_all_users() or []
+
+        if not q:
+            users = base
+        else:
+            def match(u):
+                # u = (codigo, nombre, empresa)
+                codigo = str(u[0]).lower()
+                nombre = str(u[1]).lower()
+                return (q in codigo) or (q in nombre)
+            users = [u for u in base if match(u)]
+
+        users_current_page = 0
+        update_users_table()
+
+
     def users_next(e):
         nonlocal users_current_page
         if (users_current_page + 1) * USERS_PAGE_SIZE < len(users):
@@ -463,11 +511,11 @@ def main(page: ft.Page):
             empresa = str(company_field.value or "").strip()
 
             if not codigo or not nombre or not empresa:
-                page.open(ft.SnackBar(ft.Text("Completa Código, Nombre y Empresa.")))
+                page.open(ft.SnackBar(ft.Text("Completa Código, Nombre y Empresa.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
                 return
 
             if get_user_by_code(codigo):
-                page.open(ft.SnackBar(ft.Text("El código ya existe.")))
+                page.open(ft.SnackBar(ft.Text("El código ya existe.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
                 return
 
             insert_user(codigo, nombre, empresa)
@@ -476,14 +524,14 @@ def main(page: ft.Page):
             name_field.value = ""
             company_field.value = ""
             alert_user.open = False
-            page.open(ft.SnackBar(ft.Text("Empleado agregado.")))
+            page.open(ft.SnackBar(ft.Text("Empleado agregado correctamente.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
 
             if page_usuarios.visible:
                 load_usuarios()
 
             page.update()
         except Exception as ex:
-            page.open(ft.SnackBar(ft.Text(f"Error al agregar empleado: {ex}")))
+            page.open(ft.SnackBar(ft.Text(f"Error al agregar empleado: {ex}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             page.update()
 
     # Carga masiva de empleados
@@ -512,7 +560,7 @@ def main(page: ft.Page):
                 elif ext in (".xlsx", ".xls"):
                     df = pd.read_excel(path)
                 else:
-                    page.open(ft.SnackBar(ft.Text("Formato no soportado. Usa .xlsx o .csv")))
+                    page.open(ft.SnackBar(ft.Text("Formato no soportado. Usa .xlsx o .csv", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
                     return
 
                 # Mapeo flexible de columnas
@@ -522,7 +570,7 @@ def main(page: ft.Page):
                 c_empresa = next((cols[k] for k in cols if k in ("empresa", "company")), None)
 
                 if not (c_codigo and c_nombre and c_empresa):
-                    page.open(ft.SnackBar(ft.Text("El archivo debe contener columnas: Código, Nombre y Empresa.")))
+                    page.open(ft.SnackBar(ft.Text("El archivo debe contener columnas: Código, Nombre y Empresa."), size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400)
                     return
 
                 total = len(df)
@@ -551,15 +599,16 @@ def main(page: ft.Page):
 
                 hide_users_progress()
                 page.open(ft.SnackBar(ft.Text(
-                    f"Lista procesada. Agregados: {added}, Duplicados/omitidos: {skipped}, Errores: {errored}"
-                )))
+                    f"Lista procesada. Agregados: {added}, Duplicados/omitidos: {skipped}, Errores: {errored}", 
+                    size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE
+                ), bgcolor=ft.Colors.GREEN_400))
 
                 if page_usuarios.visible:
                     load_usuarios()
 
             except Exception as ex:
                 hide_users_progress()
-                page.open(ft.SnackBar(ft.Text(f"Error leyendo archivo: {ex}")))
+                page.open(ft.SnackBar(ft.Text(f"Error leyendo archivo. Verifica el formato", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
             finally:
                 page.update()
 
@@ -613,26 +662,11 @@ def main(page: ft.Page):
     def reg_delete_all(e):
         delete_all_registros()
         load_registros()
-        page.open(ft.SnackBar(ft.Text("Registros eliminados.")))
-
-    def reg_download_csv(e):
-        import pandas as pd
-        data = get_all_registros() or []
-        try:
-            df = pd.DataFrame(
-                [[r[0], r[1], r[2], r[3], r[5], r[4]] for r in data],
-                columns=["ID", "Código", "Nombre", "Empresa", "Fecha", "Hora"]
-            )
-            df.to_csv("reporte_registros.csv", index=False, encoding="utf-8-sig")
-            page.open(ft.SnackBar(ft.Text("Reporte de registros guardado.")))
-        except Exception as ex:
-            page.open(ft.SnackBar(ft.Text(f"Error al guardar reporte: {ex}")))
-        page.update()
+        page.open(ft.SnackBar(ft.Text("Registros eliminados.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
 
     def load_config_impresora():
         """Cargar la impresora configurada desde la base de datos y actualizar el dropdown."""
         printer_name = get_config("printer_name")
-        print(printer_name, "printer_name")
         
         if printer_name:
             state["printer"] = printer_name  # Guardamos la impresora seleccionada en memoria
@@ -694,9 +728,6 @@ def main(page: ft.Page):
         if callable(callback):
             callback()
 
-
-
-
     # -------- Entrada por comando / QR (comedor) --------
     def onSubmitReadQr(e):
         input_field = e.control  # puede ser read_qr_inicio o read_qr
@@ -715,35 +746,7 @@ def main(page: ft.Page):
             print(f"Error al poner foco: {ex}")
         page.update()
 
-
-    def filter_by_date_range(range_type: str):
-        # Obtén la fecha actual
-        today = datetime.today()
-
-        if range_type == "today":
-            # Filtrar solo registros del día de hoy
-            filtered_entries = [e for e in state["entries"] if e[5] == today.strftime("%Y-%m-%d")]
-        elif range_type == "7_days":
-            # Filtrar registros de los últimos 7 días
-            start_date = today - timedelta(days=7)
-            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
-        elif range_type == "month":
-            # Filtrar registros del mes actual
-            start_date = today.replace(day=1)
-            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
-        elif range_type == "year":
-            # Filtrar registros del año actual
-            start_date = today.replace(month=1, day=1)
-            filtered_entries = [e for e in state["entries"] if datetime.strptime(e[5], "%Y-%m-%d") >= start_date]
-        else:
-            filtered_entries = state["entries"]
-
-        # Actualizar la tabla de registros
-        registers_database.rows = make_entries_rows(filtered_entries)
-        page.update()
-
     def apply_date_filter(selected_filter: str):
-        # Obtén la fecha actual
         today = datetime.today()
 
         if selected_filter == "Hoy":
@@ -769,18 +772,6 @@ def main(page: ft.Page):
         registers_database.rows = make_entries_rows(filtered_entries)
         page.update()
 
-    def update_printer_dropdown():
-        """Actualizar el dropdown de impresoras disponibles."""
-        available_printers = get_usb_printers()
-        usb_selector.options = [ft.dropdown.Option(p) for p in available_printers]
-        
-        # Si hay una impresora configurada, preseleccionarla
-        if state["printer"]:
-            usb_selector.value = state["printer"]
-        page.update()
-
-
-
     # =========================
     # UI
     # =========================
@@ -804,9 +795,11 @@ def main(page: ft.Page):
     
     def refresh_users():
         """Recarga la lista de usuarios y actualiza la tabla"""
+        nonlocal users, users_current_page
         users = get_all_users() or []
-        users_table.rows = make_users_rows(users)
-        page.update()
+        users_current_page = 0
+        update_users_table()
+
 
     def open_delete_user_alert(codigo: str):
         """Abre el alert para confirmar la eliminación del usuario"""
@@ -815,19 +808,20 @@ def main(page: ft.Page):
         alert_delete_user.open = True
         page.update()
 
-    def close_delete_user_alert():
-        """Cierra el alert sin realizar la eliminación"""
+    def close_delete_user_alert(e=None):
         alert_delete_user.open = False
         page.update()
+
+
 
     def do_delete_user(e):
         """Elimina el usuario de la base de datos"""
         try:
             delete_empleado(user_to_delete)  # Llamamos a la función para eliminar el usuario
             refresh_users()  # Actualizamos la tabla de usuarios
-            page.open(ft.SnackBar(ft.Text("Usuario eliminado.")))
+            page.open(ft.SnackBar(ft.Text("Usuario eliminado con éxito.", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.GREEN_400))
         except Exception as ex:
-            page.open(ft.SnackBar(ft.Text(f"Error al eliminar usuario: {ex}")))
+            page.open(ft.SnackBar(ft.Text(f"Error al eliminar usuario: {ex}", size=16, weight=ft.FontWeight.BOLD, color=ft.Colors.WHITE), bgcolor=ft.Colors.RED_400))
         finally:
             close_delete_user_alert()
 
@@ -934,7 +928,6 @@ def main(page: ft.Page):
         expand=True
     )
 
-
     inicio_content = ft.Column(
         [
             control_usuario,
@@ -949,7 +942,6 @@ def main(page: ft.Page):
         expand=True  
     )
 
-
     alert_delete_entries = Alert(
         content=ft.Text("¿Seguro que desea borrar TODOS los registros?"),
         action="Borrar",
@@ -958,16 +950,10 @@ def main(page: ft.Page):
     ).build()
     alert_delete_entries.open = False
 
-    def close_delete_entries_alert():
+    def close_delete_entries_alert(e=None):
         alert_delete_entries.open = False
         page.update()
 
-    def do_delete_entries():
-        delete_all_registros()
-        refresh_entries()
-        actualizar_totales_hoy() 
-        page.open(ft.SnackBar(ft.Text("Registros eliminados.")))  # Muestra un mensaje de confirmación
-        page.update()
 
     entries_columns = [
         ft.DataColumn(ft.Text("ID")),
@@ -1001,7 +987,6 @@ def main(page: ft.Page):
         expand=True, vertical_alignment=ft.CrossAxisAlignment.START,
     )
     page_inicio.visible = True  # Visible de inicio
-
 
 
     # --- IMPRESORA (sin persistencia) ---
@@ -1042,7 +1027,19 @@ def main(page: ft.Page):
     page_usuarios = ft.Row(
         [
             ft.Column(
-                [
+                [ft.Row(
+                                [
+                                    ft.TextField(
+                                        label="Buscar por código o nombre",
+                                        hint_text="Escribe para filtrar…",
+                                        prefix_icon=ft.Icons.SEARCH,
+                                        dense=True,
+                                        width=420,
+                                        on_change=on_user_search_change,   # << filtra en caliente
+                                    )
+                                ],
+                                alignment=ft.MainAxisAlignment.END,
+                            ),
                     Container(
                         business_name=state["business_name"],
                         content=ft.Column(
@@ -1063,7 +1060,6 @@ def main(page: ft.Page):
                                         expand=True,
                                         scroll=ft.ScrollMode.AUTO
                                     ),
-                                    expand=True
                                 ),
                             ],
                             expand=True
@@ -1089,15 +1085,16 @@ def main(page: ft.Page):
     reg_page_text = ft.Text("", size=16)
 
     btn_reg_borrar = Button(
-        text="BORRAR REGISTROS", bgcolor=ft.Colors.RED_400, icon=ft.Icons.DELETE, on_click=reg_delete_all
-    ).build()
-    btn_reg_csv = Button(
-        text="DESCARGAR REPORTE", icon=ft.Icons.DOWNLOAD, on_click=reg_download_csv
+        text="Borrar registros",
+        bgcolor=ft.Colors.RED_400,
+        icon=ft.Icons.DELETE,
+        on_click=open_delete_entries_alert   # << NUEVO
     ).build()
 
     date_filter_dropdown = ft.Dropdown(
         label="Filtrar por fechas",
         options=[
+            ft.dropdown.Option("Todos"),
             ft.dropdown.Option("Hoy"),
             ft.dropdown.Option("Últimos 7 días"),
             ft.dropdown.Option("Este mes"),
@@ -1150,6 +1147,18 @@ def main(page: ft.Page):
         action="Agregar"
     ).build()
     alert_user.open = False
+
+    alert_delete_entries = ft.AlertDialog(
+        modal=True,
+        title=ft.Text("Eliminar registros"),
+        content=ft.Text("¿Seguro que deseas eliminar TODOS los registros?"),
+        actions=[
+            ft.TextButton("Cancelar", on_click=lambda e: close_delete_entries_alert()),
+            ft.TextButton("Eliminar", on_click=lambda e: do_delete_entries()),
+        ],
+    )
+    alert_delete_entries.open = False
+
 
     # --- ALERT: Progreso de envío de correo ---
     email_progress_bar = ft.ProgressBar(width=400, value=0)
@@ -1266,24 +1275,27 @@ def main(page: ft.Page):
                 ft.Container(
                     padding=10,
                     content=ft.Column(
-                    [
-                        page_inicio,
-                        page_entradas,
-                        page_impresora,
-                        page_usuarios,
-                        alert_delete_user,
-                        page_registros,
-                        alert_ring,
-                        alert_user,
-                        users_progress_dialog,
-                        email_progress_dialog,
-                    ],
-                    expand=True, scroll=ft.ScrollMode.AUTO
+                        [
+                            page_inicio,
+                            page_entradas,
+                            page_impresora,
+                            page_usuarios,
+                            alert_delete_user,
+                            page_registros,
+                            alert_ring,
+                            alert_user,
+                            users_progress_dialog,
+                            email_progress_dialog,
+                            alert_delete_entries,   # << AGREGA AQUÍ
+                        ],
+                        expand=True, scroll=ft.ScrollMode.AUTO
+                    ),
+                    expand=True,
                 ),
-                expand=True,
-                ), expand=True
+                expand=True
             )
         )
+
 
         # Inicializa las tablas con los registros
         registers_database.rows = make_entries_rows(state["entries"])  # Asegúrate de cargar los registros
@@ -1302,4 +1314,4 @@ def main(page: ft.Page):
     threading.Thread(target=load_background_data, daemon=True).start()
 
 
-ft.app(main)
+ft.app(main, assets_dir="assets")
