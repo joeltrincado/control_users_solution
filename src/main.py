@@ -238,7 +238,7 @@ def main(page: ft.Page):
                     "hora_entrada": hora,
                     "empresa": empresa,
                 }
-                print_ticket_usb(printer_name=state["printer"], data=data, entrada=True)
+                print_ticket_usb(printer_name=state["printer"], data=data, entrada=total_hoy.value)
             except Exception as ex:
                 # No bloquea el registro si falla la impresión
                 message(f"No se pudo imprimir el ticket: {ex}")

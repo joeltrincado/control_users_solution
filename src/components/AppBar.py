@@ -45,7 +45,6 @@ class AppBar():
                 icon=ft.Icons.APPS,
                 tooltip="Menú",
                 items=i
-            ),
-            
+            ), 
         ],
     )
