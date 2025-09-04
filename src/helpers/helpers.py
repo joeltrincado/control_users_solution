@@ -1,10 +1,16 @@
 def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None, entrada=True):
+
     """
     Ticket de COMEDOR en ZPL (impresoras Zebra o compatibles ZPL).
     data:
       - titulo, codigo, fecha_entrada, hora_entrada, empresa
     """
     import win32print
+
+    try:
+        entrada = int(entrada) + 1
+    except Exception:
+        entrada = 1
 
     if data is None:
         data = {}
@@ -13,7 +19,7 @@ def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None,
     fecha   = data.get("fecha_entrada", "")
     hora    = data.get("hora_entrada", "")
     codigo  = data.get("codigo", "")
-    empresa = data.get("empresa", "")
+    nombre = data.get("nombre", "")
     zpl = f"""
         ^XA
         ~JSN
@@ -36,7 +42,7 @@ def print_ticket_usb(printer_name=None, data=None, error=None, err_printer=None,
         ^FPH,1^FT475,197^A0N,27,28^FH\^CI28^FD{hora}^FS^CI27
         ^FO29,211^GB549,0,2^FS
         ^FT230,402^BQN,2,7
-        ^FH\^FDLA,Código:{codigo}, Folio:{entrada}^FS
+        ^FH\^FDLA,Nombre: {nombre}, Folio:{entrada}^FS
         ^FPH,1^FT217,427^A0N,27,28^FH\^CI28^FDCódigo: {codigo}^FS^CI27
         ^FPH,1^FT1,455^A0N,18,18^FB606,1,5,C^FH\^CI28^FDVálido únicamente para el día y horario indicado. Conserve su\5C&^FS^CI27
         ^FPH,1^FT1,478^A0N,18,18^FB606,1,5,C^FH\^CI28^FDticket\5C&^FS^CI27

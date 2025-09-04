@@ -232,11 +232,13 @@ def main(page: ft.Page):
         if state["printer"]:
             try:
                 data = {
-                    "codigo": codigo_emp,           # contenido para QR/Texto en tu helper
+                    "codigo": codigo_emp,
+                    "nombre": nombre,           # contenido para QR/Texto en tu helper
                     "titulo": "Boleto de Comedor",
                     "fecha_entrada": fecha_legible,
                     "hora_entrada": hora,
                     "empresa": empresa,
+
                 }
                 print_ticket_usb(printer_name=state["printer"], data=data, entrada=total_hoy.value)
             except Exception as ex:
@@ -287,8 +289,8 @@ def main(page: ft.Page):
         USE_STARTTLS = True
 
         EMAIL_FROM = SMTP_USER
-        EMAIL_REPLY_TO = "facturacionconcheno@inovacionci.com"
-        EMAIL_TO = ["facturacionconcheno@inovacionci.com"]
+        EMAIL_REPLY_TO = "facturacionconcheno@innovacionci.com"
+        EMAIL_TO = ["facturacionconcheno@innovacionci.com"]
         SUBJECT_PREFIX = "Reporte de entradas"
         BODY_TEXT = "Reporte de Registros"
 
